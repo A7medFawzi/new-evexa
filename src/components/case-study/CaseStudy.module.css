@@ -225,6 +225,12 @@
   aspect-ratio: 16 / 9;
 }
 
+/* projects whose banners are 4:3 designs */
+.cover.tall,
+.wide.tall {
+  aspect-ratio: 4 / 3;
+}
+
 /* overflow: hidden stops a taller photo from stretching its frame past the ratio */
 .cover,
 .wide,

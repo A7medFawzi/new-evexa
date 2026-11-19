@@ -46,7 +46,8 @@ export interface CaseStudy {
   /** key into FAQS */
   faqKey: string;
   /** card: image on other case studies' "Explore More Work" cards (defaults to cover) */
-  images: { cover: string; pair: [string, string]; wide: string; card?: string };
+  /** tall: cover/wide images are 4:3 instead of 16:9 (shown uncropped) */
+  images: { cover: string; pair: [string, string]; wide: string; card?: string; tall?: boolean };
   copy: Record<Lang, CaseStudyCopy>;
 }
 
@@ -162,7 +163,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "mohami-smart",
     legacySlug: "million-one",
     faqKey: "portfolio-mohami-smart",
-    images: { card: "/images/projects/mohami-smart/brand.webp", cover: "/images/h33bTK94GjgfacsggRpl9F5QXes.webp", pair: ["/images/cmQEswT5KlDnITTWpFJi1ycWpA.webp", "/images/y6nsXyFCXVHybL6AG2drPt8Xug.webp"], wide: "/images/nv6wvWEhx82tRYYO7GpPtdr8iq0.webp" },
+    images: {
+      card: "/images/projects/mohami-smart/brand.webp",
+      cover: "/images/projects/mohami-smart/cover.webp",
+      pair: ["/images/projects/mohami-smart/legal-work.webp", "/images/projects/mohami-smart/legal-documents.webp"],
+      wide: "/images/projects/mohami-smart/legal-workflow.webp",
+      tall: true,
+    },
     copy: {
       en: {
         name: "Mohami Smart",

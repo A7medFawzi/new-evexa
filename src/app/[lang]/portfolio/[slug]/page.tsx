@@ -53,6 +53,7 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
 
   const copy = study.copy[lang];
   const ui = CASE_STUDY_UI[lang];
+  const tall = study.images.tall ? styles.tall : "";
   const [analysis, challenge, solution] = copy.blocks;
   const others = CASE_STUDIES.filter((c) => c.slug !== slug).map((c) => ({
     href: localizeHref(`/portfolio/${c.slug}`, lang),
@@ -70,7 +71,7 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
           <div className={styles.story}>
             <CaseHero copy={copy} lang={lang} badge={{ chip: ui.badgeChip, label: ui.badge }} />
             <Appear delay={1.0} style={{ width: "100%" }}>
-              <Photo src={study.images.cover} className={styles.cover} glow />
+              <Photo src={study.images.cover} className={`${styles.cover} ${tall}`} glow />
             </Appear>
             <CaseText block={analysis} />
             <div className={styles.pair}>
@@ -78,7 +79,7 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
               <Photo src={study.images.pair[1]} />
             </div>
             <CaseText block={challenge} />
-            <Photo src={study.images.wide} className={styles.wide} />
+            <Photo src={study.images.wide} className={`${styles.wide} ${tall}`} />
             <CaseText block={solution} />
           </div>
           <span className={styles.separator} aria-hidden="true" />
