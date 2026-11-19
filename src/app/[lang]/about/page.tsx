@@ -35,7 +35,12 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         cardRotateX={30}
       >
         <GlowCard media className={styles.videoCard}>
-          <AutoplayVideo src="/videos/evexa-showreel.mp4" className={styles.video} />
+          <AutoplayVideo
+            src="/videos/evexa-about.mp4"
+            poster="/videos/evexa-about-poster.jpg"
+            className={styles.video}
+            soundLabels={lang === "ar" ? ["تشغيل الصوت", "كتم الصوت"] : ["Play with sound", "Mute"]}
+          />
         </GlowCard>
       </PageHero>
       <ApproachSection lang={lang} content={copy.approach} />
