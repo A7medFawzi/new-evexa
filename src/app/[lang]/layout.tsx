@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Alexandria } from "next/font/google";
+import SiteHeader from "@/components/layout/SiteHeader";
+import { LANGS, dirOf, isLang, type Lang } from "@/config/site";
+import { getDictionary } from "@/i18n";
 import "../globals.css";
 import "../ar-typography.css";
-
-export const LANGS = ["en", "ar"] as const;
-export type Lang = (typeof LANGS)[number];
 
 /*
  * Alexandria (Google Fonts) — the approved Arabic identity font.
@@ -74,16 +74,18 @@ export default async function LangLayout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  if (!LANGS.includes(lang as Lang)) notFound();
-  const dir = lang === "ar" ? "rtl" : "ltr";
+  if (!isLang(lang)) notFound();
   return (
     <html
       lang={lang}
-      dir={dir}
+      dir={dirOf(lang)}
       suppressHydrationWarning
       className={lang === "ar" ? alexandria.variable : undefined}
     >
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <SiteHeader lang={lang} dict={getDictionary(lang)} />
+        {children}
+      </body>
     </html>
   );
 }

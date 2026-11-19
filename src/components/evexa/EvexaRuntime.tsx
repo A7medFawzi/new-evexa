@@ -17,12 +17,7 @@
  *    per-word progress window L/N…(L+1)/N, per-char sub-window, #666666 →
  *    #FFFFFF, chars < 40 forced #FFFFFF, offset ["start 0.75","start 0.15"],
  *    color tween 0.3s easeInOut.
- *  - Nav: fixed .framer-1hltwlr-container, centered via left:50% +
- *    translateX(-50%); hides after 250px scroll down (translateY(-110%)),
- *    shows on scroll up, transition transform 0.4s cubic-bezier(.44,0,.56,1).
- *    Mobile menu: header variant class swap (framer-v-gazge4 ↔
- *    framer-v-csul5u), height 84 → content (~0.3s ease), instant close,
- *    burger lines rotate ±45°.
+ *  - Header / navigation bar: see components/layout/SiteHeader.tsx.
  *  - Real page navigation (/, /about, /portfolio, /contact, /#faq …).
  *  - Tickers, FAQ accordion, testimonial drag slider, light rays canvas,
  *    video autoplay, star spin-ins, purple ring loop.
@@ -1621,10 +1616,10 @@ function setupHovers(root: ParentNode) {
       );
     });
 
-  /* nav / footer text links — label opacity .6 → 1 */
+  /* footer text links — label opacity .6 → 1 */
   root
     .querySelectorAll<HTMLElement>(
-      'header a.framer-i9k05o, footer a.framer-i9k05o[data-framer-name="In-Active"]'
+      'footer a.framer-i9k05o[data-framer-name="In-Active"]'
     )
     .forEach((link) => {
       const label = link.querySelector<HTMLElement>(
@@ -2048,234 +2043,15 @@ function withLang(href: string, lang: SiteLang): string {
   return `/${lang}${href}`;
 }
 
-/**
- * Language switcher — injected into every visible header nav (desktop +
- * mobile variants). Glass pill matching the site's button language; the
- * active language is highlighted with the brand gradient.
- */
-function injectLangSwitch(root: ParentNode, lang: SiteLang, navigate: (href: string) => void) {
-  if (root.querySelector(".nb-lang-switch")) return;
-  // every header variant (desktop/tablet/phone) gets its own pill — each is
-  // shown/hidden with its header by the breakpoint classes, so no resize
-  // re-injection is needed.
-  const headers = [...root.querySelectorAll<HTMLElement>("header.framer-5H12c")];
-  headers.forEach((header) => {
-    const nav = header.querySelector("nav");
-    if (!nav) return;
-    const pill = document.createElement("div");
-    pill.className = "nb-lang-switch";
-    pill.setAttribute("role", "group");
-    pill.setAttribute("aria-label", "Language switcher");
-    const en = document.createElement("button");
-    en.type = "button";
-    en.className = "nb-lang-opt" + (lang === "en" ? " nb-lang-active" : "");
-    en.textContent = "EN";
-    const ar = document.createElement("button");
-    ar.type = "button";
-    ar.className = "nb-lang-opt nb-ar" + (lang === "ar" ? " nb-lang-active" : "");
-    ar.textContent = "عربي";
-    const go = (target: SiteLang) => (e: Event) => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (target === lang) return;
-      const path = window.location.pathname.replace(/^\/(en|ar)/, "");
-      navigate("/" + target + (path || ""));
-    };
-    on(en, "click", go("en"));
-    on(ar, "click", go("ar"));
-    pill.appendChild(en);
-    pill.appendChild(ar);
-
-    // Desktop nav (row): [logo][menu][CTA] → tag the zones, then insert the
-    // pill BETWEEN menu and CTA so the far cluster reads [lang][CTA].
-    const menu = nav.querySelector<HTMLElement>('[class*="framer-1y44wop-container"]');
-    const cta = nav.querySelector<HTMLElement>('[class*="framer-1jr9gz1-container"]');
-    const logoRow = nav.querySelector<HTMLElement>(":scope > .framer-1y9d1w4");
-    if (menu && cta && logoRow) {
-      logoRow.classList.add("nb-nav-logo");
-      menu.classList.add("nb-nav-menu");
-      cta.classList.add("nb-nav-cta");
-      cta.parentElement!.insertBefore(pill, cta);
-      return;
-    }
-
-    // Tablet / phone nav (column variant): the pill must live inside the
-    // logo+burger row — appending it to the nav itself puts it at order:0
-    // above the logo, pushing the real bar out of the 84px header clip.
-    const row = nav.querySelector<HTMLElement>(":scope > .framer-1y9d1w4");
-    if (row) {
-      pill.classList.add("nb-lang-switch-row");
-      row.insertBefore(pill, row.children[1] ?? null);
-    }
-  });
-}
-
 /* ------------------------------------------------------------------ */
 /* navigation                                                          */
 /* ------------------------------------------------------------------ */
 
-function getPageKeyFromHref(rawHref: string): string {
-  const clean = rawHref.replace(/^\/(?:ar|en)(?=\/|$)/, "").split("#")[0] || "/";
-  if (clean === "/" || clean === "") return "home";
-  if (clean === "/about") return "about";
-  if (clean === "/portfolio") return "portfolio";
-  if (clean.startsWith("/portfolio/")) return "portfolio";
-  if (clean === "/contact") return "contact";
-  if (clean === "/privacy-policy") return "privacy-policy";
-  if (clean === "/terms-conditions") return "terms-conditions";
-  return clean.replace(/^\//, "");
-}
-
-function updateActiveNav(root: ParentNode, pageKey: string) {
-  let targetPath: string | null = null;
-  if (pageKey === "home") {
-    targetPath = "/";
-  } else if (pageKey === "about") {
-    targetPath = "/about";
-  } else if (pageKey === "portfolio" || pageKey.startsWith("portfolio-") || pageKey.startsWith("portfolio/")) {
-    targetPath = "/portfolio";
-  } else if (pageKey === "contact") {
-    targetPath = "/contact";
-  }
-
-  const headers = root.querySelectorAll<HTMLElement>("header.framer-5H12c");
-  headers.forEach((header) => {
-    const navLinks = header.querySelectorAll<HTMLAnchorElement>("a.framer-i9k05o");
-    navLinks.forEach((a) => {
-      const rawHref = a.getAttribute("href") ?? "";
-      const isFaq = rawHref.includes("#faq") || rawHref === "/#faq";
-      const cleanPath = rawHref.replace(/^\/(?:ar|en)(?=\/|$)/, "").split("#")[0] || "/";
-
-      const shouldBeActive = !isFaq && targetPath !== null && (
-        targetPath === "/" ? cleanPath === "/" : cleanPath === targetPath
-      );
-
-      const label = a.querySelector<HTMLElement>(".framer-oap6fz") ?? a;
-
-      if (shouldBeActive) {
-        a.setAttribute("data-framer-name", "Active");
-        a.classList.remove("framer-v-a47mct");
-        a.classList.add("framer-v-11z3ns5");
-        a.setAttribute("data-framer-page-link-current", "true");
-        label.style.opacity = "1";
-      } else {
-        a.setAttribute("data-framer-name", "In-Active");
-        a.classList.remove("framer-v-11z3ns5");
-        a.classList.add("framer-v-a47mct");
-        a.removeAttribute("data-framer-page-link-current");
-        label.style.opacity = "0.6";
-      }
-    });
-  });
-}
-
-function setupNav(
+function setupLinksAndForms(
   root: ParentNode,
   navigate: (href: string) => void,
-  lang: SiteLang = "en",
-  page: string = "home"
+  lang: SiteLang = "en"
 ) {
-  updateActiveNav(root, page);
-  const container = root.querySelector<HTMLElement>(
-    '[class*="framer-1hltwlr-container"]'
-  );
-
-  if (container) {
-    container.style.transition = "transform 0.4s cubic-bezier(0.44, 0, 0.56, 1)";
-    // keep the CSS centering (left:50% + translateX(-50%)) intact:
-    // animate translateY only, always combined with translateX(-50%).
-    let lastY = window.scrollY;
-    const onScroll = () => {
-      const y = window.scrollY;
-      if (y > lastY && y > 250) {
-        container.style.transform = "translate(-50%, -110%)";
-      } else if (y < lastY || y <= 250) {
-        container.style.transform = "translate(-50%, 0)";
-      }
-      lastY = y;
-    };
-    on(window, "scroll", onScroll, { passive: true });
-  }
-
-  /* ---------------- mobile menu (exact original behavior) ----------- */
-  // The SSR ships desktop/tablet/phone nav variants; pick the VISIBLE ones
-  // (zero-height elements belong to inactive breakpoint variants).
-  const header =
-    [...root.querySelectorAll<HTMLElement>("header.framer-5H12c")].find(
-      (h) => h.getBoundingClientRect().height > 0
-    ) ?? root.querySelector<HTMLElement>("header.framer-5H12c");
-  const burger = [
-    ...root.querySelectorAll<HTMLElement>('[data-framer-name="Mobile Menu Icon"]'),
-  ].find((b) => b.getBoundingClientRect().height > 0);
-
-  if (header && burger) {
-    burger.style.cursor = "pointer";
-
-    const lines = [
-      ...burger.querySelectorAll<HTMLElement>('[data-framer-name="Line"]'),
-    ].slice(0, 2);
-
-    let open = false;
-    let animating = false;
-
-    const setOpenClass = (openState: boolean) => {
-      header.classList.toggle("framer-v-gazge4", !openState);
-      header.classList.toggle("framer-v-csul5u", openState);
-      if (openState) {
-        header.style.backdropFilter = "blur(20px)";
-        header.style.setProperty("-webkit-backdrop-filter", "blur(20px)");
-        header.style.background =
-          "linear-gradient(180deg, rgb(19, 19, 19) 6.642384572072071%, rgba(0, 0, 0, 0.3) 100%)";
-      } else {
-        header.style.backdropFilter = "";
-        header.style.setProperty("-webkit-backdrop-filter", "");
-        header.style.background = "";
-      }
-      lines.forEach((line, i) => {
-        line.style.transition = "transform 0.3s ease";
-        line.style.transform = openState
-          ? `rotate(${i === 0 ? "" : "-"}45deg)`
-          : "rotate(0deg)";
-      });
-    };
-
-    const openMenu = () => {
-      open = true;
-      setOpenClass(true);
-      const target = header.scrollHeight;
-      animating = true;
-      animate(
-        header,
-        { height: [header.getBoundingClientRect().height, target] },
-        { duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }
-      ).then(() => {
-        animating = false;
-        header.style.height = "min-content";
-      });
-    };
-
-    const closeMenu = () => {
-      open = false;
-      setOpenClass(false);
-      header.style.height = "";
-      animating = false;
-    };
-
-    on(burger, "click", (e) => {
-      e.stopPropagation();
-      if (animating) return;
-      if (open) closeMenu();
-      else openMenu();
-    });
-
-    // close when a menu link is clicked
-    header.querySelectorAll("a").forEach((a) => {
-      on(a, "click", () => {
-        if (open) closeMenu();
-      });
-    });
-  }
-
   /* ---------------- real page navigation ---------------------------- */
   root.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((a) => {
     const href = a.getAttribute("href") ?? "";
@@ -2315,8 +2091,6 @@ function setupNav(
       }
       if (resolvedHref.startsWith("/")) {
         e.preventDefault();
-        const targetPage = getPageKeyFromHref(resolvedHref);
-        updateActiveNav(root, targetPage);
         navigate(withLang(resolvedHref, lang));
       }
     });
@@ -2924,7 +2698,6 @@ export default function EvexaRuntime({ page, lang = "en" }: { page: string; lang
   useEffect(() => {
     GEN += 1; // invalidate rAF loops / observers from any previous page
     const root = document.getElementById("main") ?? document.body;
-    updateActiveNav(root, page);
 
     // Remember the language the visitor is actually browsing, so locale-less
     // internal links (/about, /contact…) stay in it — src/proxy.ts prefers
@@ -2997,8 +2770,7 @@ export default function EvexaRuntime({ page, lang = "en" }: { page: string; lang
       setupVideo(root);
       setupHovers(root);
       setupCursor();
-      setupNav(root, (href) => router.push(href), siteLang, page);
-      injectLangSwitch(root, siteLang, (href) => router.push(href));
+      setupLinksAndForms(root, (href) => router.push(href), siteLang);
       setupCustomSelects(root, siteLang);
     }, 0);
 
