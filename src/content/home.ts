@@ -150,24 +150,32 @@ export function productImages(lang: Lang): string[] {
 
 const WHY_IMAGE = { src: "/images/hZgGlHpPFf0bbzHL7dI9MolatA.webp", alt: "Man using a laptop" };
 
-/** Platforms EVEXA builds on (from evexa.tech), shown in the integrations ticker. */
+/**
+ * Business tools EVEXA connects AI to (the customer's own systems: email,
+ * chat, files, CRM, ERP, databases), shown in the integrations ticker.
+ */
 export const INTEGRATION_LOGOS: ReadonlyArray<{ src: string; name: string }> = [
-  { src: "/images/tools/openai.webp", name: "OpenAI" },
-  { src: "/images/tools/claude-ai.webp", name: "Claude" },
-  { src: "/images/tools/google-gemini.webp", name: "Google Gemini" },
-  { src: "/images/tools/microsoft-azure.webp", name: "Microsoft Azure" },
-  { src: "/images/tools/aws.webp", name: "AWS" },
-  { src: "/images/tools/google-cloud.webp", name: "Google Cloud" },
-  { src: "/images/tools/firebase.webp", name: "Firebase" },
-  { src: "/images/tools/supabase.webp", name: "Supabase" },
-  { src: "/images/tools/vercel.webp", name: "Vercel" },
-  { src: "/images/tools/redis.webp", name: "Redis" },
-  { src: "/images/tools/ibm.webp", name: "IBM" },
+  { src: "/images/integrations/microsoft365.webp", name: "Microsoft 365" },
+  { src: "/images/integrations/outlook.webp", name: "Outlook" },
+  { src: "/images/integrations/teams.webp", name: "Microsoft Teams" },
+  { src: "/images/integrations/whatsapp.webp", name: "WhatsApp Business" },
+  { src: "/images/integrations/gmail.webp", name: "Gmail" },
+  { src: "/images/integrations/googledrive.webp", name: "Google Drive" },
+  { src: "/images/integrations/slack.webp", name: "Slack" },
+  { src: "/images/integrations/salesforce.webp", name: "Salesforce" },
+  { src: "/images/integrations/hubspot.webp", name: "HubSpot" },
+  { src: "/images/integrations/zoho.webp", name: "Zoho" },
+  { src: "/images/integrations/odoo.webp", name: "Odoo" },
+  { src: "/images/integrations/sap.webp", name: "SAP" },
+  { src: "/images/integrations/sharepoint.webp", name: "SharePoint" },
+  { src: "/images/integrations/excel.webp", name: "Excel" },
+  { src: "/images/integrations/postgresql.webp", name: "PostgreSQL" },
+  { src: "/images/integrations/mysql.webp", name: "MySQL" },
 ];
 
-/** White marks of six AI platforms wired into the "Connected Systems" card. */
-export const CONNECTED_TOOLS = ["openai", "claude-ai", "google-gemini", "microsoft-azure", "aws", "google-cloud"].map(
-  (name) => `/images/tools/mono/${name}.webp`,
+/** White marks of six everyday tools wired into the "Connected Systems" card. */
+export const CONNECTED_TOOLS = ["whatsapp", "gmail", "googledrive", "slack", "hubspot", "sap"].map(
+  (name) => `/images/integrations/mono/${name}.webp`,
 );
 
 /** Client and partner logos in the strip under the hero (from evexa.tech), clients first. */
