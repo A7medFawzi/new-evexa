@@ -24,9 +24,9 @@ export const ROUTES = [
   "/contact",
   "/terms-conditions",
   "/privacy-policy",
-  "/portfolio/lemonide-tech",
-  "/portfolio/million-one",
-  "/portfolio/viper-studio",
+  "/portfolio/albetar",
+  "/portfolio/mohami-smart",
+  "/portfolio/business-operations",
 ] as const;
 
 export type NavKey = "home" | "about" | "portfolio" | "contact" | "faq";

@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import type { Lang } from "@/config/site";
+import TopGlow from "@/components/ui/TopGlow";
 import { MarkdownBlocks, parseMarkdown } from "@/lib/markdown";
 import styles from "./LegalPage.module.css";
 
@@ -33,11 +34,7 @@ export default function LegalPage({ doc, lang }: { doc: LegalDocumentKey; lang: 
         </div>
       </section>
 
-      {/* atmospheric blue glow behind the top of the page */}
-      <div className={styles.glow} aria-hidden="true">
-        <div className={styles.vignette} />
-        <div className={styles.glowFade} />
-      </div>
+      <TopGlow />
     </main>
   );
 }

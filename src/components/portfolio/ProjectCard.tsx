@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { CheckBadgeIcon } from "@/components/ui/icons";
+import GlowLabel from "@/components/ui/GlowLabel";
 import styles from "./ProjectCard.module.css";
 
 const HOVER_SPRING = { type: "spring", stiffness: 250, damping: 60, mass: 1 } as const;
@@ -31,10 +32,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className={styles.panel}>
         <span className={styles.glow} aria-hidden="true" />
         <div className={styles.head}>
-          <span className={styles.label}>
-            <span className={styles.labelGlow} aria-hidden="true" />
-            <span>{project.label}</span>
-          </span>
+          <GlowLabel>{project.label}</GlowLabel>
           <h4 className={styles.title}>{project.title}</h4>
         </div>
         <span className={styles.line} aria-hidden="true" />

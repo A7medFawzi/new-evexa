@@ -17,39 +17,6 @@
   background-repeat: no-repeat;
 }
 
-/* ---------------- glow behind the top of the page ---------------- */
-
-.glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  width: 100%;
-  height: 1400px;
-  background: radial-gradient(60% 88% at 50% 64.2%, #0031d5 0%, rgb(59, 95, 255) 39.99155405405405%, rgb(25, 13, 46) 84.93278434684684%, rgb(0, 0, 0) 100%);
-  pointer-events: none;
-}
-
-.vignette {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 101%;
-  background: radial-gradient(54% 50% at 50% 57.2%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.67) 64.5147%, rgb(0, 0, 0));
-}
-
-.glowFade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 224px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgb(0, 0, 0));
-}
-
 /* ---------------- layout ---------------- */
 
 .content {

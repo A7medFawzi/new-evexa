@@ -263,7 +263,7 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       ],
     },
   },
-  "portfolio-lemonide-tech": {
+  "portfolio-albetar": {
     en: {
       title: ["Frequently", "Asked Questions"],
       intro: "A closer look at the Albetar project and the technology behind it.",
@@ -325,7 +325,7 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       ],
     },
   },
-  "portfolio-million-one": {
+  "portfolio-mohami-smart": {
     en: {
       title: ["Frequently", "Asked Questions"],
       intro: "A closer look at Mohami Smart and AI-assisted legal workflows.",
@@ -387,7 +387,7 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       ],
     },
   },
-  "portfolio-viper-studio": {
+  "portfolio-business-operations": {
     en: {
       title: ["Frequently", "Asked Questions"],
       intro: "A closer look at the two operational platforms and what each one covers.",

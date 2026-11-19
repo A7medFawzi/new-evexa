@@ -176,6 +176,12 @@
   }
 }
 
+@media (min-width: 810px) and (max-width: 1199px) {
+  .section.roomy {
+    padding-top: 120px;
+  }
+}
+
 /* ================= phone ================= */
 
 @media (max-width: 809px) {

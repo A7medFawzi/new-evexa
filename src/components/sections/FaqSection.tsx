@@ -16,14 +16,17 @@ export default function FaqSection({
   content,
   badgeLabel,
   tight = false,
+  roomy = false,
 }: {
   content: FaqContent;
   badgeLabel: string;
   /** 100px instead of 120px above the section on desktop */
   tight?: boolean;
+  /** keep 120px above the section on tablets too */
+  roomy?: boolean;
 }) {
   return (
-    <section id="faq" className={tight ? `${styles.section} ${styles.tight}` : styles.section}>
+    <section id="faq" className={[styles.section, tight && styles.tight, roomy && styles.roomy].filter(Boolean).join(" ")}>
       <img className={styles.rays} src="/images/HQiQT243MN1itZOX771FxR6euwI.webp" width={2398} height={1558} alt="" aria-hidden="true" decoding="async" loading="lazy" />
       <div className={styles.container}>
         <div className={styles.intro}>

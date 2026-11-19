@@ -14,6 +14,7 @@ export default function PrimaryButton({
   children,
   arrow = false,
   thin = false,
+  external = false,
   className,
   onClick,
 }: {
@@ -23,6 +24,8 @@ export default function PrimaryButton({
   arrow?: boolean;
   /** 1px border (header/footer) instead of the 3px used in page sections */
   thin?: boolean;
+  /** opens in a new tab (links to other sites) */
+  external?: boolean;
   className?: string;
   onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
 }) {
@@ -37,6 +40,7 @@ export default function PrimaryButton({
       <Link
         href={href}
         className={thin ? `${styles.button} ${styles.thin}` : styles.button}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
         onClick={(e) => {
           onClick?.(e);
           // in-page anchors ("#section") scroll smoothly

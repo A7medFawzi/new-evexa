@@ -15,6 +15,10 @@
     0 -20px 100px #0031d566;
 }
 
+.plain {
+  box-shadow: none;
+}
+
 /* hairline border */
 .card::after {
   content: "";

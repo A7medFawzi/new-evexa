@@ -1,0 +1,588 @@
+/*
+ * Case-study page (/portfolio/<slug>): header + facts card, three story
+ * chapters between project images, then links to the other case studies.
+ * Desktop ≥1200 · tablet 810–1199 · phone ≤809.
+ */
+
+.main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 130px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+  overflow: hidden;
+}
+
+.spacer {
+  width: 100%;
+  height: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  width: 100%;
+  padding: 0 80px;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ---------------- header ---------------- */
+
+.details {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 38px;
+  width: 560px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 26px;
+  width: 100%;
+}
+
+.tagAndTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 34px;
+  width: 100%;
+}
+
+.title {
+  --title-line: 90px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 86px;
+  font-weight: 400;
+  line-height: var(--title-line);
+  letter-spacing: -3.8px;
+  text-align: start;
+}
+
+.titleLine {
+  display: block;
+}
+
+/* soft white-to-transparent gradient on the letters */
+.titleLine span {
+  display: inline-block;
+  padding: max(0em, calc((1.3em - var(--title-line)) / 2));
+  margin: min(0em, calc((1.3em - var(--title-line)) / -2));
+  color: #fff;
+  background-image: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.3) 350%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro {
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------------- facts card ---------------- */
+
+.factsCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  width: 486px;
+  padding: 40px;
+  overflow: hidden;
+  border-radius: 20px;
+  color: #fff;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.factsCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.factsGlow {
+  position: absolute;
+  top: 263px;
+  left: -73px;
+  z-index: -1;
+  width: 407px;
+  height: 407px;
+  border-radius: 100%;
+  background-color: rgb(0, 49, 213);
+  filter: blur(322px);
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+}
+
+.fact {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* short fading rule between facts (15px above and below) */
+.fact + .fact {
+  margin-top: 31px;
+}
+
+.fact + .fact::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  inset-inline-start: 0;
+  width: 230px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
+.fact dt {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+}
+
+.fact dd {
+  margin: 0;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -0.5px;
+}
+
+/* ---------------- images ---------------- */
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 21px;
+  object-fit: cover;
+}
+
+.cover,
+.wide {
+  height: 700px;
+}
+
+.pair {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+
+.pair > * {
+  flex: 1 0 0px;
+  min-width: 0;
+  height: 500px;
+}
+
+/* ---------------- story chapters ---------------- */
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 5px 0;
+}
+
+.mainText,
+.subText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.mainText {
+  gap: 20px;
+}
+
+.subText {
+  gap: 12px;
+}
+
+.mainText h3 {
+  margin: 0;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: -1px;
+}
+
+.textLine {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.05));
+}
+
+.subHeading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+}
+
+.subHeading h4 {
+  margin: 0;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -0.5px;
+}
+
+.mainText p,
+.subText p {
+  width: 100%;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+  white-space: pre-line;
+}
+
+/* small blue topic label next to a sub-heading */
+.chip {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 20px;
+  background-color: rgb(0, 49, 213);
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 10px;
+  letter-spacing: -0.5px;
+  white-space: pre;
+  box-shadow:
+    rgba(0, 49, 213, 0.5) 0px 8px 40px 0px,
+    rgba(0, 49, 213, 0.12) 0px 0px 0px 1px,
+    rgba(255, 255, 255, 0.25) 0px -12px 20px 0px inset;
+}
+
+.chip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+:global(html[lang="ar"]) .chip {
+  font-weight: 500;
+}
+
+/* ---------------- more work ---------------- */
+
+.separator {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.moreWork {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.moreTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.moreTitle {
+  flex: 1;
+  margin: 0;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 54px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: -1.9px;
+}
+
+.moreGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.moreItem {
+  height: 500px;
+}
+
+.moreCard {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: #080808;
+  color: #fff;
+  text-decoration: none;
+}
+
+.moreCard::after,
+.moreBorder::after,
+.moreBar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.moreBorder {
+  position: relative;
+  display: flex;
+  flex: 1;
+  padding: 1px;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.moreBorder::after {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.moreContent {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 21px;
+}
+
+.moreImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 21px;
+  object-fit: cover;
+}
+
+.moreTint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 5px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 91.2405%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.moreBar {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 10px;
+  width: 100%;
+  padding: 16px;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #080808;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  box-shadow: rgba(0, 0, 0, 0.35) 2px 4px 24px 10px;
+}
+
+.moreBar::after {
+  border-color: rgba(0, 49, 213, 0.15);
+}
+
+.moreBarShade {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(43% 50% at 50% 50%, rgba(15, 9, 18, 0.15) 0%, rgb(12, 9, 18) 100%);
+  box-shadow: inset 0px 10px 10px -1px rgba(0, 49, 213, 0.15);
+}
+
+.moreName {
+  position: relative;
+  flex: 1 1 auto;
+  margin: 0;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -0.5px;
+}
+
+/* ================= tablet ================= */
+
+@media (max-width: 1199px) {
+  .container {
+    padding: 0 50px;
+  }
+
+  .details {
+    flex-direction: column;
+    gap: 38px;
+  }
+
+  .factsCard {
+    width: 100%;
+  }
+
+  .title {
+    --title-line: 70px;
+    font-size: 66px;
+    letter-spacing: -3px;
+  }
+
+  .cover,
+  .wide,
+  .pair > * {
+    height: 440px;
+  }
+
+  .pair {
+    flex-direction: column;
+  }
+
+  .pair > * {
+    flex: none;
+  }
+
+  .moreGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= phone ================= */
+
+@media (max-width: 809px) {
+  .main {
+    padding-bottom: 80px;
+  }
+
+  .container {
+    gap: 40px;
+    padding: 0 30px;
+  }
+
+  .left {
+    width: 100%;
+  }
+
+  .title {
+    --title-line: 55px;
+    font-size: 56px;
+    letter-spacing: -3.4px;
+  }
+
+  .cover,
+  .wide,
+  .pair > * {
+    height: 260px;
+  }
+
+  .moreTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .moreTitle {
+    flex: none;
+    font-size: 35px;
+    line-height: 32px;
+    letter-spacing: -2px;
+  }
+
+  .moreItem {
+    height: 340px;
+  }
+}
+
+/* Arabic: the fact values follow the heading rhythm (h4: 1.3 line-height) */
+:global(html[lang="ar"]) .fact dd {
+  line-height: 1.3;
+}
