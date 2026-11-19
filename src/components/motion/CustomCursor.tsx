@@ -5,8 +5,16 @@ import { useEffect, useRef } from "react";
 
 const VARIANT_SPRING = { type: "spring", bounce: 0.2, duration: 0.4 } as const;
 const FADE = { duration: 0.15, ease: "linear" } as const;
-const STIFFNESS = 400;
-const DAMPING = 60;
+/**
+ * Dot spring: stiff and critically damped (damping = 2·√stiffness), so the
+ * dot stays a few pixels behind the pointer and settles in ~0.1s without
+ * overshoot. The old 400/60 spring trailed by ~70px and kept sliding for
+ * about a second after the mouse stopped, which read as the cursor moving
+ * on its own.
+ */
+const STIFFNESS = 1600;
+const DAMPING = 2 * Math.sqrt(STIFFNESS);
+const SUBSTEP = 1 / 240;
 const DOT = 14;
 
 /**
@@ -56,8 +64,13 @@ export default function CustomCursor({ label = "View Now" }: { label?: string })
         // from an old position when the pill turns back into the dot.
         x = px; y = py; vx = 0; vy = 0;
       } else {
-        [x, vx] = step(x, vx, px, dt);
-        [y, vy] = step(y, vy, py, dt);
+        // Fixed small sub-steps keep the stiff spring stable at any frame
+        // rate (a single 32ms step would make it oscillate and blow up).
+        for (let left = dt; left > 0; left -= SUBSTEP) {
+          const h = Math.min(SUBSTEP, left);
+          [x, vx] = step(x, vx, px, h);
+          [y, vy] = step(y, vy, py, h);
+        }
       }
       dot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       pill.style.transform = `translate3d(${px}px, ${py}px, 0) translate(-50%, -50%)`;
