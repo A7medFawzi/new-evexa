@@ -265,7 +265,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "business-operations",
     legacySlug: "viper-studio",
     faqKey: "portfolio-business-operations",
-    images: { card: "/images/projects/business-operations/hrms.webp", cover: "/images/oITRaXEkBVhukMYINXV2xi05PY.webp", pair: ["/images/BPEedBVqFey75HW49TPbSktrQ.webp", "/images/nIWCXDZYVF7vYxiEOoTQCy0Sdk.webp"], wide: "/images/bvayy8dANcD4eW8aJOgXk3nwM.webp" },
+    images: {
+      card: "/images/projects/business-operations/hrms.webp",
+      cover: "/images/projects/business-operations/cover.webp",
+      pair: ["/images/projects/business-operations/project-operations.webp", "/images/projects/business-operations/teams-clients.webp"],
+      wide: "/images/projects/business-operations/setup-to-delivery.webp",
+      tall: true,
+    },
     copy: {
       en: {
         name: "Business Operations",
