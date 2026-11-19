@@ -62,7 +62,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     legacySlug: "lemonide-tech",
     faqKey: "portfolio-albetar",
     images: {
-      card: "/images/projects/albetar/platform.webp",
+      card: "/images/projects/albetar/brand.webp",
       cover: "/images/projects/albetar/cover.webp",
       pair: ["/images/projects/albetar/retail-analysis.webp", "/images/projects/albetar/custom-build.webp"],
       wide: "/images/projects/albetar/beto-assistant.webp",
@@ -162,7 +162,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "mohami-smart",
     legacySlug: "million-one",
     faqKey: "portfolio-mohami-smart",
-    images: { card: "/images/projects/mohami-smart/dashboard.webp", cover: "/images/h33bTK94GjgfacsggRpl9F5QXes.webp", pair: ["/images/cmQEswT5KlDnITTWpFJi1ycWpA.webp", "/images/y6nsXyFCXVHybL6AG2drPt8Xug.webp"], wide: "/images/nv6wvWEhx82tRYYO7GpPtdr8iq0.webp" },
+    images: { card: "/images/projects/mohami-smart/brand.webp", cover: "/images/h33bTK94GjgfacsggRpl9F5QXes.webp", pair: ["/images/cmQEswT5KlDnITTWpFJi1ycWpA.webp", "/images/y6nsXyFCXVHybL6AG2drPt8Xug.webp"], wide: "/images/nv6wvWEhx82tRYYO7GpPtdr8iq0.webp" },
     copy: {
       en: {
         name: "Mohami Smart",
