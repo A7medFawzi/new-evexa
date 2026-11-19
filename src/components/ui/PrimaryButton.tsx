@@ -1,22 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import type { MouseEvent, ReactNode } from "react";
 import { scrollToSection } from "@/lib/scroll";
 import styles from "./PrimaryButton.module.css";
 
-const SPRING = { type: "spring", stiffness: 200, damping: 60, mass: 1 } as const;
-
-const RING_HOVER = {
-  initial: { boxShadow: "0px 0px 0px 0px rgba(0, 49, 213, 0.3)" },
-  hover: { boxShadow: "0px 0px 0px 5px rgba(0, 49, 213, 0.3)" },
-};
-const FADE_HOVER = { initial: { opacity: 1 }, hover: { opacity: 0.6 } };
-
 /**
- * Site button. Purple (brand gradient): a soft blue ring grows around it
- * on hover. White / grey (hero): fades to 60% on hover.
+ * Site button (brand-blue gradient, or white / grey in the hero).
+ * Hover: the button lifts 2px, brightens and gets a glow (a blue ring for
+ * the brand button); pressing pushes it back down. Keyboard focus shows a
+ * ring. All of it is CSS (PrimaryButton.module.css).
  */
 export default function PrimaryButton({
   href,
@@ -40,16 +33,9 @@ export default function PrimaryButton({
   className?: string;
   onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
 }) {
-  const hover = tone === "purple" ? RING_HOVER : FADE_HOVER;
   const buttonClass = [styles.button, thin && styles.thin, tone !== "purple" && styles[tone]].filter(Boolean).join(" ");
   return (
-    <motion.div
-      className={className ? `${styles.wrap} ${className}` : styles.wrap}
-      initial={false}
-      style={hover.initial}
-      whileHover={hover.hover}
-      transition={SPRING}
-    >
+    <div className={[styles.wrap, styles[`${tone}Wrap`], className].filter(Boolean).join(" ")}>
       <Link
         href={href}
         className={buttonClass}
@@ -68,6 +54,6 @@ export default function PrimaryButton({
           </svg>
         )}
       </Link>
-    </motion.div>
+    </div>
   );
 }

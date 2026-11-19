@@ -1,18 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { animate } from "framer-motion";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { localizeHref, type Lang } from "@/config/site";
 import { COUNTRIES, INTERESTS, type ContactCopy } from "@/content/contact";
 import Select from "./Select";
 import styles from "./ContactForm.module.css";
 
-const HOVER_SPRING = { type: "spring", stiffness: 400, damping: 60, mass: 1 } as const;
-const BUTTON_SHADOW =
-  "0px 8px 40px 0px rgba(0, 49, 213, 0.5), inset 0px 0px 10px 1px rgba(255, 255, 255, 0), 0px 0px 0px 1px rgba(0, 49, 213, 0.12), inset 0px -12px 20px 0px rgba(255, 255, 255, 0.25)";
-const BUTTON_SHADOW_HOVER =
-  "0px 0.6021873017743928px 3.010936508871964px 0px rgba(0, 49, 213, 0.04), 0px 2.288533303243457px 11.442666516217285px 0px rgba(0, 49, 213, 0.16), 0px 10px 50px 0px rgba(0, 49, 213, 0.7)";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type Status = { type: "success" | "error"; message: string } | null;
@@ -26,8 +20,6 @@ export default function ContactForm({ lang, copy }: { lang: Lang; copy: ContactC
   const [sending, setSending] = useState(false);
   const [buttonLabel, setButtonLabel] = useState(copy.submit);
   const revertTimer = useRef<number>(0);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const labelRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => () => window.clearTimeout(revertTimer.current), []);
 
@@ -75,11 +67,6 @@ export default function ContactForm({ lang, copy }: { lang: Lang; copy: ContactC
     }
   };
 
-  const hover = (on: boolean) => {
-    if (buttonRef.current) animate(buttonRef.current, { boxShadow: on ? BUTTON_SHADOW_HOVER : BUTTON_SHADOW }, HOVER_SPRING);
-    if (labelRef.current) animate(labelRef.current, { color: on ? "rgb(196, 196, 196)" : "rgb(255, 255, 255)" }, HOVER_SPRING);
-  };
-
   return (
     <form id="evexa-contact-form" className={styles.form} onSubmit={onSubmit} noValidate>
       <div className={styles.row}>
@@ -117,8 +104,8 @@ export default function ContactForm({ lang, copy }: { lang: Lang; copy: ContactC
         </div>
       )}
 
-      <button ref={buttonRef} type="submit" className={styles.submit} disabled={sending} style={{ boxShadow: BUTTON_SHADOW }} onPointerEnter={() => hover(true)} onPointerLeave={() => hover(false)}>
-        <span ref={labelRef}>{buttonLabel}</span>
+      <button type="submit" className={styles.submit} disabled={sending}>
+        <span>{buttonLabel}</span>
       </button>
 
       <p className={styles.consent}>

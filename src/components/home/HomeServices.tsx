@@ -7,7 +7,14 @@ import {
   IntegrationIcon,
   SolutionsIcon,
   SearchIcon,
-  SparkleChipIcon,
+  TagAnalyticsIcon,
+  TagArabicIcon,
+  TagAssistantIcon,
+  TagAutomationIcon,
+  TagDataIcon,
+  TagDocumentIcon,
+  TagIntegrationIcon,
+  TagKnowledgeIcon,
 } from "@/components/ui/icons";
 import { localizeHref, type Lang } from "@/config/site";
 import type { HomeServicesCopy } from "@/content/home";
@@ -16,6 +23,17 @@ import ServiceCard from "./ServiceCard";
 import styles from "./HomeServices.module.css";
 
 const CARD_ICONS = [SearchIcon, AssistantIcon, DocumentScanIcon, AutomationIcon, IntegrationIcon, AnalyticsIcon];
+/** One icon per topic tag, in the order of `copy.tags` (same order in both languages). */
+const TAG_ICONS = [
+  TagKnowledgeIcon,
+  TagAssistantIcon,
+  TagDocumentIcon,
+  TagAutomationIcon,
+  TagIntegrationIcon,
+  TagArabicIcon,
+  TagDataIcon,
+  TagAnalyticsIcon,
+];
 
 /** "Solutions": six service cards and a cloud of topic tags, under light rays. */
 export default function HomeServices({ copy, lang }: { copy: HomeServicesCopy; lang: Lang }) {
@@ -42,15 +60,18 @@ export default function HomeServices({ copy, lang }: { copy: HomeServicesCopy; l
         </div>
 
         <ul className={styles.tags}>
-          {copy.tags.map((tag) => (
-            <li key={tag} className={styles.tag}>
-              <img className={styles.tagGlow} src="/images/1xOqMa4sAAwBCrdkiSJfIXups.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-              <span className={styles.tagIcon}>
-                <SparkleChipIcon size={20} />
-              </span>
-              <span className={styles.tagLabel}>{tag}</span>
-            </li>
-          ))}
+          {copy.tags.map((tag, i) => {
+            const Icon = TAG_ICONS[i % TAG_ICONS.length];
+            return (
+              <li key={tag} className={styles.tag}>
+                <img className={styles.tagGlow} src="/images/1xOqMa4sAAwBCrdkiSJfIXups.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+                <span className={styles.tagIcon}>
+                  <Icon size={20} />
+                </span>
+                <span className={styles.tagLabel}>{tag}</span>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <span className={styles.line} aria-hidden="true" />
