@@ -60,7 +60,11 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "albetar",
     legacySlug: "lemonide-tech",
     faqKey: "portfolio-albetar",
-    images: { cover: "/images/6igmB60fniZZ2g62iKIWQ848llo.webp", pair: ["/images/wIkfS2B4PLN8e56l2tauOjIs4.webp", "/images/EnDwPLRTX3We8xhTEDKAWKPM.webp"], wide: "/images/eMdqbqVkbMYbHIshhsnZkU0YM.webp" },
+    images: {
+      cover: "/images/projects/albetar/cover.webp",
+      pair: ["/images/projects/albetar/retail-analysis.webp", "/images/projects/albetar/custom-build.webp"],
+      wide: "/images/projects/albetar/beto-assistant.webp",
+    },
     copy: {
       en: {
         name: "Albetar",

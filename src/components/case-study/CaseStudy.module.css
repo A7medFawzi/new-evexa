@@ -218,9 +218,18 @@
   object-fit: cover;
 }
 
+/* Images keep their own proportions (16:9 banners, 4:3 pairs), so
+   designed screens with text are never cropped at any width. */
 .cover,
 .wide {
-  height: 700px;
+  aspect-ratio: 16 / 9;
+}
+
+/* overflow: hidden stops a taller photo from stretching its frame past the ratio */
+.cover,
+.wide,
+.pair > * {
+  overflow: hidden;
 }
 
 .pair {
@@ -232,7 +241,7 @@
 .pair > * {
   flex: 1 0 0px;
   min-width: 0;
-  height: 500px;
+  aspect-ratio: 4 / 3;
 }
 
 /* ---------------- story chapters ---------------- */
@@ -517,12 +526,6 @@
     letter-spacing: -3px;
   }
 
-  .cover,
-  .wide,
-  .pair > * {
-    height: 440px;
-  }
-
   .pair {
     flex-direction: column;
   }
@@ -556,12 +559,6 @@
     --title-line: 55px;
     font-size: 56px;
     letter-spacing: -3.4px;
-  }
-
-  .cover,
-  .wide,
-  .pair > * {
-    height: 260px;
   }
 
   .moreTop {
