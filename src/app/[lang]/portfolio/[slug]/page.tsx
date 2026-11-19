@@ -58,7 +58,7 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
     href: localizeHref(`/portfolio/${c.slug}`, lang),
     title: c.copy[lang].name,
     tag: c.copy[lang].cardTag,
-    image: c.images.cover,
+    image: c.images.card ?? c.images.cover,
   }));
 
   return (

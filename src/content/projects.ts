@@ -45,7 +45,8 @@ export interface CaseStudy {
   legacySlug: string;
   /** key into FAQS */
   faqKey: string;
-  images: { cover: string; pair: [string, string]; wide: string };
+  /** card: image on other case studies' "Explore More Work" cards (defaults to cover) */
+  images: { cover: string; pair: [string, string]; wide: string; card?: string };
   copy: Record<Lang, CaseStudyCopy>;
 }
 
@@ -61,6 +62,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     legacySlug: "lemonide-tech",
     faqKey: "portfolio-albetar",
     images: {
+      card: "/images/projects/albetar/platform.webp",
       cover: "/images/projects/albetar/cover.webp",
       pair: ["/images/projects/albetar/retail-analysis.webp", "/images/projects/albetar/custom-build.webp"],
       wide: "/images/projects/albetar/beto-assistant.webp",
@@ -160,7 +162,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "mohami-smart",
     legacySlug: "million-one",
     faqKey: "portfolio-mohami-smart",
-    images: { cover: "/images/h33bTK94GjgfacsggRpl9F5QXes.webp", pair: ["/images/cmQEswT5KlDnITTWpFJi1ycWpA.webp", "/images/y6nsXyFCXVHybL6AG2drPt8Xug.webp"], wide: "/images/nv6wvWEhx82tRYYO7GpPtdr8iq0.webp" },
+    images: { card: "/images/projects/mohami-smart/dashboard.webp", cover: "/images/h33bTK94GjgfacsggRpl9F5QXes.webp", pair: ["/images/cmQEswT5KlDnITTWpFJi1ycWpA.webp", "/images/y6nsXyFCXVHybL6AG2drPt8Xug.webp"], wide: "/images/nv6wvWEhx82tRYYO7GpPtdr8iq0.webp" },
     copy: {
       en: {
         name: "Mohami Smart",
@@ -256,7 +258,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "business-operations",
     legacySlug: "viper-studio",
     faqKey: "portfolio-business-operations",
-    images: { cover: "/images/oITRaXEkBVhukMYINXV2xi05PY.webp", pair: ["/images/BPEedBVqFey75HW49TPbSktrQ.webp", "/images/nIWCXDZYVF7vYxiEOoTQCy0Sdk.webp"], wide: "/images/bvayy8dANcD4eW8aJOgXk3nwM.webp" },
+    images: { card: "/images/projects/business-operations/hrms.webp", cover: "/images/oITRaXEkBVhukMYINXV2xi05PY.webp", pair: ["/images/BPEedBVqFey75HW49TPbSktrQ.webp", "/images/nIWCXDZYVF7vYxiEOoTQCy0Sdk.webp"], wide: "/images/bvayy8dANcD4eW8aJOgXk3nwM.webp" },
     copy: {
       en: {
         name: "Business Operations",
