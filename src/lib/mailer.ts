@@ -4,8 +4,11 @@
  * Provider is chosen from environment variables (see .env.example):
  *   - RESEND_API_KEY                         -> Resend HTTP API
  *   - SMTP_HOST (+ SMTP_PORT/USER/PASS)      -> any SMTP mailbox
- * Recipient: CONTACT_TO_EMAIL. Sender: CONTACT_FROM_EMAIL.
+ * Recipient: CONTACT_TO_EMAIL (default info@evexa.tech). Sender: CONTACT_FROM_EMAIL.
  */
+
+const DEFAULT_TO = "info@evexa.tech";
+const DEFAULT_FROM = "EVEXA Website <website@evexa.tech>";
 import nodemailer from "nodemailer";
 
 export interface MailMessage {
@@ -16,13 +19,12 @@ export interface MailMessage {
 }
 
 export function isMailConfigured(): boolean {
-  return Boolean(process.env.CONTACT_TO_EMAIL && (process.env.RESEND_API_KEY || process.env.SMTP_HOST));
+  return Boolean(process.env.RESEND_API_KEY || process.env.SMTP_HOST);
 }
 
 export async function sendMail(message: MailMessage): Promise<void> {
-  const to = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL || "EVEXA Website <onboarding@resend.dev>";
-  if (!to) throw new Error("CONTACT_TO_EMAIL is not set");
+  const to = process.env.CONTACT_TO_EMAIL || DEFAULT_TO;
+  const from = process.env.CONTACT_FROM_EMAIL || DEFAULT_FROM;
 
   if (process.env.RESEND_API_KEY) {
     const res = await fetch("https://api.resend.com/emails", {
@@ -53,7 +55,7 @@ export async function sendMail(message: MailMessage): Promise<void> {
       auth: process.env.SMTP_USER ? { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS } : undefined,
     });
     await transport.sendMail({
-      from: process.env.CONTACT_FROM_EMAIL || process.env.SMTP_USER,
+      from: process.env.CONTACT_FROM_EMAIL || process.env.SMTP_USER || DEFAULT_FROM,
       to,
       subject: message.subject,
       text: message.text,
