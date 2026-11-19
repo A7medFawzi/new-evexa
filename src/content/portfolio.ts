@@ -12,8 +12,8 @@ export interface PortfolioCopy {
 /** Project images (shared by both languages). Note: placeholder visuals carried over from the original template. */
 const IMAGES = [
   [
-    "/images/projects/albetar/ai-search.webp",
-    "/images/projects/albetar/revenue-forecast.webp"
+    "/images/projects/albetar/brand.webp",
+    "/images/projects/albetar/platform.webp"
   ],
   [
     "/images/projects/mohami-smart/brand.webp",

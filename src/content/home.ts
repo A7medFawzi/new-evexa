@@ -123,8 +123,8 @@ export const CIRCLE_IMAGES = Array.from({ length: 12 }, (_, i) => `/images/circl
 /** Project preview images (template artwork, shared with the portfolio page). */
 const WORK_IMAGES: Project["images"][] = [
   [
-    { src: "/images/projects/albetar/ai-search.webp", alt: "Albetar AI product search with smart recommendations" },
-    { src: "/images/projects/albetar/revenue-forecast.webp", alt: "Albetar revenue forecasting and anomaly detection dashboard" },
+    { src: "/images/projects/albetar/brand.webp", alt: "Betar Store logo" },
+    { src: "/images/projects/albetar/platform.webp", alt: "Albetar smart hardware store with the BETO AI assistant and component customization" },
   ],
   [
     { src: "/images/projects/mohami-smart/brand.webp", alt: "Mohami Smart logo, a golden scale of justice" },
