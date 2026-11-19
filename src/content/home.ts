@@ -131,7 +131,10 @@ export const CIRCLE_IMAGES = [
 
 /** Project preview images (template artwork, shared with the portfolio page). */
 const WORK_IMAGES: Project["images"][] = [
-  [{ src: "/images/6igmB60fniZZ2g62iKIWQ848llo.webp", alt: "" }, { src: "/images/shPlLwe662SqZNtKzOhZzw5yDGQ.webp", alt: "" }],
+  [
+    { src: "/images/projects/albetar/ai-search.webp", alt: "Albetar AI product search with smart recommendations" },
+    { src: "/images/projects/albetar/revenue-forecast.webp", alt: "Albetar revenue forecasting and anomaly detection dashboard" },
+  ],
   [{ src: "/images/oITRaXEkBVhukMYINXV2xi05PY.webp", alt: "" }, { src: "/images/BChNf0ssn5x1I9kAk4vwX8qT5o.webp", alt: "" }],
   [{ src: "/images/h33bTK94GjgfacsggRpl9F5QXes.webp", alt: "" }, { src: "/images/mdHohhCEac2dy5qj6Hz8xLx3o.webp", alt: "" }],
 ];
