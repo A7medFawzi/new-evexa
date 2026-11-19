@@ -1,0 +1,231 @@
+.section {
+  --circle: 1276px;
+  --tile: 110px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  max-width: 1440px;
+  height: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* light beams behind everything */
+.rays {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.spacer {
+  flex: none;
+  width: 100%;
+  height: 100px;
+}
+
+/* ---------------- the ring ---------------- */
+
+.circle {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  width: var(--circle);
+  height: var(--circle);
+  animation: circle-turn 50s linear infinite;
+}
+
+@keyframes circle-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* one spoke: a tile at each end */
+.arm {
+  position: absolute;
+  top: 0;
+  left: calc(50% - var(--tile) / 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--tile);
+  height: 100%;
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tile);
+  height: var(--tile);
+  padding: 5px;
+  overflow: hidden;
+  border-radius: 26px;
+  background-color: #080808;
+}
+
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.flipped {
+  transform: rotate(180deg);
+}
+
+.tileImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+.tileShine {
+  position: absolute;
+  inset: 5px;
+  z-index: 1;
+  border-radius: 22px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+}
+
+.tileShine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: inherit;
+}
+
+/* darkens the bottom of the section */
+.fade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 77%, #000 100%);
+  pointer-events: none;
+}
+
+/* ---------------- heading ---------------- */
+
+.content {
+  position: absolute;
+  top: 330px;
+  left: 50%;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 34px;
+  width: 600px;
+  height: 327px;
+  padding: 0 20px;
+  justify-content: flex-start;
+  transform: translateX(-50%);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.title {
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 54px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: -1.9px;
+  text-align: center;
+}
+
+.body {
+  max-width: 421px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+/* Arabic: the 54px title keeps a single line */
+@media (min-width: 810px) {
+  :global([dir="rtl"]) .content {
+    width: 640px;
+    padding: 0;
+  }
+}
+
+/* ================= tablet ================= */
+
+@media (max-width: 1199px) {
+  .section {
+    height: 657px;
+  }
+}
+
+/* ================= phone ================= */
+
+@media (max-width: 809px) {
+  .section {
+    --circle: 870px;
+    --tile: 75px;
+    height: 590px;
+  }
+
+  .wrap {
+    gap: 50px;
+  }
+
+  .spacer {
+    height: 50px;
+  }
+
+  .content {
+    top: 280px;
+    width: 100%;
+    height: 291px;
+  }
+
+  .title {
+    font-size: 35px;
+    line-height: 32px;
+    letter-spacing: -2px;
+  }
+
+  .body {
+    max-width: none;
+  }
+}

@@ -1,0 +1,389 @@
+/*
+ * Home "Solutions": a big dark panel with light rays, six service cards and
+ * topic tags. Desktop ≥1200 · tablet 810–1199 · phone ≤809.
+ */
+
+.section {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 120px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px 20px 0;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  padding: 100px 80px 60px;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: #080808;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 317.86px;
+  object-fit: cover;
+}
+
+.rays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  opacity: 0.8;
+}
+
+/* ---------------- cards ---------------- */
+
+.cards {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 1160px;
+}
+
+.cardWrap {
+  display: flex;
+  min-width: 0;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 30px;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: #080808;
+  color: #fff;
+  text-decoration: none;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.cardHighlight {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 85px);
+  z-index: 1;
+  width: 170px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 49, 213, 0) 0%, rgb(0, 49, 213) 50%, rgba(0, 49, 213, 0) 100%);
+}
+
+.cardDots {
+  position: absolute;
+  top: 6px;
+  left: -94px;
+  z-index: 1;
+  width: 290px;
+  height: 70.17px;
+  object-fit: cover;
+}
+
+.cardGlow {
+  position: absolute;
+  top: 0.75px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.cardContent {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cardIcon,
+.tagIcon {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgb(0, 49, 213) 0%, rgb(89, 114, 227) 100%);
+  color: #fff;
+}
+
+.cardIcon {
+  width: 45px;
+  height: 45px;
+}
+
+.cardIcon::after,
+.tagIcon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: inherit;
+}
+
+.cardArrow {
+  display: flex;
+  color: #fff;
+}
+
+:global([dir="rtl"]) .cardArrow {
+  transform: scaleX(-1);
+}
+
+.cardTitle {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cardTitle h4 {
+  margin: 0;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -0.5px;
+}
+
+.cardTitle span,
+.cardText {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+}
+
+.cardTitle span {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cardRule {
+  display: block;
+  width: 230px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+.cardText {
+  display: block;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cardImage {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 100%;
+  height: 158px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.cardImage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.cardImageOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 12px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+}
+
+.cardImageOverlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: inherit;
+}
+
+/* ---------------- tags ---------------- */
+
+.tags {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 992px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 62px;
+  padding: 13px 14px;
+  border-radius: 17px;
+  background-color: #080808;
+}
+
+.tag::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.tagGlow {
+  position: absolute;
+  top: -1.89px;
+  left: 0;
+  width: 100%;
+  height: 66px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.tagIcon {
+  width: 36px;
+  height: 36px;
+}
+
+.tagLabel {
+  position: relative;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -0.5px;
+  white-space: pre;
+}
+
+.line {
+  display: block;
+  flex: none;
+  width: calc(100% - 100px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+/* ================= tablet ================= */
+
+@media (max-width: 1199px) {
+  .section {
+    gap: 100px;
+    padding: 100px 20px 0;
+  }
+
+  .container {
+    padding: 100px 50px 60px;
+  }
+
+  .dots {
+    height: 420px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tags {
+    max-width: 688px;
+  }
+
+  .line {
+    width: calc(100% + 40px);
+  }
+}
+
+/* ================= phone ================= */
+
+@media (max-width: 809px) {
+  .section {
+    gap: 80px;
+    padding: 0 10px;
+  }
+
+  .container {
+    gap: 50px;
+    padding: 100px 20px 60px;
+  }
+
+  .dots {
+    height: 762px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    min-height: 481px;
+  }
+
+  .tags {
+    gap: 16px;
+  }
+
+  .line {
+    width: calc(100% + 20px);
+  }
+}

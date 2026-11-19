@@ -1,0 +1,258 @@
+/*
+ * Home hero. Desktop ≥1200 · tablet 810–1199 · phone ≤809.
+ */
+
+/* ---------------- animated arc backdrop ---------------- */
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 810px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* fades the bottom of the glow into the page */
+.backdropShade {
+  position: relative;
+  z-index: 7;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), #000);
+  -webkit-mask-image: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0.5) 100%);
+  mask-image: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.arc {
+  position: absolute;
+  top: 444px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 567px;
+  overflow: hidden;
+}
+
+.arcImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: arc-breathe 1.5s linear infinite alternate;
+}
+
+@keyframes arc-breathe {
+  from {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) skewY(0deg);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateY(6px) rotate(-3deg) skewY(2deg);
+  }
+}
+
+/* ---------------- content ---------------- */
+
+.hero {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.spacer {
+  width: 100%;
+  height: 91px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  padding: 0 80px;
+  overflow: hidden;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 38px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  width: 100%;
+}
+
+.tagAndTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 34px;
+  width: 100%;
+}
+
+.title {
+  --title-line: 90px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 86px;
+  font-weight: 400;
+  line-height: var(--title-line);
+  letter-spacing: -3.8px;
+  text-align: center;
+}
+
+.titleLine {
+  display: block;
+}
+
+/* soft white-to-transparent gradient on the letters */
+.titleLine span {
+  display: inline-block;
+  padding: max(0em, calc((1.3em - var(--title-line)) / 2));
+  margin: min(0em, calc((1.3em - var(--title-line)) / -2));
+  color: #fff;
+  background-image: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.3) 350%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro {
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+  text-align: center;
+}
+
+/* Arabic: the intro fits one line in the 800px column */
+:global([dir="rtl"]) .intro {
+  max-width: 560px;
+}
+
+.introPhone {
+  display: none;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* ---------------- logo strip ---------------- */
+
+.logos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 430px;
+}
+
+.logosLine {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+.logoStrip {
+  height: 80px;
+  padding: 10px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 30%, #000 70%, transparent 100%);
+}
+
+.logo {
+  display: block;
+  flex: none;
+  width: 80px;
+  height: 80px;
+  margin: -10px 0;
+  object-fit: cover;
+}
+
+/* ================= tablet ================= */
+
+@media (max-width: 1199px) {
+  .container {
+    padding: 0 50px;
+  }
+
+  .title {
+    --title-line: 70px;
+    font-size: 66px;
+    letter-spacing: -3px;
+  }
+}
+
+/* ================= phone ================= */
+
+@media (max-width: 809px) {
+  .backdrop {
+    height: 770px;
+  }
+
+  .arc {
+    top: 432px;
+    left: -19.5px;
+    width: calc(100% + 39px);
+    height: 539px;
+  }
+
+  .container {
+    padding: 0 30px;
+  }
+
+  .title {
+    --title-line: 55px;
+    font-size: 56px;
+    letter-spacing: -3.4px;
+  }
+
+  .introWide {
+    display: none;
+  }
+
+  .introPhone {
+    display: block;
+  }
+
+  .logos {
+    max-width: none;
+  }
+}

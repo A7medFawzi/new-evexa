@@ -8,7 +8,16 @@ import styles from "./ProjectList.module.css";
  * and slightly tilted (alternating, mirrored for Arabic) and settles into
  * place as it scrolls in, sliding out from under the card above.
  */
-export default function ProjectList({ lang, projects }: { lang: Lang; projects: Project[] }) {
+export default function ProjectList({
+  lang,
+  projects,
+  fade = false,
+}: {
+  lang: Lang;
+  projects: Project[];
+  /** cards also fade in from 30% opacity (home preview) */
+  fade?: boolean;
+}) {
   const flip = lang === "ar" ? -1 : 1;
   return (
     <div className={styles.list}>
@@ -23,7 +32,7 @@ export default function ProjectList({ lang, projects }: { lang: Lang; projects: 
           );
         }
         return (
-          <ScrollTransform key={project.href} className={styles.item} style={style} from={{ y: -180, rotate: (i % 2 ? 2 : -2) * flip }}>
+          <ScrollTransform key={project.href} className={styles.item} style={style} from={{ y: -180, rotate: (i % 2 ? 2 : -2) * flip, opacity: fade ? 0.3 : 1 }}>
             {card}
           </ScrollTransform>
         );

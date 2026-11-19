@@ -37,6 +37,20 @@
   border-width: 1px;
 }
 
+.white {
+  background: rgb(239, 238, 236);
+  color: rgb(19, 19, 19);
+}
+
+.grey {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.white::after,
+.grey::after {
+  border-width: 0;
+}
+
 .arrow {
   display: block;
   flex: none;

@@ -1,0 +1,79 @@
+.viewport {
+  display: flex;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  flex: none;
+  gap: var(--marquee-gap, 0px);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.set {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--marquee-gap, 0px);
+}
+
+.running {
+  animation-name: marquee-left;
+}
+
+.running.reverse {
+  animation-name: marquee-right;
+}
+
+/* RTL lays the track out from the right edge (overflowing to the left),
+   so the default direction there is rightwards */
+:global([dir="rtl"]) .running {
+  animation-name: marquee-rtl-right;
+}
+
+:global([dir="rtl"]) .running.reverse {
+  animation-name: marquee-rtl-left;
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--marquee-shift)));
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(calc(-1 * var(--marquee-shift)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes marquee-rtl-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--marquee-shift));
+  }
+}
+
+@keyframes marquee-rtl-left {
+  from {
+    transform: translateX(var(--marquee-shift));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .running {
+    animation-play-state: paused;
+  }
+}

@@ -1,0 +1,253 @@
+/** Home page content (both languages), section by section. */
+import type { Project } from "@/components/portfolio/ProjectCard";
+import type { Lang } from "@/config/site";
+
+export interface HomeHeroCopy {
+  badgeChip: string;
+  badge: string;
+  title: [string, string];
+  /** desktop / tablet intro */
+  intro: string;
+  /** shorter intro shown on phones */
+  introPhone: string;
+  primary: { label: string; href: string };
+  secondary: { label: string; href: string };
+}
+
+export interface HomeAboutCopy {
+  badge: string;
+  /** statement that lights up word by word while scrolling */
+  statement: string;
+  button: { label: string; href: string };
+}
+
+export interface SectionIntro {
+  badge: string;
+  title: string;
+  body: string;
+  button: { label: string; href: string };
+}
+
+export interface HomeFeaturesCopy {
+  /** the three showcase cards: connected systems, trusted knowledge, voice */
+  cards: [FeatureCard, FeatureCard, FeatureCard];
+  /** rows of topic chips scrolling inside the "trusted knowledge" card */
+  chipRows: string[][];
+  /** label above the voice player */
+  voiceLabel: string;
+  points: { title: string; text: string }[];
+}
+
+export interface ServiceCard {
+  title: string;
+  subtitle: string;
+  text: string;
+  image: string;
+}
+
+export interface HomeServicesCopy {
+  badge: string;
+  title: [string, string];
+  body: string;
+  button: { label: string; href: string };
+  /** every card links to the contact page */
+  cards: ServiceCard[];
+  tags: string[];
+}
+
+export interface HomeWorkCopy {
+  badge: string;
+  title: [string, string];
+  body: string;
+  button: { label: string; href: string };
+  projects: Project[];
+}
+
+export interface FeatureCard {
+  title: string;
+  text: string;
+}
+
+export interface HomeCopy {
+  hero: HomeHeroCopy;
+  about: HomeAboutCopy;
+  /** heading inside the rotating image circle */
+  circle: SectionIntro;
+  features: HomeFeaturesCopy;
+  services: HomeServicesCopy;
+  work: HomeWorkCopy;
+}
+
+/** Images around the rotating circle (template artwork), one per arm. */
+export const CIRCLE_IMAGES = [
+  "/images/mdHohhCEac2dy5qj6Hz8xLx3o.webp",
+  "/images/F9LoqzZkQUYA0UTzwbeKgrHtxU.webp",
+  "/images/Zkc7LAnMDDFA5UyIhmoJayaPrM.webp",
+  "/images/rQo7dT4FIzcLvbS5xhx27CBlIYI.webp",
+  "/images/AiNn1Q8eMnTVvy7xlvhRMelvUQw.webp",
+  "/images/lI938j8IVRDakrPO5qLopvjOAag.webp",
+  "/images/y6nsXyFCXVHybL6AG2drPt8Xug.webp",
+  "/images/9Cq6czESZQzziX2TlS71XgHZfYo.webp",
+  "/images/WphhJDIoOTyAWBQ4nOmEaGTuaU.webp",
+  "/images/5dV8J37lurqu7X0JZXCpKEcTQEA.webp",
+  "/images/0Zl0ZNxSslCNHOplP4DkxYxobVY.webp",
+  "/images/fIbnVqKMPTPFfkL2aQSsDmEYsk.webp",
+];
+
+/** Project preview images (template artwork, shared with the portfolio page). */
+const WORK_IMAGES: Project["images"][] = [
+  [{ src: "/images/6igmB60fniZZ2g62iKIWQ848llo.webp", alt: "" }, { src: "/images/shPlLwe662SqZNtKzOhZzw5yDGQ.webp", alt: "" }],
+  [{ src: "/images/oITRaXEkBVhukMYINXV2xi05PY.webp", alt: "" }, { src: "/images/BChNf0ssn5x1I9kAk4vwX8qT5o.webp", alt: "" }],
+  [{ src: "/images/h33bTK94GjgfacsggRpl9F5QXes.webp", alt: "" }, { src: "/images/mdHohhCEac2dy5qj6Hz8xLx3o.webp", alt: "" }],
+];
+
+/** Placeholder client logos under the hero (template artwork). */
+export const HERO_LOGOS = [
+  "/images/vniufJMsSAXh18yjYsUsriXaJgw.webp",
+  "/images/yTyqzwdEKp9XJLQBwf8DmWnxws.webp",
+  "/images/ffx7akDwhywGTdzIV6fqasW7N8.webp",
+  "/images/QJyR5CNEY5EZDa18LPHJLBySZsY.webp",
+];
+
+export const HOME_COPY: Record<Lang, HomeCopy> = {
+  en: {
+    hero: {
+      badgeChip: "EVEXA",
+      badge: "Custom AI Solutions",
+      title: ["Put AI to work", "in your business."],
+      intro: "Search company knowledge, process documents, and reduce manual work.",
+      introPhone: "Built around your workflows, data, and existing tools.",
+      primary: { label: "Discuss Your Project", href: "/contact" },
+      secondary: { label: "See Our Work", href: "#work" },
+    },
+    about: {
+      badge: "About EVEXA",
+      statement:
+        "We study how your team works before deciding what to automate, connect, or build. AI should fit your people, data, and systems—not the other way around.",
+      button: { label: "About EVEXA", href: "/about" },
+    },
+    circle: {
+      badge: "Features",
+      title: "More than a clever answer.",
+      body: "Useful AI helps your team find information and get work done.",
+      button: { label: "Explore Solutions", href: "#services" },
+    },
+    features: {
+      cards: [
+        { title: "Connected Systems", text: "Link AI to existing tools through available APIs." },
+        { title: "Trusted Knowledge", text: "Ground answers in approved company sources." },
+        { title: "Voice Interaction", text: "Enable speech input where the workflow calls for it." },
+      ],
+      chipRows: [
+        ["Knowledge Search", "AI Assistants", "Document AI", "Automation", "Business Data", "Integrations"],
+        ["Integrations", "Business Data", "Automation", "Document AI", "AI Assistants", "Knowledge Search"],
+        ["AI Assistants", "Automation", "Integrations", "Knowledge Search", "Document AI", "Business Data"],
+        ["Knowledge Search", "AI Assistants", "Automation", "Business Data", "Document AI", "Integrations"],
+        ["Integrations", "Automation", "AI Assistants", "Business Data", "Document AI", "Knowledge Search"],
+      ],
+      voiceLabel: "Speech Recognition",
+      points: [
+        { title: "Role-Based Access", text: "Permissions designed around team roles." },
+        { title: "Arabic & English", text: "Experiences designed for both languages." },
+        { title: "Document Handling", text: "Extract and organize useful information." },
+        { title: "Human Review", text: "Keep people involved in key decisions." },
+      ],
+    },
+    services: {
+      badge: "Solutions",
+      title: ["Practical AI for", "real business needs."],
+      body: "From knowledge search to automation, we build around real work.",
+      button: { label: "Discuss Your Needs", href: "/contact" },
+      cards: [
+        { title: "Knowledge Search", subtitle: "Find What Matters", text: "Search policies and documents in natural language.", image: "/images/KOQjQrydrJvVSvzcz2fLyVMiuBc.webp" },
+        { title: "AI Assistants", subtitle: "Built for Your Team", text: "Help teams ask questions and complete tasks.", image: "/images/ToPQEZ9eFCvl99MrtXsqomfpXHk.webp" },
+        { title: "Document Intelligence", subtitle: "From Files to Data", text: "Extract, classify, and summarize document data.", image: "/images/JVeLFwlla249JSPeVtuDk0OVGs.webp" },
+        { title: "Workflow Automation", subtitle: "Less Manual Work", text: "Simplify repeat steps and route requests.", image: "/images/lI938j8IVRDakrPO5qLopvjOAag.webp" },
+        { title: "AI Integration", subtitle: "Work with Your Tools", text: "Add AI to the platforms your team already uses.", image: "/images/sdixBqAkiZb3TpET3Mb5jJpkJg.webp" },
+        { title: "Analytics & Forecasting", subtitle: "Insights for Planning", text: "Find patterns in business data to support planning.", image: "/images/ybCYGxkPk1Uo7mJSbjERZVS8I.webp" },
+      ],
+      tags: ["Knowledge Search", "AI Assistants", "Document AI", "Automation", "Integrations", "Arabic NLP", "Business Data", "Analytics"],
+    },
+    work: {
+      badge: "Selected Work",
+      title: ["What we’ve built,", "and why it matters."],
+      body: "AI solutions and business platforms built for real operational needs.",
+      button: { label: "Explore Our Work", href: "/portfolio" },
+      projects: [
+        { href: "/portfolio/albetar", label: "AI", title: "Albetar AI Modules", points: ["Bilingual Product Search", "Semantic Retrieval", "AI Recommendations", "Revenue Forecasting"], tags: ["Commerce AI", "RAG"], images: WORK_IMAGES[0] },
+        { href: "/portfolio/mohami-smart", label: "LEGAL", title: "Mohami Smart", points: ["AI Legal Assistant", "Document Analysis", "Legal Drafting", "Case Management"], tags: ["LegalTech", "AI Workflows"], images: WORK_IMAGES[1] },
+        { href: "/portfolio/business-operations", label: "OPS", title: "Business Operations Platforms", points: ["HR Workflows", "Project Operations", "Approvals & Tracking", "Role-Based Access"], tags: ["HRMS", "PMS"], images: WORK_IMAGES[2] },
+      ],
+    },
+  },
+  ar: {
+    hero: {
+      badgeChip: "EVEXA",
+      badge: "حلول ذكاء اصطناعي",
+      title: ["اجعل الذكاء الاصطناعي", "جزءًا من عملك."],
+      intro: "ابحث في معلومات شركتك، وتعامل مع المستندات، وقلّل المهام اليدوية.",
+      introPhone: "حلول مخصصة تتكامل مع بياناتك وإجراءاتك وأنظمتك الحالية.",
+      primary: { label: "ناقش مشروعك", href: "/contact" },
+      secondary: { label: "استكشف أعمالنا", href: "#work" },
+    },
+    about: {
+      badge: "عن EVEXA",
+      statement:
+        "نفهم طريقة عمل فريقك قبل تحديد ما يحتاج إلى أتمتة أو تكامل أو تطوير. نصمم حلول الذكاء الاصطناعي لتناسب الأشخاص والبيانات والأنظمة التي تعتمد عليها شركتك.",
+      button: { label: "عن EVEXA", href: "/about" },
+    },
+    circle: {
+      badge: "المميزات",
+      title: "أكثر من مجرد إجابة ذكية.",
+      body: "الذكاء الاصطناعي المفيد يساعد فريقك على الوصول للمعلومات وإنجاز العمل.",
+      button: { label: "استكشف الحلول", href: "#services" },
+    },
+    features: {
+      cards: [
+        { title: "أنظمة مترابطة", text: "اربط الذكاء الاصطناعي بأدواتك\nعبر واجهات الربط المتاحة." },
+        { title: "معلومات موثوقة", text: "إجابات تستند إلى مصادر\nالشركة المعتمدة." },
+        { title: "التفاعل الصوتي", text: "أضف الإدخال الصوتي\nعندما يناسب طبيعة العمل." },
+      ],
+      chipRows: [
+        ["البحث المعرفي", "المساعدات الذكية", "ذكاء المستندات", "الأتمتة", "بيانات الأعمال", "التكاملات"],
+        ["التكاملات", "بيانات الأعمال", "الأتمتة", "ذكاء المستندات", "المساعدات الذكية", "البحث المعرفي"],
+        ["المساعدات الذكية", "الأتمتة", "التكاملات", "البحث المعرفي", "ذكاء المستندات", "بيانات الأعمال"],
+        ["البحث المعرفي", "المساعدات الذكية", "الأتمتة", "بيانات الأعمال", "ذكاء المستندات", "التكاملات"],
+        ["التكاملات", "الأتمتة", "المساعدات الذكية", "بيانات الأعمال", "ذكاء المستندات", "البحث المعرفي"],
+      ],
+      voiceLabel: "التعرف على الصوت",
+      points: [
+        { title: "صلاحيات حسب الدور", text: "صلاحيات تتناسب مع أدوار المستخدمين." },
+        { title: "العربية والإنجليزية", text: "تجربة مصممة للعمل باللغتين." },
+        { title: "معالجة المستندات", text: "استخراج المعلومات وتنظيمها من المستندات." },
+        { title: "مراجعة بشرية", text: "إشراك الفريق في مراجعة القرارات المهمة." },
+      ],
+    },
+    services: {
+      badge: "حلولنا",
+      title: ["حلول ذكاء اصطناعي", "لاحتياجات أعمالك."],
+      body: "من البحث المعرفي إلى الأتمتة، نقدم حلولًا تناسب سير العمل الفعلي.",
+      button: { label: "ناقش احتياجك", href: "/contact" },
+      cards: [
+        { title: "البحث المعرفي", subtitle: "اعثر على ما تحتاجه", text: "ابحث في السياسات والمستندات بلغة طبيعية.", image: "/images/KOQjQrydrJvVSvzcz2fLyVMiuBc.webp" },
+        { title: "المساعدات الذكية", subtitle: "مصممة لفريقك", text: "مساعدات تدعم فريقك في الاستفسارات والمهام.", image: "/images/ToPQEZ9eFCvl99MrtXsqomfpXHk.webp" },
+        { title: "فهم المستندات", subtitle: "من الملفات إلى المعلومات", text: "استخرج المعلومات من المستندات وصنّفها ولخّصها.", image: "/images/JVeLFwlla249JSPeVtuDk0OVGs.webp" },
+        { title: "أتمتة الإجراءات", subtitle: "عمل يدوي أقل", text: "بسّط المهام المتكررة ووجّه الطلبات.", image: "/images/lI938j8IVRDakrPO5qLopvjOAag.webp" },
+        { title: "دمج الذكاء الاصطناعي", subtitle: "يتكامل مع أنظمتك", text: "أضف قدرات ذكية إلى أنظمتك الحالية.", image: "/images/sdixBqAkiZb3TpET3Mb5jJpkJg.webp" },
+        { title: "التحليلات والتوقعات", subtitle: "رؤى تدعم التخطيط", text: "افهم أنماط البيانات وادعم قرارات التخطيط.", image: "/images/ybCYGxkPk1Uo7mJSbjERZVS8I.webp" },
+      ],
+      tags: ["البحث المعرفي", "المساعدات الذكية", "ذكاء المستندات", "الأتمتة", "التكاملات", "معالجة العربية", "بيانات الأعمال", "التحليلات"],
+    },
+    work: {
+      badge: "من أعمالنا",
+      title: ["ما أنجزناه،", "وما يميّزه."],
+      body: "حلول ذكاء اصطناعي ومنصات أعمال طُورت لاحتياجات تشغيلية فعلية.",
+      button: { label: "استكشف أعمالنا", href: "/portfolio" },
+      projects: [
+        { href: "/portfolio/albetar", label: "AI", title: "Albetar AI Modules", points: ["بحث منتجات بلغتين", "استرجاع دلالي", "توصيات ذكية", "توقعات الإيرادات"], tags: ["ذكاء التجارة", "RAG"], images: WORK_IMAGES[0] },
+        { href: "/portfolio/mohami-smart", label: "قانوني", title: "Mohami Smart", points: ["مساعد قانوني ذكي", "تحليل المستندات", "إعداد صيغ قانونية", "إدارة القضايا"], tags: ["تقنية قانونية", "إجراءات ذكية"], images: WORK_IMAGES[1] },
+        { href: "/portfolio/business-operations", label: "تشغيل", title: "Business Operations Platforms", points: ["إجراءات الموارد البشرية", "العمليات والمشاريع", "الموافقات والمتابعة", "صلاحيات حسب الدور"], tags: ["HRMS", "PMS"], images: WORK_IMAGES[2] },
+      ],
+    },
+  },
+};
