@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
+import { useState, type MouseEvent, type ReactNode } from "react";
 import styles from "./HoverLink.module.css";
 
 const SPRING = { type: "spring", stiffness: 400, damping: 60, mass: 1 } as const;
@@ -35,18 +35,19 @@ export default function HoverLink({
 }) {
   const [hovered, setHovered] = useState(false);
   // page changes switch the active state instantly; only hover animates
-  const prevActive = useRef(active);
-  const activeChanged = prevActive.current !== active;
-  useEffect(() => {
-    prevActive.current = active;
-  });
+  const [prevActive, setPrevActive] = useState(active);
+  const [instant, setInstant] = useState(false);
+  if (prevActive !== active) {
+    setPrevActive(active);
+    setInstant(true);
+  }
 
   const content = (
     <motion.span
       className={styles.inner}
       initial={false}
       animate={{ opacity: active || hovered ? 1 : restOpacity }}
-      transition={activeChanged ? { duration: 0 } : SPRING}
+      transition={instant ? { duration: 0 } : SPRING}
     >
       <span className={labelClassName ? `${styles.label} ${labelClassName}` : styles.label}>{children}</span>
       {after}
@@ -56,8 +57,14 @@ export default function HoverLink({
   const shared = {
     className: className ? `${styles.link} ${className}` : styles.link,
     onClick,
-    onPointerEnter: () => setHovered(true),
-    onPointerLeave: () => setHovered(false),
+    onPointerEnter: () => {
+      setInstant(false);
+      setHovered(true);
+    },
+    onPointerLeave: () => {
+      setInstant(false);
+      setHovered(false);
+    },
   };
 
   if (external) {

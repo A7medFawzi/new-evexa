@@ -71,8 +71,11 @@ export default function ScrollFillText({
     };
   }, [words.length, perWord]);
 
-  // global running index of characters (Latin: +1 per word for the space)
-  let charIndex = 0;
+  // index of each word's first character in the whole text (Latin: +1 per space)
+  const wordStarts = words.reduce<number[]>((starts, word, i) => {
+    starts.push(i === 0 ? 0 : starts[i - 1] + [...words[i - 1]].length + 1);
+    return starts;
+  }, []);
   return (
     <Tag ref={ref} className={className} aria-label={text}>
       {words.map((word, w) => {
@@ -89,8 +92,7 @@ export default function ScrollFillText({
           );
         }
         const chars = [...word];
-        const base = charIndex;
-        charIndex += chars.length + 1;
+        const base = wordStarts[w];
         return (
           <span key={w} aria-hidden="true">
             {chars.map((c, i) => (

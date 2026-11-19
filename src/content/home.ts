@@ -75,6 +75,20 @@ export interface HomeProductCopy {
   cards: { title: string; text: string }[];
 }
 
+export interface HomeProcessCopy {
+  badge: string;
+  title: [string, string];
+  body: string;
+  steps: { title: string; text: string }[];
+}
+
+export interface HomeChallengeCopy {
+  badge: string;
+  title: [string, string];
+  text: string;
+  button: { label: string; href: string };
+}
+
 export interface FeatureCard {
   title: string;
   text: string;
@@ -91,6 +105,12 @@ export interface HomeCopy {
   product: HomeProductCopy;
   /** "Why EVEXA" — same layout as the about page's approach section */
   why: AboutCopy["approach"];
+  integrations: { badge: string; title: [string, string]; body: string; button: { label: string; href: string } };
+  process: HomeProcessCopy;
+  /** split card with a video: "Where does work slow down?" */
+  challenge: HomeChallengeCopy;
+  faqBadge: string;
+  cta: { badge: string; title: [string, string]; text: string; button: string; href: string };
 }
 
 /** Images around the rotating circle (template artwork), one per arm. */
@@ -128,6 +148,19 @@ export const PRODUCT_IMAGES = [
 ];
 
 const WHY_IMAGE = { src: "/images/hZgGlHpPFf0bbzHL7dI9MolatA.webp", alt: "Man using a laptop" };
+
+/** Tool logos in the integrations ticker (template artwork). */
+export const INTEGRATION_LOGOS = [
+  "/images/eI9yKV9nd0AT4YF5dO7pyE64.webp",
+  "/images/sYsF5Bl4M7g4beavWohrfIF6ZE.webp",
+  "/images/23ltFY53sGksUI79i6KDahMEjsU.svg",
+  "/images/L9HqxZhZ5iQe39qHdIj1EjwUgA8.svg",
+  "/images/F9cveGfkmDYJPsUktCLECV43s4.svg",
+  "/images/KCr8sxIBnJCzZI7ThcrRzxZ8UVs.svg",
+  "/images/gqv3tuTwxsISYOQe0Zwi95OP714.svg",
+  "/images/xtU2n341VGGcU87PrpBxCo4PEFo.svg",
+  "/images/e1zEk4xxTPo4zzl3Y6DhP5avQA.svg",
+];
 
 /** Placeholder client logos under the hero (template artwork). */
 export const HERO_LOGOS = [
@@ -230,6 +263,36 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
         { tag: "Deliver", title: "Built to Work in Practice", text: "Handle the software and integration needed for daily work.", button: { label: "Discuss Your Project", href: "/contact" } },
       ],
     },
+    integrations: {
+      badge: "Integrations",
+      title: ["Connect AI to the tools", "you already use."],
+      body: "We assess connections with CRMs, databases, documents, and internal tools.",
+      button: { label: "Talk About Integration", href: "/contact" },
+    },
+    process: {
+      badge: "Our Process",
+      title: ["From business challenge", "to working AI."],
+      body: "We define, build, test, integrate, and prepare the solution for use.",
+      steps: [
+        { title: "Understand", text: "Map workflows, users, data, and success criteria." },
+        { title: "Build & Test", text: "Develop the solution and validate real scenarios." },
+        { title: "Integrate & Deliver", text: "Connect systems and agree on handover steps." },
+      ],
+    },
+    challenge: {
+      badge: "Let’s Start with the Problem",
+      title: ["Where does work", "slow down?"],
+      text: "Tell us what takes too long. We’ll explore if AI can help.",
+      button: { label: "Discuss Your Challenge", href: "/contact" },
+    },
+    faqBadge: "FAQ",
+    cta: {
+      badge: "Let’s Talk",
+      title: ["Have a workflow", "worth improving?"],
+      text: "Share your challenge. We’ll explore a practical starting point.",
+      button: "Discuss Your Project",
+      href: "/contact",
+    },
   },
   ar: {
     hero: {
@@ -322,6 +385,36 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
         { tag: "الملاءمة", title: "مناسب لبيئة عملك", text: "نصمم الحل وفق الأنظمة والبيانات وإجراءات العمل.", tags: ["أنظمتك", "بياناتك"] },
         { tag: "التنفيذ", title: "جاهز للاستخدام الفعلي", text: "ننفذ البرمجيات والتكاملات اللازمة للعمل اليومي.", button: { label: "ناقش مشروعك", href: "/contact" } },
       ],
+    },
+    integrations: {
+      badge: "التكاملات",
+      title: ["اربط الذكاء الاصطناعي", "بأنظمتك الحالية."],
+      body: "ندرس الربط مع أنظمة العملاء وقواعد البيانات والمستندات والأدوات الداخلية.",
+      button: { label: "ناقش متطلبات التكامل", href: "/contact" },
+    },
+    process: {
+      badge: "منهجيتنا",
+      title: ["من تحديات العمل", "إلى حلول عملية."],
+      body: "نحدد الاحتياج، ونطوّر الحل ونختبره، ثم نجهزه للتكامل والتسليم.",
+      steps: [
+        { title: "فهم الاحتياج", text: "ندرس الإجراءات والمستخدمين والبيانات والنتائج المطلوبة." },
+        { title: "التطوير والاختبار", text: "نطور الحل ونختبره على سيناريوهات واقعية." },
+        { title: "التكامل والتسليم", text: "نربط الأنظمة ونجهز التسليم والخطوات التالية." },
+      ],
+    },
+    challenge: {
+      badge: "لنبدأ من التحدي",
+      title: ["أين تتباطأ", "إجراءات العمل؟"],
+      text: "حدثنا عما يستغرق وقتًا طويلًا، لنحدد أين يمكن للذكاء الاصطناعي أن يساعد.",
+      button: { label: "ناقش التحدي", href: "/contact" },
+    },
+    faqBadge: "الأسئلة الشائعة",
+    cta: {
+      badge: "لنتحدث",
+      title: ["هل لديك إجراء", "ترغب في تطويره؟"],
+      text: "شاركنا التحدي، وسنساعدك على تحديد نقطة بداية عملية.",
+      button: "ناقش مشروعك",
+      href: "/contact",
     },
   },
 };

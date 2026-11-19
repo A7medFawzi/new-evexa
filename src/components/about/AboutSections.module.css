@@ -204,8 +204,10 @@
   padding-top: 0;
 }
 
-.home .approachContainer {
-  padding-bottom: 20px;
+@media (min-width: 1200px) {
+  .home .approachContainer {
+    padding-bottom: 20px;
+  }
 }
 
 /* ---------------- Arabic ---------------- */

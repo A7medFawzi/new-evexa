@@ -34,7 +34,11 @@ export default function SiteHeader({ lang, dict }: { lang: Lang; dict: Dictionar
   const activeKey = pendingKey ?? activeNavKey(pathname);
 
   // a finished navigation settles the optimistic active item
-  useEffect(() => setPendingKey(null), [pathname]);
+  const [settledPath, setSettledPath] = useState(pathname);
+  if (settledPath !== pathname) {
+    setSettledPath(pathname);
+    setPendingKey(null);
+  }
 
   // remember the visitor's language: src/proxy.ts uses it for links
   // without a language prefix
@@ -83,7 +87,7 @@ export default function SiteHeader({ lang, dict }: { lang: Lang; dict: Dictionar
     setMenuOpen(false);
   };
 
-  const onNavClick = (key: NavKey, href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
+  const onNavClick = (e: MouseEvent<HTMLAnchorElement>, key: NavKey, href: string) => {
     closeMenu();
     if (href.startsWith("/#")) {
       // every page has its own FAQ section: scroll to it when present
@@ -134,14 +138,14 @@ export default function SiteHeader({ lang, dict }: { lang: Lang; dict: Dictionar
           <ul className={styles.menu}>
             {NAV_ITEMS.map(({ key, href, desktopOnly }) => (
               <li key={key} className={desktopOnly ? styles.desktopOnly : undefined}>
-                <HoverLink href={localizeHref(href, lang)} active={activeKey === key} onClick={onNavClick(key, href)}>
+                <HoverLink href={localizeHref(href, lang)} active={activeKey === key} onClick={(e) => onNavClick(e, key, href)}>
                   {dict.nav[key]}
                 </HoverLink>
               </li>
             ))}
           </ul>
 
-          <PrimaryButton thin href={localizeHref(CONTACT_HREF, lang)} className={styles.cta} onClick={onNavClick("contact", CONTACT_HREF)}>
+          <PrimaryButton thin href={localizeHref(CONTACT_HREF, lang)} className={styles.cta} onClick={(e) => onNavClick(e, "contact", CONTACT_HREF)}>
             {dict.header.cta}
           </PrimaryButton>
         </nav>
