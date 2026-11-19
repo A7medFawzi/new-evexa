@@ -136,16 +136,17 @@ const WORK_IMAGES: Project["images"][] = [
   [{ src: "/images/h33bTK94GjgfacsggRpl9F5QXes.webp", alt: "" }, { src: "/images/mdHohhCEac2dy5qj6Hz8xLx3o.webp", alt: "" }],
 ];
 
-/** Fan of screenshots in the Dealplier section (template artwork). */
-export const PRODUCT_IMAGES = [
-  "/images/oDRTuQcEv3o8tKOrggRlXOYRMGE.webp",
-  "/images/GsvUhduUuKpqabW4bstAZkXg2I.webp",
-  "/images/uNKtEHPNTpmZAxn4jjdzE9O6BU.webp",
-  "/images/aE1xhNZ4UZzqgk3p2IcEuW5uA.webp",
-  "/images/gxpeAO79b6wHLclIxgs0fpho7zY.webp",
-  "/images/c4v0BFVHL96KZfuqVprJYqGBX8.webp",
-  "/images/kaI0Lz0RW30Awo1Y289wwm2NWJU.webp",
-];
+/**
+ * Fan of Dealplier screenshots (left to right), cropped from the real app
+ * screens on dealplier.com: RFQ inbox and RFQ detail under "RFQs,
+ * organized", the opportunities pipeline and team dashboard in the middle,
+ * My Day under "Follow-up, clear". Each has an English and an Arabic copy.
+ */
+const PRODUCT_SHOTS = ["1-rfq", "2-rfq", "3-pipeline", "4-dashboard", "5-pipeline", "6-my-day", "7-my-day"];
+
+export function productImages(lang: Lang): string[] {
+  return PRODUCT_SHOTS.map((name) => `/images/dealplier/dealplier-${name}.${lang}.webp`);
+}
 
 const WHY_IMAGE = { src: "/images/hZgGlHpPFf0bbzHL7dI9MolatA.webp", alt: "Man using a laptop" };
 

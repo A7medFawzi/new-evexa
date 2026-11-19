@@ -57,7 +57,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       <HomeFeatures copy={copy.features} />
       <HomeServices copy={copy.services} lang={lang} />
       <HomeWork copy={copy.work} lang={lang} />
-      <HomeProduct copy={copy.product} />
+      <HomeProduct copy={copy.product} lang={lang} />
       <ApproachSection lang={lang} content={copy.why} id="why" variant="home" badgeIcon={<WhyIcon />} />
       <HomeIntegrations copy={copy.integrations} lang={lang} />
       <HomeProcess copy={copy.process} />

@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { CalendarCheckIcon, InboxIcon, ProductIcon, QuotationIcon } from "@/components/ui/icons";
-import { PRODUCT_IMAGES, type HomeProductCopy } from "@/content/home";
+import type { Lang } from "@/config/site";
+import { productImages, type HomeProductCopy } from "@/content/home";
 import SectionHeading from "./SectionHeading";
 import styles from "./HomeProduct.module.css";
 
@@ -22,7 +23,7 @@ const FAN: { d: [number, number]; t: [number, number]; p: [number, number]; rota
 const CARD_ICONS = [InboxIcon, QuotationIcon, CalendarCheckIcon];
 
 /** Dealplier, EVEXA's own product: heading, a fan of screenshots and three feature cards. */
-export default function HomeProduct({ copy }: { copy: HomeProductCopy }) {
+export default function HomeProduct({ copy, lang }: { copy: HomeProductCopy; lang: Lang }) {
   return (
     <section className={styles.section}>
       <img className={styles.rays} src="/images/sr8vmLBhND1D86vmn1G0mLCt8.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
@@ -32,7 +33,7 @@ export default function HomeProduct({ copy }: { copy: HomeProductCopy }) {
 
         <div className={styles.showcase}>
           <div className={styles.fan} aria-hidden="true">
-            {PRODUCT_IMAGES.map((src, i) => {
+            {productImages(lang).map((src, i) => {
               const f = FAN[i];
               const style = {
                 "--dx": `${f.d[0]}px`,
