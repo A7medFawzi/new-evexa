@@ -8,6 +8,14 @@ export const LANGS = ["en", "ar"] as const;
 export type Lang = (typeof LANGS)[number];
 export const DEFAULT_LANG: Lang = "en";
 
+/**
+ * Public origin of the site (no trailing slash). Used for canonical URLs,
+ * hreflang links, Open Graph and the sitemap. Set NEXT_PUBLIC_SITE_URL in
+ * each environment; production falls back to the evexa.tech domain.
+ */
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://evexa.tech").replace(/\/+$/, "");
+export const SITE_NAME = "EVEXA";
+
 export function isLang(value: string): value is Lang {
   return (LANGS as readonly string[]).includes(value);
 }

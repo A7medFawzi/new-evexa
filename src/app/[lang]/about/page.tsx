@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+import { PAGE_SEO } from "@/content/seo";
+import { pageMetadata } from "@/lib/seo";
 import ApproachSection from "@/components/about/ApproachSection";
 import CapabilitiesSection from "@/components/about/CapabilitiesSection";
 import BottomBlur from "@/components/layout/BottomBlur";
@@ -11,6 +14,11 @@ import { localizeHref, type Lang } from "@/config/site";
 import { ABOUT_COPY } from "@/content/about";
 import { FAQS } from "@/content/faq";
 import styles from "./page.module.css";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const lang = (await params).lang as Lang;
+  return pageMetadata({ lang, route: "/about", ...PAGE_SEO.about[lang] });
+}
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
   const lang = (await params).lang as Lang;

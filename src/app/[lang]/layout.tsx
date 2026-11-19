@@ -3,8 +3,10 @@ import { notFound } from "next/navigation";
 import { Alexandria } from "next/font/google";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
-import { LANGS, dirOf, isLang, type Lang } from "@/config/site";
+import { LANGS, SITE_NAME, SITE_URL, dirOf, isLang } from "@/config/site";
+import { SITE_SEO } from "@/content/seo";
 import { getDictionary } from "@/i18n";
+import { OG_IMAGE } from "@/lib/seo";
 import "../fonts.css";
 import "../globals.css";
 import "../ar-typography.css";
@@ -29,42 +31,32 @@ export function generateStaticParams() {
   return LANGS.map((lang) => ({ lang }));
 }
 
-const META: Record<Lang, { title: string; desc: string }> = {
-  en: {
-    title: "Evexa - Premium AI Agency & Studio",
-    desc: "Evexa is a premium AI agency and studio crafting intelligent products, brands and digital experiences.",
-  },
-  ar: {
-    title: "Evexa - وكالة واستوديو ذكاء اصطناعي",
-    desc: "Evexa وكالة ذكاء اصطناعي متميزة تصمّم منتجات ذكية وعلامات تجارية وتجارب رقمية.",
-  },
-};
-
+/** Site-wide defaults; each page adds its own title, canonical and hreflang (lib/seo.ts). */
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  const meta = META[lang as Lang] ?? META.en;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const site = SITE_SEO[isLang(lang) ? lang : "en"];
   return {
-    metadataBase: new URL(siteUrl),
-    title: meta.title,
-    description: meta.desc,
+    metadataBase: new URL(SITE_URL),
+    title: { default: site.title, template: `%s | ${SITE_NAME}` },
+    description: site.description,
+    applicationName: SITE_NAME,
     icons: {
       icon: "/images/brand/favicon-32.png",
       apple: "/images/brand/favicon-192.png",
     },
     openGraph: {
-      title: meta.title,
-      description: meta.desc,
-      images: ["/images/brand/favicon-512.png"],
       type: "website",
+      siteName: SITE_NAME,
+      title: site.title,
+      description: site.description,
+      images: [OG_IMAGE],
     },
-    alternates: {
-      languages: { en: "/en", ar: "/ar", "x-default": "/en" },
-    },
+    twitter: { card: "summary_large_image" },
+    robots: { index: true, follow: true },
   };
 }
 

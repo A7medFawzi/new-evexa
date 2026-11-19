@@ -14,6 +14,7 @@ import TopGlow from "@/components/ui/TopGlow";
 import { LANGS, localizeHref, type Lang } from "@/config/site";
 import { FAQS } from "@/content/faq";
 import { CASE_STUDIES, CASE_STUDY_UI, getCaseStudy } from "@/content/projects";
+import { pageMetadata } from "@/lib/seo";
 
 type Params = Promise<{ lang: string; slug: string }>;
 
@@ -28,11 +29,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const study = getCaseStudy(slug);
   if (!study) return {};
   const copy = study.copy[lang as Lang];
-  return {
-    title: `${copy.title.join(" ")} — Evexa`,
+  return pageMetadata({
+    lang: lang as Lang,
+    route: `/portfolio/${slug}`,
+    title: copy.title.join(" "),
     description: copy.intro,
-    alternates: { languages: { en: `/en/portfolio/${slug}`, ar: `/ar/portfolio/${slug}` } },
-  };
+  });
 }
 
 function Photo({ src, className, glow = false }: { src: string; className?: string; glow?: boolean }) {
