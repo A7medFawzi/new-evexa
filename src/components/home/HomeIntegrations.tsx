@@ -23,9 +23,9 @@ export default function HomeIntegrations({ copy, lang }: { copy: HomeCopy["integ
       <div className={styles.bottom} aria-hidden="true">
         <div className={styles.ticker}>
           <Marquee className={styles.strip} gap={40} speed={24}>
-            {INTEGRATION_LOGOS.map((src) => (
-              <span key={src} className={styles.logo}>
-                <img src={src} width={48} height={48} alt="" loading="lazy" decoding="async" />
+            {INTEGRATION_LOGOS.map((logo) => (
+              <span key={logo.src} className={styles.logo} title={logo.name}>
+                <img src={logo.src} width={48} height={48} alt="" loading="lazy" decoding="async" />
                 <span className={styles.logoShine} />
               </span>
             ))}

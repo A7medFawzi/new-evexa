@@ -9,7 +9,7 @@ import {
   TrustedKnowledgeIcon,
   VoiceIcon,
 } from "@/components/ui/icons";
-import type { HomeFeaturesCopy } from "@/content/home";
+import { CONNECTED_TOOLS, type HomeFeaturesCopy } from "@/content/home";
 import styles from "./HomeFeatures.module.css";
 
 const POINT_ICONS = [RoleAccessIcon, BilingualIcon, DocumentsIcon, HumanReviewIcon];
@@ -89,10 +89,10 @@ function ConnectedVisual() {
   return (
     <div className={styles.connected}>
       <div className={styles.toolRow}>
-        {[1, 2, 3, 4, 5, 6].map((n) => (
-          <span key={n} className={styles.tool}>
+        {CONNECTED_TOOLS.map((src) => (
+          <span key={src} className={styles.tool}>
             <span className={styles.toolShade} />
-            <img src={`/images/features/brand-${n}.svg`} width={28} height={28} alt="" />
+            <img src={src} width={24} height={24} alt="" />
           </span>
         ))}
       </div>

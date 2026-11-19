@@ -150,18 +150,25 @@ export function productImages(lang: Lang): string[] {
 
 const WHY_IMAGE = { src: "/images/hZgGlHpPFf0bbzHL7dI9MolatA.webp", alt: "Man using a laptop" };
 
-/** Tool logos in the integrations ticker (template artwork). */
-export const INTEGRATION_LOGOS = [
-  "/images/eI9yKV9nd0AT4YF5dO7pyE64.webp",
-  "/images/sYsF5Bl4M7g4beavWohrfIF6ZE.webp",
-  "/images/23ltFY53sGksUI79i6KDahMEjsU.svg",
-  "/images/L9HqxZhZ5iQe39qHdIj1EjwUgA8.svg",
-  "/images/F9cveGfkmDYJPsUktCLECV43s4.svg",
-  "/images/KCr8sxIBnJCzZI7ThcrRzxZ8UVs.svg",
-  "/images/gqv3tuTwxsISYOQe0Zwi95OP714.svg",
-  "/images/xtU2n341VGGcU87PrpBxCo4PEFo.svg",
-  "/images/e1zEk4xxTPo4zzl3Y6DhP5avQA.svg",
+/** Platforms EVEXA builds on (from evexa.tech), shown in the integrations ticker. */
+export const INTEGRATION_LOGOS: ReadonlyArray<{ src: string; name: string }> = [
+  { src: "/images/tools/openai.webp", name: "OpenAI" },
+  { src: "/images/tools/claude-ai.webp", name: "Claude" },
+  { src: "/images/tools/google-gemini.webp", name: "Google Gemini" },
+  { src: "/images/tools/microsoft-azure.webp", name: "Microsoft Azure" },
+  { src: "/images/tools/aws.webp", name: "AWS" },
+  { src: "/images/tools/google-cloud.webp", name: "Google Cloud" },
+  { src: "/images/tools/firebase.webp", name: "Firebase" },
+  { src: "/images/tools/supabase.webp", name: "Supabase" },
+  { src: "/images/tools/vercel.webp", name: "Vercel" },
+  { src: "/images/tools/redis.webp", name: "Redis" },
+  { src: "/images/tools/ibm.webp", name: "IBM" },
 ];
+
+/** White marks of six AI platforms wired into the "Connected Systems" card. */
+export const CONNECTED_TOOLS = ["openai", "claude-ai", "google-gemini", "microsoft-azure", "aws", "google-cloud"].map(
+  (name) => `/images/tools/mono/${name}.webp`,
+);
 
 /** Client and partner logos in the strip under the hero (from evexa.tech), clients first. */
 export const HERO_LOGOS: ReadonlyArray<{ src: string; alt: string; width: number; height: number }> = [
