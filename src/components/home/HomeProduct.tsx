@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { FingerprintIcon } from "@/components/ui/icons";
+import { CalendarCheckIcon, FingerprintIcon, InboxIcon, QuotationIcon } from "@/components/ui/icons";
 import { PRODUCT_IMAGES, type HomeProductCopy } from "@/content/home";
 import SectionHeading from "./SectionHeading";
 import styles from "./HomeProduct.module.css";
@@ -17,6 +17,9 @@ const FAN: { d: [number, number]; t: [number, number]; p: [number, number]; rota
   { d: [201, 7], t: [131, 7], p: [85, 2], rotate: 7 },
   { d: [306, 8], t: [197, 18], p: [112, 7], rotate: 14 },
 ];
+
+/** Icons of the three feature cards, in card order (RFQ inbox, quotations, my day). */
+const CARD_ICONS = [InboxIcon, QuotationIcon, CalendarCheckIcon];
 
 /** Dealplier, EVEXA's own product: heading, a fan of screenshots and three feature cards. */
 export default function HomeProduct({ copy }: { copy: HomeProductCopy }) {
@@ -63,17 +66,22 @@ export default function HomeProduct({ copy }: { copy: HomeProductCopy }) {
           <div className={styles.features}>
             <span className={styles.line} aria-hidden="true" />
             <div className={styles.cards}>
-              {copy.cards.map((card) => (
-                <article key={card.title} className={styles.card}>
-                  <img className={styles.cardGlow} src="/images/1xOqMa4sAAwBCrdkiSJfIXups.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-                  <span className={styles.cardHighlight} aria-hidden="true" />
-                  <div className={styles.cardHead}>
-                    <span className={styles.cardIcon} aria-hidden="true" />
-                    <h4>{card.title}</h4>
-                  </div>
-                  <p>{card.text}</p>
-                </article>
-              ))}
+              {copy.cards.map((card, i) => {
+                const Icon = CARD_ICONS[i];
+                return (
+                  <article key={card.title} className={styles.card}>
+                    <img className={styles.cardGlow} src="/images/1xOqMa4sAAwBCrdkiSJfIXups.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+                    <span className={styles.cardHighlight} aria-hidden="true" />
+                    <div className={styles.cardHead}>
+                      <span className={styles.cardIcon} aria-hidden="true">
+                        {Icon && <Icon />}
+                      </span>
+                      <h4>{card.title}</h4>
+                    </div>
+                    <p>{card.text}</p>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </div>

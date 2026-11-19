@@ -1,4 +1,5 @@
 /** Inline SVG icons used across the site (Phosphor duotone set, 256×256 grid). */
+import type { ReactNode } from "react";
 
 export function FingerprintIcon({ size = 13 }: { size?: number }) {
   return (
@@ -191,3 +192,54 @@ export function SparkleChipIcon({ size = 13 }: { size?: number }) {
   );
 }
 
+
+/* Dealplier feature cards (outline, 256×256 grid). */
+function OutlineIcon({ size, children }: { size: number; children: ReactNode }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 256 256"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={18}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {children}
+    </svg>
+  );
+}
+
+/** RFQ inbox: a tray. */
+export function InboxIcon({ size = 18 }: { size?: number }) {
+  return (
+    <OutlineIcon size={size}>
+      <rect x="40" y="48" width="176" height="160" rx="16" />
+      <path d="M40 152h44l16 24h56l16-24h44" />
+      <path d="M128 80v48M104 108l24 24 24-24" />
+    </OutlineIcon>
+  );
+}
+
+/** Quotations: a document with lines. */
+export function QuotationIcon({ size = 18 }: { size?: number }) {
+  return (
+    <OutlineIcon size={size}>
+      <path d="M200 224H56a8 8 0 0 1-8-8V40a8 8 0 0 1 8-8h96l56 56v128a8 8 0 0 1-8 8Z" />
+      <path d="M152 32v56h56M96 136h64M96 172h64" />
+    </OutlineIcon>
+  );
+}
+
+/** My Day: a calendar with a tick. */
+export function CalendarCheckIcon({ size = 18 }: { size?: number }) {
+  return (
+    <OutlineIcon size={size}>
+      <rect x="40" y="48" width="176" height="168" rx="16" />
+      <path d="M176 32v32M80 32v32M40 96h176M100 156l20 20 40-40" />
+    </OutlineIcon>
+  );
+}
