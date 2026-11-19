@@ -20,8 +20,8 @@ const IMAGES = [
     "/images/projects/mohami-smart/dashboard.webp"
   ],
   [
-    "/images/h33bTK94GjgfacsggRpl9F5QXes.webp",
-    "/images/mdHohhCEac2dy5qj6Hz8xLx3o.webp"
+    "/images/projects/business-operations/hrms.webp",
+    "/images/projects/business-operations/pms.webp"
   ]
 ] as const;
 

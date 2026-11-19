@@ -130,7 +130,10 @@ const WORK_IMAGES: Project["images"][] = [
     { src: "/images/projects/mohami-smart/brand.webp", alt: "Mohami Smart logo, a golden scale of justice" },
     { src: "/images/projects/mohami-smart/dashboard.webp", alt: "Mohami Smart legal dashboard for cases, documents and AI workflows" },
   ],
-  [{ src: "/images/h33bTK94GjgfacsggRpl9F5QXes.webp", alt: "" }, { src: "/images/mdHohhCEac2dy5qj6Hz8xLx3o.webp", alt: "" }],
+  [
+    { src: "/images/projects/business-operations/hrms.webp", alt: "BDCC HRMS, the human resources management system for Bin Delamah" },
+    { src: "/images/projects/business-operations/pms.webp", alt: "Bin Delamah project management system" },
+  ],
 ];
 
 /**
