@@ -119,7 +119,8 @@
   color: #fff;
   font: inherit;
   text-align: start;
-  cursor: pointer;
+  cursor: url("/cursors/link.png") 5 3, pointer;
+  cursor: image-set(url("/cursors/link.png") 1x, url("/cursors/link@2x.png") 2x) 5 3, pointer;
 }
 
 .question {

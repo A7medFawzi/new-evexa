@@ -154,7 +154,8 @@
   font-weight: 500;
   line-height: 26px;
   letter-spacing: -0.5px;
-  cursor: pointer;
+  cursor: url("/cursors/link.png") 5 3, pointer;
+  cursor: image-set(url("/cursors/link.png") 1x, url("/cursors/link@2x.png") 2x) 5 3, pointer;
   isolation: isolate;
   box-shadow:
     0 8px 40px 0 rgba(0, 49, 213, 0.5),

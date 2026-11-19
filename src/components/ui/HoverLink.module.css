@@ -3,7 +3,8 @@
   align-items: center;
   text-decoration: none;
   white-space: pre;
-  cursor: pointer;
+  cursor: url("/cursors/link.png") 5 3, pointer;
+  cursor: image-set(url("/cursors/link.png") 1x, url("/cursors/link@2x.png") 2x) 5 3, pointer;
 }
 
 .inner {

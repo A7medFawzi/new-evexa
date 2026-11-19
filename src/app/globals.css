@@ -36,3 +36,40 @@
     letter-spacing: -0.01em;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * EVEXA cursor. Image cursors are drawn by the operating system, so they
+ * move exactly with the mouse (no JavaScript, no lag). Brand-blue arrow by
+ * default, white arrow over anything clickable, the normal text cursor in
+ * form fields. Hotspot = arrow tip (5, 3). image-set() gives sharp 2x
+ * cursors where supported; the plain url() line is the fallback.
+ * ------------------------------------------------------------------------- */
+html {
+  cursor: url("/cursors/arrow.png") 5 3, auto;
+  cursor: image-set(url("/cursors/arrow.png") 1x, url("/cursors/arrow@2x.png") 2x) 5 3, auto;
+}
+
+a,
+button,
+[role="button"],
+summary,
+select,
+label[for],
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"] {
+  cursor: url("/cursors/link.png") 5 3, pointer;
+  cursor: image-set(url("/cursors/link.png") 1x, url("/cursors/link@2x.png") 2x) 5 3, pointer;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+}
+
+/* while the "View Now" pill is shown over a project card, it is the cursor */
+html.cursor-view,
+html.cursor-view * {
+  cursor: none !important;
+}

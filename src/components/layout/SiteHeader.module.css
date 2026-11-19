@@ -124,7 +124,8 @@
   line-height: 1;
   letter-spacing: 0.02em;
   white-space: nowrap;
-  cursor: pointer;
+  cursor: url("/cursors/link.png") 5 3, pointer;
+  cursor: image-set(url("/cursors/link.png") 1x, url("/cursors/link@2x.png") 2x) 5 3, pointer;
   transition: color 0.2s ease, background 0.2s ease;
 }
 
@@ -212,7 +213,8 @@
     border: 0;
     border-radius: 8px;
     background: transparent;
-    cursor: pointer;
+    cursor: url("/cursors/link.png") 5 3, pointer;
+    cursor: image-set(url("/cursors/link.png") 1x, url("/cursors/link@2x.png") 2x) 5 3, pointer;
   }
 
   .burgerLine {
