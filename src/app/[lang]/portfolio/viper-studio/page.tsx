@@ -1,6 +1,5 @@
 import EvexaPage from "@/components/evexa/EvexaPage";
 import "@/content/pages/portfolio-viper-studio.css";
-import "@/content/chrome-polish.css";
 
 export default async function ViperStudioPage({
   params,

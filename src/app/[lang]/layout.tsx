@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Alexandria } from "next/font/google";
+import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import { LANGS, dirOf, isLang, type Lang } from "@/config/site";
 import { getDictionary } from "@/i18n";
@@ -85,6 +86,7 @@ export default async function LangLayout({
       <body suppressHydrationWarning>
         <SiteHeader lang={lang} dict={getDictionary(lang)} />
         {children}
+        <SiteFooter lang={lang} dict={getDictionary(lang)} />
       </body>
     </html>
   );

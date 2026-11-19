@@ -1527,7 +1527,6 @@ function setupCursor() {
 /*   • Grey / White buttons: opacity → .6 (spring 200/60)              */
 /*   • Subscribe button: purple glow + label #C4C4C4 (spring 400/60)   */
 /*   • Contact submit: purple glow + label #C4C4C4                     */
-/*   • Nav/footer text links: label opacity .6 → 1 (spring 400/60)     */
 /*   • Service cards: arrow opacity .2 → 1 (spring 200/60)             */
 /*   • Service small cards: social icon opacity .6 → 1                 */
 /*   • Support cards: social icon opacity .2 → .9                      */
@@ -1612,29 +1611,6 @@ function setupHovers(root: ParentNode) {
           animate(el, { boxShadow: base }, SPRING400);
           if (label)
             animate(label, { color: "rgb(255, 255, 255)" }, SPRING400);
-        }
-      );
-    });
-
-  /* footer text links — label opacity .6 → 1 */
-  root
-    .querySelectorAll<HTMLElement>(
-      'footer a.framer-i9k05o[data-framer-name="In-Active"]'
-    )
-    .forEach((link) => {
-      const label = link.querySelector<HTMLElement>(
-        ":scope > div, :scope > p, :scope > span"
-      );
-      if (!label) return;
-      bindHover(
-        link,
-        () => animate(label, { opacity: 1 }, SPRING400),
-        () => {
-          if (link.getAttribute("data-framer-name") === "Active") {
-            label.style.opacity = "1";
-            return;
-          }
-          animate(label, { opacity: 0.6 }, SPRING400);
         }
       );
     });

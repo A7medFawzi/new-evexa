@@ -1,6 +1,5 @@
 import EvexaPage from "@/components/evexa/EvexaPage";
 import "@/content/pages/portfolio-lemonide-tech.css";
-import "@/content/chrome-polish.css";
 
 export default async function LemonideTechPage({
   params,

@@ -1,6 +1,5 @@
 import EvexaPage from "@/components/evexa/EvexaPage";
 import "@/content/pages/about.css";
-import "@/content/chrome-polish.css";
 
 export default async function AboutPage({
   params,
