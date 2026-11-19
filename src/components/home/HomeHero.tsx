@@ -50,9 +50,9 @@ export default function HomeHero({ copy, lang }: { copy: HomeHeroCopy; lang: Lan
 
           <Appear delay={1.2} className={styles.logos}>
             <span className={styles.logosLine} aria-hidden="true" />
-            <Marquee className={styles.logoStrip} gap={40} speed={24}>
-              {[...HERO_LOGOS, ...HERO_LOGOS].map((src, i) => (
-                <img key={i} className={styles.logo} src={src} width={80} height={80} alt="" decoding="async" />
+            <Marquee className={styles.logoStrip} gap={48} speed={30}>
+              {HERO_LOGOS.map((logo) => (
+                <img key={logo.src} className={styles.logo} src={logo.src} width={logo.width} height={logo.height} alt={logo.alt} decoding="async" />
               ))}
             </Marquee>
           </Appear>

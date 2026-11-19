@@ -162,12 +162,27 @@ export const INTEGRATION_LOGOS = [
   "/images/e1zEk4xxTPo4zzl3Y6DhP5avQA.svg",
 ];
 
-/** Placeholder client logos under the hero (template artwork). */
-export const HERO_LOGOS = [
-  "/images/vniufJMsSAXh18yjYsUsriXaJgw.webp",
-  "/images/yTyqzwdEKp9XJLQBwf8DmWnxws.webp",
-  "/images/ffx7akDwhywGTdzIV6fqasW7N8.webp",
-  "/images/QJyR5CNEY5EZDa18LPHJLBySZsY.webp",
+/** Client and partner logos in the strip under the hero (from evexa.tech), clients first. */
+export const HERO_LOGOS: ReadonlyArray<{ src: string; alt: string; width: number; height: number }> = [
+  { src: "/images/clients/al-owaydan.webp", alt: "Abdulilah Essa Al-Owaydan Co.", width: 259, height: 96 },
+  { src: "/images/clients/eslah-services.webp", alt: "Eslah Maintenance Services", width: 342, height: 96 },
+  { src: "/images/clients/enfty.webp", alt: "Enfty", width: 176, height: 96 },
+  { src: "/images/clients/eiffel-tower.webp", alt: "Eiffel Tower Electronics", width: 360, height: 96 },
+  { src: "/images/clients/brainbots.webp", alt: "Brain Bots", width: 247, height: 96 },
+  { src: "/images/clients/samaa-al-riyadh.webp", alt: "Samaa Al Riyadh", width: 340, height: 96 },
+  { src: "/images/clients/bin-dalama.webp", alt: "Bin Delamah Contracting Co.", width: 203, height: 96 },
+  { src: "/images/clients/albetar-store.webp", alt: "Albetar Store", width: 225, height: 96 },
+  { src: "/images/clients/zirkona-lab.webp", alt: "Zirkona Lab", width: 274, height: 96 },
+  { src: "/images/clients/valen.webp", alt: "Valien", width: 309, height: 96 },
+  { src: "/images/clients/multi-forms.webp", alt: "Multiforms Advanced", width: 410, height: 96 },
+  { src: "/images/clients/welo.webp", alt: "Welo", width: 336, height: 96 },
+  { src: "/images/clients/bibliotheca-alexandrina.webp", alt: "Bibliotheca Alexandrina", width: 228, height: 96 },
+  { src: "/images/clients/united-nations.webp", alt: "United Nations", width: 314, height: 96 },
+  { src: "/images/clients/ai-industry-alliance.webp", alt: "AI Industry Alliance", width: 213, height: 96 },
+  { src: "/images/clients/uk-international-development.webp", alt: "UK International Development", width: 358, height: 96 },
+  { src: "/images/clients/alexandria-university.webp", alt: "Alexandria University", width: 215, height: 96 },
+  { src: "/images/clients/kafrelsheikh-university.webp", alt: "Kafrelsheikh University", width: 110, height: 96 },
+  { src: "/images/clients/ministry-youth-sports.webp", alt: "Ministry of Youth and Sports", width: 328, height: 96 },
 ];
 
 export const HOME_COPY: Record<Lang, HomeCopy> = {
