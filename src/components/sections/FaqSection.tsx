@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import WordReveal from "@/components/motion/WordReveal";
 import Badge from "@/components/ui/Badge";
-import { FingerprintIcon } from "@/components/ui/icons";
+import { FaqIcon } from "@/components/ui/icons";
 import type { FaqContent } from "@/content/faq";
 import styles from "./FaqSection.module.css";
 
@@ -30,7 +30,7 @@ export default function FaqSection({
       <img className={styles.rays} src="/images/HQiQT243MN1itZOX771FxR6euwI.webp" width={2398} height={1558} alt="" aria-hidden="true" decoding="async" loading="lazy" />
       <div className={styles.container}>
         <div className={styles.intro}>
-          <Badge label={badgeLabel} icon={<FingerprintIcon />} />
+          <Badge label={badgeLabel} icon={<FaqIcon />} />
           <div className={styles.title}>
             <WordReveal as="h2" text={content.title[0]} />
             <WordReveal as="h2" text={content.title[1]} delay={0.2} className={styles.dim} />

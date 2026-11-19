@@ -1,7 +1,7 @@
 import WordReveal from "@/components/motion/WordReveal";
 import Badge from "@/components/ui/Badge";
 import PrimaryButton from "@/components/ui/PrimaryButton";
-import { GiftIcon } from "@/components/ui/icons";
+import { FeaturesIcon } from "@/components/ui/icons";
 import { CIRCLE_IMAGES, type SectionIntro } from "@/content/home";
 import styles from "./HomeCircle.module.css";
 
@@ -27,7 +27,7 @@ export default function HomeCircle({ copy }: { copy: SectionIntro }) {
       </div>
 
       <div className={styles.content}>
-        <Badge label={copy.badge} icon={<GiftIcon />} />
+        <Badge label={copy.badge} icon={<FeaturesIcon />} />
         <div className={styles.text}>
           <WordReveal as="h2" text={copy.title} className={styles.title} />
           <p className={styles.body}>{copy.body}</p>

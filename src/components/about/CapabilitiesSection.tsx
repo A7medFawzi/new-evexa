@@ -2,7 +2,7 @@ import WordReveal from "@/components/motion/WordReveal";
 import Badge from "@/components/ui/Badge";
 import PhotoCard from "@/components/ui/PhotoCard";
 import PrimaryButton from "@/components/ui/PrimaryButton";
-import { GiftIcon } from "@/components/ui/icons";
+import { BuildIcon } from "@/components/ui/icons";
 import { localizeHref, type Lang } from "@/config/site";
 import type { AboutCopy } from "@/content/about";
 import styles from "./AboutSections.module.css";
@@ -15,7 +15,7 @@ export default function CapabilitiesSection({ lang, content }: { lang: Lang; con
       <div className={`${styles.container} ${styles.capabilitiesContainer}`}>
         <div className={styles.column}>
           <div className={styles.top}>
-            <Badge label={content.badge} icon={<GiftIcon />} />
+            <Badge label={content.badge} icon={<BuildIcon />} />
             <div className={`${styles.title} ${styles.titleCompact}`}>
               <WordReveal as="h2" text={content.title[0]} />
               <WordReveal as="h2" text={content.title[1]} delay={0.2} className={styles.dim} />

@@ -1,5 +1,5 @@
 import Marquee from "@/components/motion/Marquee";
-import { FingerprintIcon } from "@/components/ui/icons";
+import { IntegrationsIcon } from "@/components/ui/icons";
 import { localizeHref, type Lang } from "@/config/site";
 import { INTEGRATION_LOGOS, type HomeCopy } from "@/content/home";
 import SectionHeading from "./SectionHeading";
@@ -13,7 +13,7 @@ export default function HomeIntegrations({ copy, lang }: { copy: HomeCopy["integ
       <div className={styles.fade} aria-hidden="true" />
       <div className={styles.top}>
         <SectionHeading
-          icon={<FingerprintIcon />}
+          icon={<IntegrationsIcon />}
           badge={copy.badge}
           title={copy.title}
           body={copy.body}

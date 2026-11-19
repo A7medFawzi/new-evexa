@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { CalendarCheckIcon, FingerprintIcon, InboxIcon, QuotationIcon } from "@/components/ui/icons";
+import { CalendarCheckIcon, InboxIcon, ProductIcon, QuotationIcon } from "@/components/ui/icons";
 import { PRODUCT_IMAGES, type HomeProductCopy } from "@/content/home";
 import SectionHeading from "./SectionHeading";
 import styles from "./HomeProduct.module.css";
@@ -28,7 +28,7 @@ export default function HomeProduct({ copy }: { copy: HomeProductCopy }) {
       <img className={styles.rays} src="/images/sr8vmLBhND1D86vmn1G0mLCt8.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
       <div className={styles.fade} aria-hidden="true" />
       <div className={styles.content}>
-        <SectionHeading icon={<FingerprintIcon />} badge={copy.badge} title={copy.title} body={copy.body} button={copy.button} />
+        <SectionHeading icon={<ProductIcon />} badge={copy.badge} title={copy.title} body={copy.body} button={copy.button} />
 
         <div className={styles.showcase}>
           <div className={styles.fan} aria-hidden="true">
@@ -74,7 +74,7 @@ export default function HomeProduct({ copy }: { copy: HomeProductCopy }) {
                     <span className={styles.cardHighlight} aria-hidden="true" />
                     <div className={styles.cardHead}>
                       <span className={styles.cardIcon} aria-hidden="true">
-                        {Icon && <Icon />}
+                        {Icon && <Icon size={18} />}
                       </span>
                       <h4>{card.title}</h4>
                     </div>

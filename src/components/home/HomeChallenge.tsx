@@ -3,7 +3,7 @@ import LightRays from "@/components/motion/LightRays";
 import WordReveal from "@/components/motion/WordReveal";
 import Badge from "@/components/ui/Badge";
 import PrimaryButton from "@/components/ui/PrimaryButton";
-import { GiftIcon } from "@/components/ui/icons";
+import { ProblemIcon } from "@/components/ui/icons";
 import { localizeHref, type Lang } from "@/config/site";
 import type { HomeChallengeCopy } from "@/content/home";
 import styles from "./HomeChallenge.module.css";
@@ -26,7 +26,7 @@ export default function HomeChallenge({ copy, lang }: { copy: HomeChallengeCopy;
 
         <div className={styles.content}>
           <div className={styles.top}>
-            <Badge label={copy.badge} icon={<GiftIcon />} />
+            <Badge label={copy.badge} icon={<ProblemIcon />} />
             <div className={styles.title}>
               <WordReveal as="h3" text={copy.title[0]} />
               <WordReveal as="h3" text={copy.title[1]} delay={0.2} className={styles.dim} />

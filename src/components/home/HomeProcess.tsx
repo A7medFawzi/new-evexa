@@ -1,9 +1,9 @@
-import { GearIcon, StepDeliverIcon, StepEngineerIcon, StepUnderstandIcon } from "@/components/ui/icons";
+import { ProcessIcon, StepBuildIcon, StepDeliverIcon, StepUnderstandIcon } from "@/components/ui/icons";
 import type { HomeProcessCopy } from "@/content/home";
 import SectionHeading from "./SectionHeading";
 import styles from "./HomeProcess.module.css";
 
-const STEP_ICONS = [StepUnderstandIcon, StepEngineerIcon, StepDeliverIcon];
+const STEP_ICONS = [StepUnderstandIcon, StepBuildIcon, StepDeliverIcon];
 
 /** "Our Process": three steps inside one dark frame. */
 export default function HomeProcess({ copy }: { copy: HomeProcessCopy }) {
@@ -13,7 +13,7 @@ export default function HomeProcess({ copy }: { copy: HomeProcessCopy }) {
       <div className={styles.fade} aria-hidden="true" />
       <div className={styles.container}>
         <div className={styles.top}>
-          <SectionHeading icon={<GearIcon />} badge={copy.badge} title={copy.title} body={copy.body} />
+          <SectionHeading icon={<ProcessIcon />} badge={copy.badge} title={copy.title} body={copy.body} />
         </div>
         <ol className={styles.frame}>
           {copy.steps.map((step, i) => {

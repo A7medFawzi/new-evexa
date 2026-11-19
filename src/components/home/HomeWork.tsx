@@ -1,5 +1,5 @@
 import ProjectList from "@/components/portfolio/ProjectList";
-import { QuestionIcon } from "@/components/ui/icons";
+import { WorkIcon } from "@/components/ui/icons";
 import { localizeHref, type Lang } from "@/config/site";
 import type { HomeWorkCopy } from "@/content/home";
 import SectionHeading from "./SectionHeading";
@@ -14,7 +14,7 @@ export default function HomeWork({ copy, lang }: { copy: HomeWorkCopy; lang: Lan
       <div className={styles.container}>
         <div className={styles.top}>
           <SectionHeading
-            icon={<QuestionIcon />}
+            icon={<WorkIcon />}
             badge={copy.badge}
             title={copy.title}
             body={copy.body}

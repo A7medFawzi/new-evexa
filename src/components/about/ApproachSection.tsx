@@ -3,13 +3,13 @@ import WordReveal from "@/components/motion/WordReveal";
 import ScrollTransform from "@/components/motion/ScrollTransform";
 import Badge from "@/components/ui/Badge";
 import PhotoCard from "@/components/ui/PhotoCard";
-import { FingerprintIcon, StepDeliverIcon, StepEngineerIcon, StepUnderstandIcon } from "@/components/ui/icons";
+import { AboutIcon, EverydayIcon, FitIcon, NeedFirstIcon } from "@/components/ui/icons";
 import { localizeHref, type Lang } from "@/config/site";
 import type { AboutCopy } from "@/content/about";
 import StepCard from "./StepCard";
 import styles from "./AboutSections.module.css";
 
-const STEP_ICONS = [<StepUnderstandIcon key="u" size={24} />, <StepEngineerIcon key="e" size={24} />, <StepDeliverIcon key="d" size={24} />];
+const STEP_ICONS = [<NeedFirstIcon key="need" size={24} />, <FitIcon key="fit" size={24} />, <EverydayIcon key="everyday" size={24} />];
 
 /**
  * Sticky photo beside three step cards that zoom in while scrolling.
@@ -22,7 +22,7 @@ export default function ApproachSection({
   content,
   id = "about",
   variant = "about",
-  badgeIcon = <FingerprintIcon />,
+  badgeIcon = <AboutIcon />,
 }: {
   lang: Lang;
   content: AboutCopy["approach"];

@@ -5,7 +5,7 @@ import {
   AutomationIcon,
   DocumentScanIcon,
   IntegrationIcon,
-  QuestionIcon,
+  SolutionsIcon,
   SearchIcon,
   SparkleChipIcon,
 } from "@/components/ui/icons";
@@ -27,7 +27,7 @@ export default function HomeServices({ copy, lang }: { copy: HomeServicesCopy; l
         <LightRays className={styles.rays} position={50} reach={30} fallbackImage="/images/glow/glow-services.webp" />
 
         <SectionHeading
-          icon={<QuestionIcon />}
+          icon={<SolutionsIcon />}
           badge={copy.badge}
           title={copy.title}
           body={copy.body}

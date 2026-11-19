@@ -1,6 +1,14 @@
 import type { ReactNode } from "react";
 import Marquee from "@/components/motion/Marquee";
-import { BilingualIcon, DocumentsIcon, HumanReviewIcon, LightningIcon, RoleAccessIcon } from "@/components/ui/icons";
+import {
+  BilingualIcon,
+  ConnectedSystemsIcon,
+  DocumentsIcon,
+  HumanReviewIcon,
+  RoleAccessIcon,
+  TrustedKnowledgeIcon,
+  VoiceIcon,
+} from "@/components/ui/icons";
 import type { HomeFeaturesCopy } from "@/content/home";
 import styles from "./HomeFeatures.module.css";
 
@@ -26,13 +34,13 @@ export default function HomeFeatures({ copy }: { copy: HomeFeaturesCopy }) {
     <section className={styles.section}>
       <span className={styles.line} aria-hidden="true" />
       <div className={styles.cards}>
-        <FeatureCard title={connected.title} text={connected.text} visualClass={styles.visualConnected}>
+        <FeatureCard icon={<ConnectedSystemsIcon size={24} />} title={connected.title} text={connected.text} visualClass={styles.visualConnected}>
           <ConnectedVisual />
         </FeatureCard>
-        <FeatureCard title={knowledge.title} text={knowledge.text} visualClass={styles.visualKnowledge}>
+        <FeatureCard icon={<TrustedKnowledgeIcon size={24} />} title={knowledge.title} text={knowledge.text} visualClass={styles.visualKnowledge}>
           <KnowledgeVisual rows={copy.chipRows} />
         </FeatureCard>
-        <FeatureCard title={voice.title} text={voice.text} visualClass={styles.visualVoice}>
+        <FeatureCard icon={<VoiceIcon size={24} />} title={voice.title} text={voice.text} visualClass={styles.visualVoice}>
           <VoiceVisual label={copy.voiceLabel} />
         </FeatureCard>
       </div>
@@ -55,16 +63,14 @@ export default function HomeFeatures({ copy }: { copy: HomeFeaturesCopy }) {
   );
 }
 
-function FeatureCard({ title, text, visualClass, children }: { title: string; text: string; visualClass: string; children: ReactNode }) {
+function FeatureCard({ icon, title, text, visualClass, children }: { icon: ReactNode; title: string; text: string; visualClass: string; children: ReactNode }) {
   return (
     <article className={styles.card}>
       <span className={styles.cardHighlight} aria-hidden="true" />
       <img className={styles.cardDots} src="/images/jjGQmnCK9DnrLM4akTOerjVkp9A.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
       <img className={styles.cardGlow} src="/images/1xOqMa4sAAwBCrdkiSJfIXups.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
       <div className={styles.cardHead}>
-        <span className={styles.cardIcon}>
-          <LightningIcon size={24} />
-        </span>
+        <span className={styles.cardIcon}>{icon}</span>
         <h3>{title}</h3>
         <span className={styles.cardRule} aria-hidden="true" />
         <p>{text}</p>

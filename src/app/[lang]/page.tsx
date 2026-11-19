@@ -15,7 +15,7 @@ import HomeServices from "@/components/home/HomeServices";
 import HomeWork from "@/components/home/HomeWork";
 import BottomBlur from "@/components/layout/BottomBlur";
 import CustomCursor from "@/components/motion/CustomCursor";
-import { FlameIcon } from "@/components/ui/icons";
+import { WhyIcon } from "@/components/ui/icons";
 import CtaSection from "@/components/sections/CtaSection";
 import FaqSection from "@/components/sections/FaqSection";
 import { localizeHref, type Lang } from "@/config/site";
@@ -58,7 +58,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       <HomeServices copy={copy.services} lang={lang} />
       <HomeWork copy={copy.work} lang={lang} />
       <HomeProduct copy={copy.product} />
-      <ApproachSection lang={lang} content={copy.why} id="why" variant="home" badgeIcon={<FlameIcon />} />
+      <ApproachSection lang={lang} content={copy.why} id="why" variant="home" badgeIcon={<WhyIcon />} />
       <HomeIntegrations copy={copy.integrations} lang={lang} />
       <HomeProcess copy={copy.process} />
       <HomeChallenge copy={copy.challenge} lang={lang} />
