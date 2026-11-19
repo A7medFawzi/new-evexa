@@ -1,0 +1,43 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Next.js build output
+.next/
+out/
+build/
+dist/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Production & local environment files
+.env*.local
+.env
+!.env.example
+
+# Debug and process logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+
+# Binaries, executables & OS metadata
+*.exe
+.DS_Store
+Thumbs.db
+*.pem
+
+# Data submissions
+data/*.ndjson
+!data/.gitkeep
+
+# Skills & agent artifacts
+skills/
+
+# local tooling
+package-lock.json

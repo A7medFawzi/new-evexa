@@ -1,0 +1,398 @@
+/*
+ * ar-typography.css — Alexandria (Google Fonts) for ALL Arabic content.
+ * Typography-only update: no layout, color, content or animation changes.
+ * Imported globally by src/app/[lang]/layout.tsx; every rule is scoped to
+ * html[lang="ar"] / [dir="rtl"] so English typography (DM Sans) is untouched.
+ *
+ * Font loading: Alexandria is self-hosted by next/font (no runtime requests
+ * to Google, automatic preload + fallback metrics — no font flash or layout
+ * shift). Weights 400/500/600 only; arabic+latin subsets so "EVEXA" and
+ * "Dealplier" render in the same family inside Arabic text. The variable is
+ * attached to RTL pages only (see layout.tsx).
+ *
+ * Weight hierarchy (per approved spec):
+ *   Hero headline        600  (h1 — both lines)
+ *   Section headings     600  (h2)
+ *   Card headings        500  (h3/h4/h5)
+ *   Body text            400  (default — unchanged)
+ *   Navigation           500  (header links)
+ *   Buttons              500  (preset-2mfvz6 already 500)
+ *   Small labels/badges  500  (hero badge component)
+ *
+ * Weight rules carry !important because the Framer base layer applies
+ * font-weight/font-family to nested spans via CSS variables (no !important),
+ * and they load after this file on page routes.
+ */
+
+/* ------------------------------------------------------------------ */
+/* 1. Font family — same selector system as the existing Arabic rule   */
+/*    in app/evexa.css (which now resolves Alexandria first too).      */
+/*    This copy covers the subpages, which do not load evexa.css.      */
+/* ------------------------------------------------------------------ */
+
+html[lang="ar"] body,
+html[lang="ar"] .framer-body,
+html[lang="ar"] span,
+html[lang="ar"] p,
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6,
+html[lang="ar"] a,
+html[lang="ar"] button,
+html[lang="ar"] li {
+  font-family: var(--font-alexandria), "IBM Plex Sans Arabic", "DM Sans", "Inter", sans-serif !important;
+}
+
+/* Arabic script must never carry negative tracking (the English presets
+   use -3.8px / -1.9px / -0.5px); Arabic joining rhythm stays natural. */
+[dir="rtl"] body * {
+  letter-spacing: normal !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. Weight hierarchy                                                 */
+/* ------------------------------------------------------------------ */
+
+/* Hero headline — SemiBold (both lines are h1) */
+html[lang="ar"] h1,
+html[lang="ar"] h1 span,
+html[lang="ar"] h1 span span {
+  font-weight: 600 !important;
+}
+
+/* Section headings — SemiBold */
+html[lang="ar"] h2,
+html[lang="ar"] h2 span,
+html[lang="ar"] h2 span span {
+  font-weight: 600 !important;
+}
+
+/* Card headings / FAQ questions — Medium */
+html[lang="ar"] h3,
+html[lang="ar"] h3 span,
+html[lang="ar"] h4,
+html[lang="ar"] h4 span,
+html[lang="ar"] h5,
+html[lang="ar"] h5 span {
+  font-weight: 500 !important;
+}
+
+/* Navigation links — Medium (header only: the shared preset is also used
+   by footer copyright text, which must stay Regular) */
+html[lang="ar"] header p,
+html[lang="ar"] header p span,
+html[lang="ar"] header span {
+  font-weight: 500 !important;
+}
+
+/* Hero badge / small labels — Medium */
+html[lang="ar"] .framer-JAedJ,
+html[lang="ar"] .framer-JAedJ p,
+html[lang="ar"] .framer-JAedJ span {
+  font-weight: 500 !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* 3. Hero sizing — Alexandria runs wider than IBM Plex Sans Arabic;   */
+/*    the desktop headline measured 969px against an 800px column,     */
+/*    breaking the approved two-line composition. Scale every hero     */
+/*    breakpoint by the measured metric ratio (~×0.83) so line 1       */
+/*    ("اجعل الذكاء الاصطناعي") and line 2 ("جزءًا من عملك.") each     */
+/*    keep their own line. Line-height keeps the original proportion   */
+/*    (slightly relaxed for Arabic diacritics). Sizes only — no        */
+/*    letter-spacing tricks, no transforms, no layout changes.         */
+/* ------------------------------------------------------------------ */
+
+html[lang="ar"] h1,
+html[lang="ar"] h1 span {
+  font-size: 68px !important;   /* was 86px (desktop); 70px clipped the final-yaa tail at the 800px column edge */
+  line-height: 1.3 !important;  /* was 90px (ratio 1.05 — clipped Alexandria ink) */
+}
+
+@media (max-width: 1199px) and (min-width: 810px) {
+  html[lang="ar"] h1,
+  html[lang="ar"] h1 span {
+    font-size: 53px !important;   /* was 66px (tablet) */
+    line-height: 1.3 !important;
+  }
+}
+
+@media (max-width: 809px) {
+  html[lang="ar"] h1,
+  html[lang="ar"] h1 span {
+    font-size: 45px !important;   /* was 56px (mobile) */
+    line-height: 1.3 !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. Vertical line spacing — Alexandria metrics fix                   */
+/*                                                                    */
+/* Alexandria's glyph extent (ascenders + descenders + diacritics)     */
+/* measures ~1.16em, against ~1.05em for the fonts the presets were    */
+/* designed around. The preset px line-heights (hero 74/70 = 1.06,     */
+/* section headings 50/54 = 0.93, cards 36/34 = 1.06) therefore        */
+/* clipped and collided Arabic lines on every page. Unitless 1.3       */
+/* scales with each breakpoint's font size and restores comfortable    */
+/* Arabic leading without touching sizes, spacing or layout.           */
+/* ------------------------------------------------------------------ */
+
+html[lang="ar"] h2,
+html[lang="ar"] h2 span,
+html[lang="ar"] h3,
+html[lang="ar"] h3 span,
+html[lang="ar"] h4,
+html[lang="ar"] h4 span,
+html[lang="ar"] h5,
+html[lang="ar"] h5 span {
+  line-height: 1.3 !important;
+}
+
+/* Scroll-reveal paragraphs carry INLINE tight line-heights
+   (desktop 48px/56px = 1.17): their word-per-span flex rows collided
+   under Alexandria. Inline styles need !important to override. */
+html[lang="ar"] p[style*="line-height"] {
+  line-height: 1.3 !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. Width compensation — restoring original line breaks              */
+/*                                                                    */
+/* Alexandria runs ~11% wider than IBM Plex Sans Arabic (measured      */
+/* 528 vs 474 per 100px of "اجعل الذكاء"). Single-line texts whose     */
+/* box was sized to Plex now wrap. Every rule below ONLY lets a text   */
+/* wrapper use spare room that already exists inside its own fixed     */
+/* card/column — no font-size changes below 16px, no padding removal,  */
+/* no sibling or row layout changes.                                   */
+/* ------------------------------------------------------------------ */
+
+/* 5a. Hero description: 518px of text in a 500px-capped Body wrapper
+   whose parent column is 800px wide — back to a single line. */
+html[lang="ar"] .framer-1yftqk8 {
+  max-width: 560px !important;
+}
+
+/* 5b. "أكثر من مجرد إجابة ذكية." section title: at 54px SemiBold the
+   line measures ~620px; the centered content column is 600px with 20px
+   side padding. Widen the centered column to 640px and drop its side
+   padding — everything inside stays centered, so nothing moves
+   visually, and the title keeps its single line at 54px. */
+html[lang="ar"] .framer-jx0221 .framer-1pwa412,
+html[lang="ar"] .framer-jx0221 .framer-4rtfqv {
+  width: 640px !important;
+}
+html[lang="ar"] .framer-jx0221 .framer-1pwa412 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 5c. Standalone-English card titles (project cards, e.g. "Business
+   Operations Platforms"): Alexandria is for Arabic content; these were
+   single-line in DM Sans, so they keep DM Sans. Brand names inside
+   Arabic sentences are NOT affected (they carry no preset). */
+html[lang="ar"] .framer-styles-preset-1ing3ma,
+html[lang="ar"] .framer-styles-preset-1ing3ma span {
+  font-family: "DM Sans", "Inter", sans-serif !important;
+}
+
+/* 5d. Feature/service card one-liners ("أضف الإدخال الصوتي…",
+   "ابحث في السياسات…"): Alexandria needs 349px / 325px; the cards'
+   centered content had 20px/30px side padding. Trim it evenly (12px /
+   16px) and let the text wrappers fill their card — centered content
+   shifts nothing visually, and every card in the row is trimmed alike. */
+html[lang="ar"] .framer-dt7sdd [data-framer-name="Primary"] {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+html[lang="ar"] .framer-1wk714t [data-framer-name="XL "] {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+html[lang="ar"] .framer-10qinh6 {
+  flex-grow: 1 !important;
+}
+html[lang="ar"] .framer-w5miql {
+  flex-grow: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+html[lang="ar"] .framer-T5Hrq .framer-w5miql {
+  flex: 0 0 auto !important;
+  flex-grow: 0 !important;
+}
+html[lang="ar"] .framer-T5Hrq .framer-f7hkrf {
+  flex: 1 0 0px !important;
+  min-height: 261px;
+}
+html[lang="ar"] .framer-f7hkrf .framer-hK4SY {
+  transform: none !important;
+}
+
+/* 5g. Trusted Knowledge background pills overlap fix */
+html[lang="ar"] .framer-zo84dy li,
+html[lang="ar"] .framer-zo84dy li > div {
+  width: auto !important;
+  min-width: max-content !important;
+}
+html[lang="ar"] .framer-zo84dy .framer-9xh6r2 {
+  width: auto !important;
+  min-width: max-content !important;
+  padding: 6px 16px !important;
+}
+
+/* 5e. Services-card descriptions ("راجع الطلبات والمرفقات…"): 18px
+   pushed "بمساعدة الذكاء الاصطناعي." onto a third line (208px needed,
+   211px available at 16px). 16px — the site's standard body size —
+   restores the original two-line break without widening the card. */
+html[lang="ar"] .framer-1qixpm4 p {
+  font-size: 16px !important;
+}
+
+/* 5f. "أكثر من مجرد إجابة ذكية." section description ("ندرس الربط مع
+   أنظمة العملاء…"): 543px of text capped by explicit 520px wrappers
+   inside a 630px centered Content column. Stretch both wrappers —
+   content is centered, so nothing shifts, and the cap never returns on
+   smaller breakpoints (stretch follows the column). */
+html[lang="ar"] .framer-ed65tw,
+html[lang="ar"] .framer-q4nwf6 {
+  width: auto !important;
+  max-width: none !important;
+  align-self: stretch !important;
+}
+
+
+/* Footer CTA button arrow hover in RTL: glide up-left */
+[dir="rtl"] .framer-8QOGx .framer-u628B:hover .evx-btn-arrow {
+  transform: translate(-1px, -1px) !important;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* 6. Section & Hero badge pills: balanced RTL padding and margins    */
+/* ------------------------------------------------------------------ */
+[dir="rtl"] .framer-JAedJ.framer-9xh6r2 {
+  padding: 6px 6px 6px 16px !important;
+}
+
+[dir="rtl"] .framer-JAedJ.framer-9xh6r2 > :first-child {
+  margin-right: 0 !important;
+  margin-left: 6px !important;
+}
+
+[dir="rtl"] .framer-JAedJ.framer-9xh6r2 > :last-child {
+  margin-left: 0 !important;
+  margin-right: 6px !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* Contact Form B2B: Prevent Arabic label overflow or column distortion */
+/* ------------------------------------------------------------------ */
+[dir="rtl"] #evexa-contact-form .framer-5ux4en label,
+[dir="rtl"] #evexa-contact-form .framer-hh95lm label {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+[dir="rtl"] #evexa-contact-form .framer-1nroqcl p,
+[dir="rtl"] #evexa-contact-form .framer-qj37es p,
+[dir="rtl"] #evexa-contact-form .framer-n7zn46 p,
+[dir="rtl"] #evexa-contact-form .framer-1woa6ie p,
+[dir="rtl"] #evexa-contact-form .framer-cle1l4 p,
+[dir="rtl"] #evexa-contact-form .framer-mnrs2 p {
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+[dir="rtl"] #evexa-contact-form select {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] #evexa-contact-form input[type="email"] {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* Case Study & Heading RTL Alignment                                 */
+/* Ensure headings (H1-H6) and section titles in Arabic RTL align    */
+/* right by default, overriding Framer presets with left-alignment    */
+/* (e.g. framer-styles-preset-pyuk04), while preserving center-      */
+/* aligned headings (e.g. CTA banners, feature cards).               */
+/* ------------------------------------------------------------------ */
+[dir="rtl"] .framer-styles-preset-pyuk04:not(.rich-text-wrapper):not([style*="text-alignment:center"]):not([style*="text-alignment: center"]),
+[dir="rtl"] .framer-styles-preset-pyuk04.rich-text-wrapper h3:not([style*="text-alignment:center"]):not([style*="text-alignment: center"]),
+[dir="rtl"] .framer-styles-preset-pyuk04:not([style*="text-alignment:center"]):not([style*="text-alignment: center"]),
+[dir="rtl"] h3.framer-text:not([style*="text-alignment:center"]):not([style*="text-alignment: center"]) {
+  --framer-text-alignment: right !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .framer-styles-preset-pyuk04[style*="text-alignment:center"],
+[dir="rtl"] .framer-styles-preset-pyuk04[style*="text-alignment: center"],
+[dir="rtl"] h3.framer-text[style*="text-alignment:center"],
+[dir="rtl"] h3.framer-text[style*="text-alignment: center"] {
+  --framer-text-alignment: center !important;
+  text-align: center !important;
+}
+
+[dir="rtl"] h1.framer-text:not([style*="text-alignment:center"]):not([style*="text-alignment: center"]),
+[dir="rtl"] h2.framer-text:not([style*="text-alignment:center"]):not([style*="text-alignment: center"]),
+[dir="rtl"] h4.framer-text:not([style*="text-alignment:center"]):not([style*="text-alignment: center"]),
+[dir="rtl"] h5.framer-text:not([style*="text-alignment:center"]):not([style*="text-alignment: center"]),
+[dir="rtl"] h6.framer-text:not([style*="text-alignment:center"]):not([style*="text-alignment: center"]) {
+  --framer-text-alignment: right !important;
+  text-align: right !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* 7. Mohami Smart Arabic Hero Title Refinement                       */
+/* Balances single-line title on desktop and controlled wrap on mobile */
+/* ------------------------------------------------------------------ */
+html[lang="ar"] .mohamy-hero-title,
+html[lang="ar"] .mohamy-hero-title span {
+  font-size: 52px !important;
+  line-height: 1.3 !important;
+  white-space: nowrap;
+}
+
+@media (max-width: 1199px) and (min-width: 810px) {
+  html[lang="ar"] .mohamy-hero-title,
+  html[lang="ar"] .mohamy-hero-title span {
+    font-size: 44px !important;
+    line-height: 1.3 !important;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 809px) {
+  html[lang="ar"] .mohamy-hero-title,
+  html[lang="ar"] .mohamy-hero-title span {
+    font-size: 36px !important;
+    line-height: 1.35 !important;
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+}
+
+
+
+/* ------------------------------------------------------------------ */
+/* Generic RTL list markers & indentation                             */
+/* ------------------------------------------------------------------ */
+[dir="rtl"] ul.framer-text,
+html[lang="ar"] ul.framer-text {
+  padding-left: 0 !important;
+  padding-right: 28px !important;
+}
+
+[dir="rtl"] ul.framer-text > li.framer-text:before,
+html[lang="ar"] ul.framer-text > li.framer-text:before {
+  left: auto !important;
+  right: -18px !important;
+}
