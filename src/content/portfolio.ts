@@ -16,8 +16,8 @@ const IMAGES = [
     "/images/projects/albetar/revenue-forecast.webp"
   ],
   [
-    "/images/oITRaXEkBVhukMYINXV2xi05PY.webp",
-    "/images/BChNf0ssn5x1I9kAk4vwX8qT5o.webp"
+    "/images/projects/mohami-smart/brand.webp",
+    "/images/projects/mohami-smart/dashboard.webp"
   ],
   [
     "/images/h33bTK94GjgfacsggRpl9F5QXes.webp",

@@ -126,7 +126,10 @@ const WORK_IMAGES: Project["images"][] = [
     { src: "/images/projects/albetar/ai-search.webp", alt: "Albetar AI product search with smart recommendations" },
     { src: "/images/projects/albetar/revenue-forecast.webp", alt: "Albetar revenue forecasting and anomaly detection dashboard" },
   ],
-  [{ src: "/images/oITRaXEkBVhukMYINXV2xi05PY.webp", alt: "" }, { src: "/images/BChNf0ssn5x1I9kAk4vwX8qT5o.webp", alt: "" }],
+  [
+    { src: "/images/projects/mohami-smart/brand.webp", alt: "Mohami Smart logo, a golden scale of justice" },
+    { src: "/images/projects/mohami-smart/dashboard.webp", alt: "Mohami Smart legal dashboard for cases, documents and AI workflows" },
+  ],
   [{ src: "/images/h33bTK94GjgfacsggRpl9F5QXes.webp", alt: "" }, { src: "/images/mdHohhCEac2dy5qj6Hz8xLx3o.webp", alt: "" }],
 ];
 
