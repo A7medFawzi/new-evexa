@@ -176,9 +176,9 @@ export const INTEGRATION_LOGOS: ReadonlyArray<{ src: string; name: string }> = [
   { src: "/images/integrations/mysql.webp", name: "MySQL" },
 ];
 
-/** White marks of six everyday tools wired into the "Connected Systems" card. */
-export const CONNECTED_TOOLS = ["whatsapp", "gmail", "googledrive", "slack", "hubspot", "sap"].map(
-  (name) => `/images/integrations/mono/${name}.webp`,
+/** White marks of six AI platforms wired into the "Connected Systems" card. */
+export const CONNECTED_TOOLS = ["openai", "claude-ai", "google-gemini", "microsoft-azure", "aws", "google-cloud"].map(
+  (name) => `/images/tools/mono/${name}.webp`,
 );
 
 /** Client and partner logos in the strip under the hero (from evexa.tech), clients first. */
