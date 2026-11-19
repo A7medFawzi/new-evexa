@@ -1,0 +1,283 @@
+/*
+ * Project card: details panel + two images (desktop) / one image (tablet),
+ * stacked on phones. All three slots share the width (flex 1 0 0); the
+ * panel's 16px padding makes it slightly wider than the 1px-padded images.
+ */
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: #080808;
+  color: #fff;
+  text-decoration: none;
+  box-shadow:
+    rgba(0, 0, 0, 0.09) 0px 0.602187px 1.32481px -0.583333px,
+    rgba(0, 0, 0, 0.1) 0px 2.28853px 5.03477px -1.16667px,
+    rgba(0, 0, 0, 0.16) 0px 10px 22px -1.75px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ---------------- details panel ---------------- */
+
+.panel {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex: 1 0 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 1px;
+  padding: 16px;
+  overflow: hidden;
+  border-radius: 22px;
+  background-color: #080808;
+}
+
+.panel::after,
+.label::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(0, 49, 213, 0.15);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.glow,
+.labelGlow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(43% 50% at 50% 50%, rgba(15, 9, 18, 0.15) 0%, rgb(12, 9, 18) 100%);
+  box-shadow: inset 0px 10px 5px -1px rgba(0, 49, 213, 0.15);
+}
+
+.labelGlow {
+  box-shadow: inset 0px 10px 10px -1px rgba(0, 49, 213, 0.15);
+}
+
+.head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.label {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 3px 10px;
+  overflow: hidden;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -0.5px;
+  box-shadow:
+    rgba(0, 49, 213, 0.08) 0px 0.361312px 1.08394px -0.5px,
+    rgba(0, 49, 213, 0.1) 0px 1.37312px 4.11936px -1px,
+    rgba(0, 49, 213, 0.18) 0px 6px 18px -1.5px,
+    rgba(255, 255, 255, 0.08) 0px 10px 5px -1px inset;
+}
+
+.label > span:last-child {
+  position: relative;
+}
+
+.title {
+  position: relative;
+  flex: 1;
+  margin: 0;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -0.5px;
+}
+
+.line {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.points {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.points li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.points svg {
+  display: block;
+  flex: none;
+}
+
+.points span {
+  flex: 1;
+  min-width: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+}
+
+.tags {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 6px 16px;
+  overflow: hidden;
+  border-radius: 40px;
+  background: rgba(0, 0, 0, 0.3);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.5px;
+  white-space: pre;
+}
+
+.tag > span:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.tag::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.tagGlow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 49, 213, 0.15) 0%, rgb(15, 9, 18) 100%);
+  box-shadow: inset 0px 10px 10px -1px rgba(0, 49, 213, 0.1);
+}
+
+:global(html[lang="ar"]) .tag,
+:global(html[lang="ar"]) .label {
+  font-weight: 500;
+}
+
+/* ---------------- images ---------------- */
+
+.media {
+  position: relative;
+  display: flex;
+  flex: 1 0 0px;
+  width: 1px;
+  min-height: 327px;
+  padding: 1px;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.mediaInner {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 21px;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 21px;
+  object-fit: cover;
+}
+
+.tint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 5px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 91.2405%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+/* ================= tablet ================= */
+
+@media (max-width: 1199px) {
+  .secondary {
+    display: none;
+  }
+}
+
+/* ================= phone ================= */
+
+@media (max-width: 809px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .panel,
+  .media {
+    flex: none;
+    width: 100%;
+  }
+
+  .media {
+    height: 327px;
+  }
+}

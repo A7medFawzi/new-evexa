@@ -1,5 +1,5 @@
 import WordReveal from "@/components/motion/WordReveal";
-import ScrollScale from "@/components/motion/ScrollScale";
+import ScrollTransform from "@/components/motion/ScrollTransform";
 import Badge from "@/components/ui/Badge";
 import PhotoCard from "@/components/ui/PhotoCard";
 import { FingerprintIcon, StepDeliverIcon, StepEngineerIcon, StepUnderstandIcon } from "@/components/ui/icons";
@@ -32,7 +32,7 @@ export default function ApproachSection({ lang, content }: { lang: Lang; content
 
           <div className={styles.steps}>
             {content.steps.map((step, i) => (
-              <ScrollScale key={step.title} className={styles.step}>
+              <ScrollTransform key={step.title} from={{ scale: 0.9 }} className={styles.step}>
                 <StepCard
                   icon={STEP_ICONS[i]}
                   tag={step.tag}
@@ -41,7 +41,7 @@ export default function ApproachSection({ lang, content }: { lang: Lang; content
                   tags={step.tags}
                   button={step.button && { label: step.button.label, href: localizeHref(step.button.href, lang) }}
                 />
-              </ScrollScale>
+              </ScrollTransform>
             ))}
           </div>
         </div>

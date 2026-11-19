@@ -1,6 +1,7 @@
 import ApproachSection from "@/components/about/ApproachSection";
 import CapabilitiesSection from "@/components/about/CapabilitiesSection";
 import BottomBlur from "@/components/layout/BottomBlur";
+import CustomCursor from "@/components/motion/CustomCursor";
 import AutoplayVideo from "@/components/motion/AutoplayVideo";
 import CtaSection from "@/components/sections/CtaSection";
 import FaqSection from "@/components/sections/FaqSection";
@@ -22,6 +23,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         size="md"
         introReveal
         flush
+        cardGap={20}
         cardRotateX={30}
       >
         <GlowCard media className={styles.videoCard}>
@@ -33,6 +35,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
       <FaqSection content={FAQS.about[lang]} badgeLabel={copy.faqBadge} tight />
       <CtaSection content={{ ...copy.cta, href: localizeHref(copy.cta.href, lang) }} />
       <BottomBlur />
+      <CustomCursor />
     </main>
   );
 }

@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 70px;
+  gap: var(--card-gap, 70px);
   width: 100%;
   padding: 0 80px;
   background: radial-gradient(60% 88% at 50% 64.2%, #0031d5 0%, rgb(59, 95, 255) 39.99155405405405%, rgb(25, 13, 46) 84.93278434684684%, rgb(0, 0, 0) 100%);
@@ -146,13 +146,8 @@
 
 /* ---------------- variants ---------------- */
 
-/* compact: card sits close under the headline, no space below */
 .flush {
   padding-bottom: 0;
-}
-
-.flush .container {
-  gap: 20px;
 }
 
 .md .title {
@@ -194,6 +189,7 @@
 
   .container {
     align-items: flex-start;
+    gap: var(--card-gap-phone, 70px);
     padding: 0 30px;
   }
 

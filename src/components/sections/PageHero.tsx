@@ -24,6 +24,8 @@ export default function PageHero({
   size = "lg",
   introReveal = false,
   flush = false,
+  cardGap = 70,
+  cardGapPhone,
   cardRotateX,
   children,
 }: {
@@ -32,8 +34,11 @@ export default function PageHero({
   size?: "lg" | "md";
   /** reveal the intro word by word */
   introReveal?: boolean;
-  /** compact layout: card 20px under the headline, no space below it */
+  /** no space below the card */
   flush?: boolean;
+  /** space between the button and the card (px); phones may differ */
+  cardGap?: number;
+  cardGapPhone?: number;
   /** card flips up from this angle on entrance */
   cardRotateX?: number;
   children: ReactNode;
@@ -41,7 +46,10 @@ export default function PageHero({
   const heroClass = [styles.hero, flush && styles.flush, size === "md" && styles.md].filter(Boolean).join(" ");
 
   return (
-    <section className={heroClass}>
+    <section
+      className={heroClass}
+      style={{ "--card-gap": `${cardGap}px`, "--card-gap-phone": `${cardGapPhone ?? cardGap}px` } as React.CSSProperties}
+    >
       <div className={styles.spacer} />
       <div className={styles.container}>
         <div className={styles.glow} aria-hidden="true">

@@ -1,5 +1,6 @@
 import ContactForm from "@/components/contact/ContactForm";
 import BottomBlur from "@/components/layout/BottomBlur";
+import CustomCursor from "@/components/motion/CustomCursor";
 import CtaSection from "@/components/sections/CtaSection";
 import FaqSection from "@/components/sections/FaqSection";
 import PageHero from "@/components/sections/PageHero";
@@ -32,6 +33,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       <FaqSection content={FAQS.contact[lang]} badgeLabel={copy.faqBadge} />
       <CtaSection content={{ ...copy.cta, href: FORM_ANCHOR }} />
       <BottomBlur />
+      <CustomCursor />
     </main>
   );
 }
