@@ -6,10 +6,10 @@
  *   - SMTP_HOST (+ SMTP_PORT/USER/PASS)      -> any SMTP mailbox
  * Recipient: CONTACT_TO_EMAIL (default info@evexa.tech). Sender: CONTACT_FROM_EMAIL.
  */
+import nodemailer from "nodemailer";
 
 const DEFAULT_TO = "info@evexa.tech";
 const DEFAULT_FROM = "EVEXA Website <website@evexa.tech>";
-import nodemailer from "nodemailer";
 
 export interface MailMessage {
   subject: string;
