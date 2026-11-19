@@ -1,11 +1,7 @@
-import EvexaPage from "@/components/evexa/EvexaPage";
-import "@/content/pages/terms-conditions.css";
+import LegalPage from "@/components/legal/LegalPage";
+import type { Lang } from "@/config/site";
 
-export default async function TermsConditionsPage({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function TermsConditionsPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  return <EvexaPage page="terms-conditions" lang={lang} />;
+  return <LegalPage doc="terms" lang={lang as Lang} />;
 }

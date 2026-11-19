@@ -1,11 +1,7 @@
-import EvexaPage from "@/components/evexa/EvexaPage";
-import "@/content/pages/privacy-policy.css";
+import LegalPage from "@/components/legal/LegalPage";
+import type { Lang } from "@/config/site";
 
-export default async function PrivacyPolicyPage({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export default async function PrivacyPolicyPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  return <EvexaPage page="privacy-policy" lang={lang} />;
+  return <LegalPage doc="privacy" lang={lang as Lang} />;
 }

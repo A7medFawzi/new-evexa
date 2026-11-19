@@ -5,6 +5,7 @@ import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import { LANGS, dirOf, isLang, type Lang } from "@/config/site";
 import { getDictionary } from "@/i18n";
+import "../fonts.css";
 import "../globals.css";
 import "../ar-typography.css";
 

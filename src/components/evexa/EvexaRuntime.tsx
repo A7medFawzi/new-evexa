@@ -26,6 +26,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { animate } from "framer-motion";
+import { ROUTES } from "@/config/site";
 import { SVG_TEMPLATES } from "@/content/svg-templates";
 import { ABOUT_CARD_ICONS } from "@/content/about-card-icons";
 
@@ -1372,7 +1373,6 @@ function cursorIdAt(x: number, y: number): string | null {
 
 function setupCursor() {
   if (typeof window === "undefined") return;
-  if (window.location.pathname.includes("privacy-policy") || window.location.pathname.includes("terms-conditions")) return;
   if (window.matchMedia("(any-hover: none)").matches) return;
   if (document.getElementById("nb-cursor")) return;
 
@@ -2682,17 +2682,7 @@ export default function EvexaRuntime({ page, lang = "en" }: { page: string; lang
 
     // prefetch every internal route so client-side page swaps are instant,
     // like the original site's navigation
-    [
-      "/",
-      "/about",
-      "/portfolio",
-      "/contact",
-      "/terms-conditions",
-      "/privacy-policy",
-      "/portfolio/lemonide-tech",
-      "/portfolio/million-one",
-      "/portfolio/viper-studio",
-    ].forEach((r) => {
+    ROUTES.forEach((r) => {
       try {
         router.prefetch(withLang(r, siteLang));
       } catch {}
