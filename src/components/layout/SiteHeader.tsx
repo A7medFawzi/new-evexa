@@ -141,7 +141,7 @@ export default function SiteHeader({ lang, dict }: { lang: Lang; dict: Dictionar
             ))}
           </ul>
 
-          <PrimaryButton href={localizeHref(CONTACT_HREF, lang)} className={styles.cta} onClick={onNavClick("contact", CONTACT_HREF)}>
+          <PrimaryButton thin href={localizeHref(CONTACT_HREF, lang)} className={styles.cta} onClick={onNavClick("contact", CONTACT_HREF)}>
             {dict.header.cta}
           </PrimaryButton>
         </nav>

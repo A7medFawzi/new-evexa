@@ -15,6 +15,10 @@
   background-color: #000;
 }
 
+.tight {
+  padding-top: 100px;
+}
+
 .rays {
   position: absolute;
   inset: 0;

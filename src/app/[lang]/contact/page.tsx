@@ -1,10 +1,14 @@
-import ContactHero from "@/components/contact/ContactHero";
+import ContactForm from "@/components/contact/ContactForm";
 import BottomBlur from "@/components/layout/BottomBlur";
 import CtaSection from "@/components/sections/CtaSection";
 import FaqSection from "@/components/sections/FaqSection";
+import PageHero from "@/components/sections/PageHero";
+import GlowCard from "@/components/ui/GlowCard";
 import type { Lang } from "@/config/site";
 import { CONTACT_COPY } from "@/content/contact";
 import { FAQS } from "@/content/faq";
+
+const FORM_ANCHOR = "#evexa-contact-form";
 
 export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
   const lang = (await params).lang as Lang;
@@ -12,9 +16,21 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
 
   return (
     <main style={{ position: "relative", backgroundColor: "#000" }}>
-      <ContactHero lang={lang} copy={copy} />
+      <PageHero
+        content={{
+          badgeChip: copy.badgeChip,
+          badge: copy.badge,
+          title: copy.title,
+          intro: copy.intro,
+          button: { label: copy.button, href: FORM_ANCHOR },
+        }}
+      >
+        <GlowCard>
+          <ContactForm lang={lang} copy={copy} />
+        </GlowCard>
+      </PageHero>
       <FaqSection content={FAQS.contact[lang]} badgeLabel={copy.faqBadge} />
-      <CtaSection content={{ ...copy.cta, href: "#evexa-contact-form" }} />
+      <CtaSection content={{ ...copy.cta, href: FORM_ANCHOR }} />
       <BottomBlur />
     </main>
   );

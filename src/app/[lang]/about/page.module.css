@@ -1,0 +1,24 @@
+.videoCard {
+  height: 700px;
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1199px) {
+  .videoCard {
+    height: 440px;
+  }
+}
+
+@media (max-width: 809px) {
+  .videoCard {
+    height: 340px;
+  }
+}

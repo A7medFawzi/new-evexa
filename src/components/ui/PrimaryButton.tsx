@@ -13,6 +13,7 @@ export default function PrimaryButton({
   href,
   children,
   arrow = false,
+  thin = false,
   className,
   onClick,
 }: {
@@ -20,6 +21,8 @@ export default function PrimaryButton({
   children: ReactNode;
   /** trailing ↗ arrow that nudges on hover */
   arrow?: boolean;
+  /** 1px border (header/footer) instead of the 3px used in page sections */
+  thin?: boolean;
   className?: string;
   onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
 }) {
@@ -33,7 +36,7 @@ export default function PrimaryButton({
     >
       <Link
         href={href}
-        className={styles.button}
+        className={thin ? `${styles.button} ${styles.thin}` : styles.button}
         onClick={(e) => {
           onClick?.(e);
           // in-page anchors ("#section") scroll smoothly

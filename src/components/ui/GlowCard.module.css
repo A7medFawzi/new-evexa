@@ -1,0 +1,47 @@
+.card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: #080808;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  box-shadow:
+    0 -19px 70px #0031d566,
+    0 -0.7961918735236395px 3.9809593676181976px #0031d505,
+    0 -2.414506143104518px 12.07253071552259px #0031d50d,
+    0 -6.382653521484461px 31.91326760742231px #0031d521,
+    0 -20px 100px #0031d566;
+}
+
+/* hairline border */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding: 1px;
+  border-radius: 22px;
+}
+
+.media {
+  overflow: hidden;
+}
+
+.innerBorder {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: inherit;
+  pointer-events: none;
+}

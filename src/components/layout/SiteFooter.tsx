@@ -94,7 +94,7 @@ export default function SiteFooter({ lang, dict }: { lang: Lang; dict: Dictionar
           <div className={`${styles.column} ${styles.contact}`}>
             <h4 className={`${styles.heading} ${styles.headingFill}`}>{t.ctaTitle}</h4>
             <p className={styles.contactText}>{t.ctaText}</p>
-            <PrimaryButton href={to(CONTACT_HREF)} arrow>
+            <PrimaryButton thin href={to(CONTACT_HREF)} arrow>
               {t.ctaButton}
             </PrimaryButton>
             <div className={styles.socials}>

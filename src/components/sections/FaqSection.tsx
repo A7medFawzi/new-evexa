@@ -12,9 +12,18 @@ const SPRING = { type: "spring", stiffness: 500, damping: 60, mass: 1 } as const
 const BORDER = (alpha: number) => `inset 0 0 0 1px rgba(255, 255, 255, ${alpha})`;
 
 /** "Frequently Asked Questions" — intro on one side, accordion on the other. */
-export default function FaqSection({ content, badgeLabel }: { content: FaqContent; badgeLabel: string }) {
+export default function FaqSection({
+  content,
+  badgeLabel,
+  tight = false,
+}: {
+  content: FaqContent;
+  badgeLabel: string;
+  /** 100px instead of 120px above the section on desktop */
+  tight?: boolean;
+}) {
   return (
-    <section id="faq" className={styles.section}>
+    <section id="faq" className={tight ? `${styles.section} ${styles.tight}` : styles.section}>
       <img className={styles.rays} src="/images/HQiQT243MN1itZOX771FxR6euwI.webp" width={2398} height={1558} alt="" aria-hidden="true" decoding="async" loading="lazy" />
       <div className={styles.container}>
         <div className={styles.intro}>
