@@ -20,7 +20,7 @@ export default function HomeChallenge({ copy, lang }: { copy: HomeChallengeCopy;
         <img className={styles.dots} src="/images/1xOqMa4sAAwBCrdkiSJfIXups.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
 
         <div className={styles.video}>
-          <AutoplayVideo src="/videos/hero-video.mp4" className={styles.videoEl} />
+          <AutoplayVideo src="/videos/evexa-showreel.mp4" className={styles.videoEl} />
           <span className={styles.videoFade} aria-hidden="true" />
         </div>
 

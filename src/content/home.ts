@@ -113,21 +113,12 @@ export interface HomeCopy {
   cta: { badge: string; title: [string, string]; text: string; button: string; href: string };
 }
 
-/** Images around the rotating circle (template artwork), one per arm. */
-export const CIRCLE_IMAGES = [
-  "/images/mdHohhCEac2dy5qj6Hz8xLx3o.webp",
-  "/images/F9LoqzZkQUYA0UTzwbeKgrHtxU.webp",
-  "/images/Zkc7LAnMDDFA5UyIhmoJayaPrM.webp",
-  "/images/rQo7dT4FIzcLvbS5xhx27CBlIYI.webp",
-  "/images/AiNn1Q8eMnTVvy7xlvhRMelvUQw.webp",
-  "/images/lI938j8IVRDakrPO5qLopvjOAag.webp",
-  "/images/y6nsXyFCXVHybL6AG2drPt8Xug.webp",
-  "/images/9Cq6czESZQzziX2TlS71XgHZfYo.webp",
-  "/images/WphhJDIoOTyAWBQ4nOmEaGTuaU.webp",
-  "/images/5dV8J37lurqu7X0JZXCpKEcTQEA.webp",
-  "/images/0Zl0ZNxSslCNHOplP4DkxYxobVY.webp",
-  "/images/fIbnVqKMPTPFfkL2aQSsDmEYsk.webp",
-];
+/**
+ * Images around the rotating circle, one per arm: workplaces EVEXA builds
+ * for (operations, retail, healthcare, hiring, real estate, training),
+ * architecture and AI visuals, toned down so the ring reads as one set.
+ */
+export const CIRCLE_IMAGES = Array.from({ length: 12 }, (_, i) => `/images/circle/${String(i + 1).padStart(2, "0")}.webp`);
 
 /** Project preview images (template artwork, shared with the portfolio page). */
 const WORK_IMAGES: Project["images"][] = [
