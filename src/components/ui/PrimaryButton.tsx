@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { MouseEvent, ReactNode } from "react";
+import { scrollToSection } from "@/lib/scroll";
 import styles from "./PrimaryButton.module.css";
 
 const SPRING = { type: "spring", stiffness: 200, damping: 60, mass: 1 } as const;
@@ -30,7 +31,15 @@ export default function PrimaryButton({
       whileHover={{ boxShadow: "0px 0px 0px 5px rgba(0, 49, 213, 0.3)" }}
       transition={SPRING}
     >
-      <Link href={href} className={styles.button} onClick={onClick}>
+      <Link
+        href={href}
+        className={styles.button}
+        onClick={(e) => {
+          onClick?.(e);
+          // in-page anchors ("#section") scroll smoothly
+          if (!e.defaultPrevented && href.startsWith("#") && scrollToSection(href.slice(1))) e.preventDefault();
+        }}
+      >
         {children}
         {arrow && (
           <svg className={styles.arrow} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

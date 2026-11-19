@@ -36,6 +36,12 @@ export default function SiteHeader({ lang, dict }: { lang: Lang; dict: Dictionar
   // a finished navigation settles the optimistic active item
   useEffect(() => setPendingKey(null), [pathname]);
 
+  // remember the visitor's language: src/proxy.ts uses it for links
+  // without a language prefix
+  useEffect(() => {
+    document.cookie = `NEXT_LOCALE=${lang};path=/;max-age=31536000;samesite=lax`;
+  }, [lang]);
+
   // hide the bar while scrolling down (past 250px), reveal on scroll up
   useEffect(() => {
     const shell = shellRef.current;

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import fs from "fs";
 import path from "path";
+import { COUNTRIES, INTERESTS } from "@/content/contact";
 import { formatSubmissionEmail, isMailConfigured, sendMail } from "@/lib/mailer";
 
 /**
@@ -54,6 +55,11 @@ function rateLimited(ip: string): boolean {
 }
 
 const json = (body: object, status = 200) => NextResponse.json(body, { status });
+
+/** Readable English name for a submitted option value ("EG" -> "Egypt"). */
+const COUNTRY_NAMES = new Map(COUNTRIES.en.flatMap((g) => g.options).map((o) => [o.value, o.label]));
+const INTEREST_NAMES = new Map(INTERESTS.en.map((o) => [o.value, o.label]));
+const describe = (names: Map<string, string>, value?: string) => (value ? names.get(value) ?? value : undefined);
 
 export async function POST(req: NextRequest) {
   const ip =
@@ -118,8 +124,8 @@ export async function POST(req: NextRequest) {
             ["Name", record.fullName],
             ["Company", record.companyName],
             ["Email", record.email],
-            ["Country", record.country],
-            ["Area of interest", record.interest],
+            ["Country", describe(COUNTRY_NAMES, record.country)],
+            ["Area of interest", describe(INTEREST_NAMES, record.interest)],
             ["Message", record.message],
             ["Type", isNewsletter ? "Newsletter subscription" : "Contact form"],
             ["Website language", record.lang === "ar" ? "Arabic" : record.lang === "en" ? "English" : record.lang],

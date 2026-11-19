@@ -1,0 +1,243 @@
+.hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 70px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+  overflow: hidden;
+}
+
+.spacer {
+  width: 100%;
+  height: 91px;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  width: 100%;
+  padding: 0 80px;
+  background: radial-gradient(60% 88% at 50% 64.2%, #0031d5 0%, rgb(59, 95, 255) 39.99155405405405%, rgb(25, 13, 46) 84.93278434684684%, rgb(0, 0, 0) 100%);
+}
+
+/* darkens the glow towards the edges */
+.glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.vignette {
+  position: absolute;
+  top: -0.5%;
+  left: 0;
+  width: 100%;
+  height: 101%;
+  background: radial-gradient(54% 50% at 50% 57.2%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.67) 64.5147%, rgb(0, 0, 0));
+}
+
+.glowFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 224px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #000);
+}
+
+/* ---------------- headline ---------------- */
+
+.top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 38px;
+  width: 100%;
+  max-width: 980px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  width: 100%;
+}
+
+.tagAndTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 34px;
+  width: 100%;
+}
+
+.title {
+  --title-line: 90px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 86px;
+  font-weight: 400;
+  line-height: var(--title-line);
+  letter-spacing: -3.8px;
+  text-align: center;
+}
+
+.titleLine {
+  display: block;
+}
+
+/* soft white-to-transparent gradient on the letters */
+.titleLine span {
+  display: inline-block;
+  padding: max(0em, calc((1.3em - var(--title-line)) / 2));
+  margin: min(0em, calc((1.3em - var(--title-line)) / -2));
+  color: #fff;
+  background-image: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.3) 350%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro {
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* ---------------- form card ---------------- */
+
+.bottom {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: #080808;
+  box-shadow:
+    0 -19px 70px #0031d566,
+    0 -0.7961918735236395px 3.9809593676181976px #0031d505,
+    0 -2.414506143104518px 12.07253071552259px #0031d50d,
+    0 -6.382653521484461px 31.91326760742231px #0031d521,
+    0 -20px 100px #0031d566;
+}
+
+.card::after,
+.cardInner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.cardInner {
+  position: relative;
+  display: flex;
+  flex: 1;
+  padding: 1px;
+  border-radius: 22px;
+}
+
+.cardInner::after {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.cardContent {
+  flex: 1;
+  min-width: 0;
+  border-radius: 21px;
+}
+
+/* ================= tablet ================= */
+
+@media (max-width: 1199px) {
+  .hero {
+    padding-bottom: 100px;
+  }
+
+  .container {
+    padding: 0 50px;
+  }
+
+  .title {
+    --title-line: 70px;
+    font-size: 66px;
+    letter-spacing: -3px;
+  }
+}
+
+/* ================= phone ================= */
+
+@media (max-width: 809px) {
+  .hero {
+    padding-bottom: 80px;
+  }
+
+  .container {
+    align-items: flex-start;
+    padding: 0 30px;
+  }
+
+  .top {
+    align-items: flex-start;
+    max-width: 460px;
+  }
+
+  .text,
+  .tagAndTitle {
+    align-items: flex-start;
+  }
+
+  .title {
+    --title-line: 55px;
+    font-size: 56px;
+    letter-spacing: -3.4px;
+    text-align: start;
+  }
+
+  .intro {
+    text-align: start;
+  }
+
+  .buttons {
+    justify-content: flex-start;
+  }
+}
