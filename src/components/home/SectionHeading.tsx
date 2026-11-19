@@ -34,7 +34,11 @@ export default function SectionHeading({
         </div>
       </div>
       <p className={styles.body}>{body}</p>
-      {button && <PrimaryButton href={button.href}>{button.label}</PrimaryButton>}
+      {button && (
+        <PrimaryButton href={button.href} external={/^https?:\/\//.test(button.href)}>
+          {button.label}
+        </PrimaryButton>
+      )}
     </div>
   );
 }

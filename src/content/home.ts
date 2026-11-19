@@ -1,5 +1,6 @@
 /** Home page content (both languages), section by section. */
 import type { Project } from "@/components/portfolio/ProjectCard";
+import type { AboutCopy } from "@/content/about";
 import type { Lang } from "@/config/site";
 
 export interface HomeHeroCopy {
@@ -63,6 +64,17 @@ export interface HomeWorkCopy {
   projects: Project[];
 }
 
+export interface HomeProductCopy {
+  badge: string;
+  title: [string, string];
+  body: string;
+  /** external product site (opens in a new tab) */
+  button: { label: string; href: string };
+  /** speech bubbles over the image fan (left, right) */
+  bubbles: [string, string];
+  cards: { title: string; text: string }[];
+}
+
 export interface FeatureCard {
   title: string;
   text: string;
@@ -76,6 +88,9 @@ export interface HomeCopy {
   features: HomeFeaturesCopy;
   services: HomeServicesCopy;
   work: HomeWorkCopy;
+  product: HomeProductCopy;
+  /** "Why EVEXA" — same layout as the about page's approach section */
+  why: AboutCopy["approach"];
 }
 
 /** Images around the rotating circle (template artwork), one per arm. */
@@ -100,6 +115,19 @@ const WORK_IMAGES: Project["images"][] = [
   [{ src: "/images/oITRaXEkBVhukMYINXV2xi05PY.webp", alt: "" }, { src: "/images/BChNf0ssn5x1I9kAk4vwX8qT5o.webp", alt: "" }],
   [{ src: "/images/h33bTK94GjgfacsggRpl9F5QXes.webp", alt: "" }, { src: "/images/mdHohhCEac2dy5qj6Hz8xLx3o.webp", alt: "" }],
 ];
+
+/** Fan of screenshots in the Dealplier section (template artwork). */
+export const PRODUCT_IMAGES = [
+  "/images/oDRTuQcEv3o8tKOrggRlXOYRMGE.webp",
+  "/images/GsvUhduUuKpqabW4bstAZkXg2I.webp",
+  "/images/uNKtEHPNTpmZAxn4jjdzE9O6BU.webp",
+  "/images/aE1xhNZ4UZzqgk3p2IcEuW5uA.webp",
+  "/images/gxpeAO79b6wHLclIxgs0fpho7zY.webp",
+  "/images/c4v0BFVHL96KZfuqVprJYqGBX8.webp",
+  "/images/kaI0Lz0RW30Awo1Y289wwm2NWJU.webp",
+];
+
+const WHY_IMAGE = { src: "/images/hZgGlHpPFf0bbzHL7dI9MolatA.webp", alt: "Man using a laptop" };
 
 /** Placeholder client logos under the hero (template artwork). */
 export const HERO_LOGOS = [
@@ -179,6 +207,29 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
         { href: "/portfolio/business-operations", label: "OPS", title: "Business Operations Platforms", points: ["HR Workflows", "Project Operations", "Approvals & Tracking", "Role-Based Access"], tags: ["HRMS", "PMS"], images: WORK_IMAGES[2] },
       ],
     },
+    product: {
+      badge: "Our Product · Built by EVEXA",
+      title: ["From RFQ to follow-up.", "All in one place."],
+      body: "Dealplier brings RFQs, quotations, and daily follow-ups together for B2B sales teams.",
+      button: { label: "Explore Dealplier", href: "https://www.dealplier.com/" },
+      bubbles: ["RFQs, organized", "Follow-up, clear"],
+      cards: [
+        { title: "RFQ Inbox", text: "Review requests and attachments with AI assistance." },
+        { title: "Quotations", text: "Track revisions, dates, and approvals." },
+        { title: "My Day", text: "See the next task and follow-up for each deal." },
+      ],
+    },
+    why: {
+      badge: "Why EVEXA",
+      title: ["We build for what happens", "after the demo."],
+      intro: "Beyond a prototype: integration, permissions, and everyday use.",
+      image: WHY_IMAGE,
+      steps: [
+        { tag: "Focus", title: "Business Need First", text: "Agree on the problem and outcome before choosing technology.", tags: ["Use Case", "Clear Outcome"] },
+        { tag: "Fit", title: "Built for Your Environment", text: "Design around your existing systems, data, and processes.", tags: ["Your Systems", "Your Data"] },
+        { tag: "Deliver", title: "Built to Work in Practice", text: "Handle the software and integration needed for daily work.", button: { label: "Discuss Your Project", href: "/contact" } },
+      ],
+    },
   },
   ar: {
     hero: {
@@ -247,6 +298,29 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
         { href: "/portfolio/albetar", label: "AI", title: "Albetar AI Modules", points: ["بحث منتجات بلغتين", "استرجاع دلالي", "توصيات ذكية", "توقعات الإيرادات"], tags: ["ذكاء التجارة", "RAG"], images: WORK_IMAGES[0] },
         { href: "/portfolio/mohami-smart", label: "قانوني", title: "Mohami Smart", points: ["مساعد قانوني ذكي", "تحليل المستندات", "إعداد صيغ قانونية", "إدارة القضايا"], tags: ["تقنية قانونية", "إجراءات ذكية"], images: WORK_IMAGES[1] },
         { href: "/portfolio/business-operations", label: "تشغيل", title: "Business Operations Platforms", points: ["إجراءات الموارد البشرية", "العمليات والمشاريع", "الموافقات والمتابعة", "صلاحيات حسب الدور"], tags: ["HRMS", "PMS"], images: WORK_IMAGES[2] },
+      ],
+    },
+    product: {
+      badge: "منتج من تطوير EVEXA",
+      title: ["من طلب التسعير", "إلى متابعة الصفقة."],
+      body: "يجمع Dealplier طلبات التسعير وعروض الأسعار والمتابعات اليومية لفرق مبيعات التوريد.",
+      button: { label: "اكتشف Dealplier", href: "https://www.dealplier.com/" },
+      bubbles: ["طلبات منظمة", "متابعة واضحة"],
+      cards: [
+        { title: "طلبات التسعير", text: "راجع الطلبات والمرفقات بمساعدة الذكاء الاصطناعي." },
+        { title: "عروض الأسعار", text: "تابع نسخ العروض والمواعيد والموافقات." },
+        { title: "أولويات اليوم", text: "تعرّف على أولويات المتابعة لكل صفقة." },
+      ],
+    },
+    why: {
+      badge: "لماذا EVEXA",
+      title: ["نهتم بما يحدث", "بعد العرض التجريبي."],
+      intro: "ما بعد النموذج التجريبي: تكامل وصلاحيات واستخدام عملي.",
+      image: WHY_IMAGE,
+      steps: [
+        { tag: "الاحتياج", title: "احتياجات العمل أولًا", text: "نحدد المشكلة والنتيجة المطلوبة قبل اختيار التقنية.", tags: ["حالة استخدام", "نتيجة واضحة"] },
+        { tag: "الملاءمة", title: "مناسب لبيئة عملك", text: "نصمم الحل وفق الأنظمة والبيانات وإجراءات العمل.", tags: ["أنظمتك", "بياناتك"] },
+        { tag: "التنفيذ", title: "جاهز للاستخدام الفعلي", text: "ننفذ البرمجيات والتكاملات اللازمة للعمل اليومي.", button: { label: "ناقش مشروعك", href: "/contact" } },
       ],
     },
   },

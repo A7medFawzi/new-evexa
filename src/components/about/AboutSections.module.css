@@ -187,7 +187,7 @@
 
 /* narrower desktops (1200–1365px): keep each heading on one line */
 @media (min-width: 1200px) and (max-width: 1365px) {
-  .title h2 {
+  .section:not(.home) .title h2 {
     font-size: 46px;
     line-height: 52px;
   }
@@ -198,16 +198,26 @@
   }
 }
 
+/* ---------------- home variant ("Why EVEXA") ---------------- */
+
+.home {
+  padding-top: 0;
+}
+
+.home .approachContainer {
+  padding-bottom: 20px;
+}
+
 /* ---------------- Arabic ---------------- */
 
 /* !important: beats the site-wide Arabic heading leading (ar-typography.css) */
-:global([dir="rtl"]) .title h2,
+:global([dir="rtl"]) .section:not(.home) .title h2,
 :global([dir="rtl"]) .titleCompact h2 {
   font-size: 46px;
   line-height: 58px !important;
 }
 
-:global([dir="rtl"]) .lead {
+:global([dir="rtl"]) .section:not(.home) .lead {
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
 }
@@ -254,10 +264,14 @@
     line-height: 50px;
   }
 
-  :global([dir="rtl"]) .title h2,
+  :global([dir="rtl"]) .section:not(.home) .title h2,
   :global([dir="rtl"]) .titleCompact h2 {
     font-size: 38px;
     line-height: 48px !important;
+  }
+
+  .home {
+    padding-top: 0;
   }
 }
 
@@ -294,9 +308,13 @@
     max-width: none;
   }
 
-  :global([dir="rtl"]) .title h2,
+  :global([dir="rtl"]) .section:not(.home) .title h2,
   :global([dir="rtl"]) .titleCompact h2 {
     font-size: 30px;
     line-height: 40px !important;
+  }
+
+  .home {
+    padding-top: 0;
   }
 }
