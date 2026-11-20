@@ -39,6 +39,28 @@
   overflow: hidden;
 }
 
+/* entrance: was a 3s framer-motion spring (opacity 0 -> 1, scale 1.1 -> 1, no bounce) */
+.arcIn {
+  animation: arc-in 3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes arc-in {
+  from {
+    opacity: 0.001;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arcIn {
+    animation: none;
+  }
+}
+
 .arcImage {
   display: block;
   width: 100%;
