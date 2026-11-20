@@ -92,11 +92,14 @@ export async function POST(req: NextRequest) {
       }),
     });
 
+  const primary = process.env.CHATBOT_MODEL || DEFAULT_MODEL;
+  let served = primary;
   let upstream: Response;
   try {
-    upstream = await call(process.env.CHATBOT_MODEL || DEFAULT_MODEL);
+    upstream = await call(primary);
     if (!upstream.ok || !upstream.body) {
       console.error("[chat] primary model failed:", upstream.status, await upstream.text().catch(() => ""));
+      served = FALLBACK_MODEL;
       upstream = await call(FALLBACK_MODEL);
     }
   } catch (err) {
@@ -147,6 +150,12 @@ export async function POST(req: NextRequest) {
   });
 
   return new Response(stream, {
-    headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store", "X-Accel-Buffering": "no" },
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "no-store",
+      "X-Accel-Buffering": "no",
+      // which model was asked to answer (the fallback router may pick any free model)
+      "X-Chat-Model": served,
+    },
   });
 }
