@@ -97,8 +97,16 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(180deg, rgb(0, 49, 213), rgb(89, 114, 227));
-  box-shadow: 0 0 18px rgba(0, 49, 213, 0.7);
+  background: #fff;
+  box-shadow:
+    0 0 0 3px rgba(0, 49, 213, 0.25),
+    0 0 18px rgba(0, 120, 230, 0.55);
+}
+
+.avatar img {
+  display: block;
+  width: 20px;
+  height: auto;
 }
 
 .headText {

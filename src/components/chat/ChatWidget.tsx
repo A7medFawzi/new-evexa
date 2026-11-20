@@ -158,7 +158,7 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
         <section className={styles.panel} role="dialog" aria-label={c.title}>
           <header className={styles.head}>
             <span className={styles.avatar} aria-hidden="true">
-              <Sparkle />
+              <img src="/images/brand/evexa-icon.png" alt="" width={20} height={21} />
             </span>
             <div className={styles.headText}>
               <strong>{c.title}</strong>
@@ -244,13 +244,5 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
         )}
       </button>
     </div>
-  );
-}
-
-function Sparkle() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
-      <path d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7z" />
-    </svg>
   );
 }
