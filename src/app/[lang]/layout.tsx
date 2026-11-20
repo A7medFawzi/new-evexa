@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Alexandria } from "next/font/google";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import ChatWidget from "@/components/chat/ChatWidget";
 import { LANGS, SITE_NAME, SITE_URL, dirOf, isLang } from "@/config/site";
 import { SITE_SEO } from "@/content/seo";
 import { getDictionary } from "@/i18n";
@@ -80,6 +81,7 @@ export default async function LangLayout({
         <SiteHeader lang={lang} dict={getDictionary(lang)} />
         {children}
         <SiteFooter lang={lang} dict={getDictionary(lang)} />
+        <ChatWidget lang={lang} />
       </body>
     </html>
   );
