@@ -77,7 +77,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["Commerce AI", "RAG"],
         facts: [
           { label: "Services", value: "Commerce Platform & AI Modules" },
-          { label: "Category", value: "AI-Powered E-Commerce" },
+          { label: "AI Modules", value: "6 built into the store" },
           { label: "Client", value: "Albetar Store" },
         ],
         button: { label: "Visit Live Store", href: "https://albetarstore.com/" },
@@ -87,7 +87,7 @@ export const CASE_STUDIES: CaseStudy[] = [
             text: "Most customers don’t shop by model number. They come with a budget and a job in mind: editing, gaming, an office of ten. We spent time on how they search, and on how the team runs orders and stock behind the scenes.",
             subs: [
               { title: "Finding the Product", chip: "COMMERCE", text: "• Clear categories and filters for thousands of specs.\n• Build-your-own PC with automatic compatibility checks.\n• Side-by-side specs before anyone pays." },
-              { title: "Running the Store", text: "Orders, stock, payments and shipping live in the same platform, so what the customer sees and what the warehouse has never drift apart." },
+              { title: "Running the Store", text: "Orders, stock, shipping, loyalty points, coupons and referrals in one dashboard, so what the customer sees always matches the warehouse." },
             ],
           },
           {
@@ -99,9 +99,9 @@ export const CASE_STUDIES: CaseStudy[] = [
           },
           {
             title: "Solution — Meet BETO",
-            text: "We built a bilingual store with an assistant, BETO, at its center. Customers ask in their own words; BETO asks a follow-up if needed and suggests machines that fit, from live store data.",
+            text: "A customer types “a laptop around 25,000 for graphic design” and BETO answers with machines that fit, from live stock. It also tracks orders, and builds custom workstations with the price updating as parts change.",
             subs: [
-              { title: "Smarter Search, Smarter Decisions", chip: "RAG", text: "Semantic search ranks products by the specs that matter for the task. On the management side, the team gets review sentiment, KPI summaries and revenue forecasts, so restocking and promotions are based on data, not guesswork." },
+              { title: "The Store Answers Back", chip: "RAG", text: "Managers ask in Arabic “what sold best last month?” and get a table. AI summaries suggest next actions, revenue forecasts flag unusual days, and review sentiment shows what customers really think." },
             ],
           },
         ],
@@ -121,7 +121,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["تجارة ذكية", "RAG"],
         facts: [
           { label: "الخدمات", value: "منصة تجارة ووحدات ذكاء اصطناعي" },
-          { label: "الفئة", value: "تجارة إلكترونية مدعومة بالذكاء" },
+          { label: "وحدات الذكاء", value: "6 وحدات داخل المتجر" },
           { label: "العميل", value: "متجر البيطار" },
         ],
         button: { label: "زيارة المتجر", href: "https://albetarstore.com/" },
@@ -131,7 +131,7 @@ export const CASE_STUDIES: CaseStudy[] = [
             text: "أغلب العملاء ما يعرفون اسم الموديل. يجون بميزانية وشغل محدد: مونتاج، ألعاب، أو مكتب لعشرة موظفين. درسنا طريقة بحثهم، وكيف يدير الفريق الطلبات والمخزون من الخلف.",
             subs: [
               { title: "الوصول للمنتج", chip: "التجارة", text: "• فئات وفلاتر واضحة لآلاف المواصفات.\n• تجميع جهاز مخصص مع فحص تلقائي لتوافق القطع.\n• مقارنة المواصفات جنبًا إلى جنب قبل الدفع." },
-              { title: "إدارة المتجر", text: "الطلبات والمخزون والدفع والشحن في نفس المنصة، فاللي يشوفه العميل دايمًا مطابق للموجود فعلًا في المستودع." },
+              { title: "إدارة المتجر", text: "الطلبات والمخزون والشحن ونقاط الولاء والكوبونات ودعوات الأصدقاء في لوحة واحدة، فاللي يشوفه العميل دايمًا مطابق للمستودع." },
             ],
           },
           {
@@ -143,9 +143,9 @@ export const CASE_STUDIES: CaseStudy[] = [
           },
           {
             title: "الحل — تعرّف على BETO",
-            text: "بنينا متجرًا بلغتين، وفي قلبه مساعد اسمه BETO. يسأله العميل بكلامه، فيسأل سؤال توضيحي لو احتاج، ويقترح الأجهزة المناسبة من بيانات المتجر الحية.",
+            text: "يكتب العميل «عايز لاب في حدود 25 ألف للجرافيك ديزاين»، فيرد BETO بالأجهزة المناسبة من المخزون الفعلي. ويتابع الطلبات، ويجمّع الوركستيشن مع تحديث السعر مع كل قطعة.",
             subs: [
-              { title: "بحث أذكى وقرارات أوضح", chip: "RAG", text: "البحث الدلالي يرتب المنتجات حسب المواصفات اللي تهم الاستخدام. ومن جهة الإدارة، يشوف الفريق تحليل آراء العملاء وملخص المؤشرات وتوقعات الإيرادات، فتكون قرارات المخزون والعروض مبنية على بيانات." },
+              { title: "المتجر يجاوبك", chip: "RAG", text: "تسأل الإدارة بالعربي «وش أكثر منتج انباع الشهر الماضي؟» فيطلع جدول. وملخصات الذكاء تقترح الخطوة الجاية، وتوقعات الإيرادات تنبه للأيام غير الطبيعية، وتحليل التقييمات يوضح رأي العملاء." },
             ],
           },
         ],
@@ -179,7 +179,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["LegalTech", "AI Workflows"],
         facts: [
           { label: "Focus", value: "Legal AI & Case Workflows" },
-          { label: "Category", value: "LegalTech Platform" },
+          { label: "Workflow", value: "5 steps, upload to memo" },
           { label: "Platform", value: "Mohami Smart" },
         ],
         button: { label: "Visit Live Platform", href: "https://mohamy-smart.com/" },
@@ -189,7 +189,7 @@ export const CASE_STUDIES: CaseStudy[] = [
             text: "We followed how a case actually moves: the file arrives, someone reads it, facts get pulled out, deadlines get tracked, a memo gets written. Most of it happened across folders, email and memory.",
             subs: [
               { title: "Cases & Clients", chip: "WORKFLOW", text: "• Every case, client and file in one place.\n• Hearings and deadlines on one calendar.\n• A dashboard of what’s open, closed or on hold." },
-              { title: "Documents in Context", text: "Contracts, rulings and drafts stay attached to their case, so nobody has to ask which version is the latest." },
+              { title: "A Legal Library", text: "Powers of attorney, internal regulations, bailiff papers and an Islamic inheritance calculator sit next to the cases they belong to." },
             ],
           },
           {
@@ -201,9 +201,9 @@ export const CASE_STUDIES: CaseStudy[] = [
           },
           {
             title: "Solution — From Upload to Memo",
-            text: "Upload the document and Mohami Smart pulls out the parties, dates and facts, analyzes the legal position, suggests claims and defenses, and prepares a draft memo, in Arabic.",
+            text: "Upload a PDF, Word file or even a photo. Mohami Smart reads it, opens the case, and walks it through five steps: facts, legal analysis, defenses, claims, and a final memo in Word.",
             subs: [
-              { title: "The Lawyer Has the Final Word", chip: "HUMAN REVIEW", text: "Every step is shown and editable: the extracted facts, the analysis, each claim. The lawyer reviews, adjusts and approves. The platform prepares; the professional decides." },
+              { title: "The Lawyer Has the Final Word", chip: "HUMAN REVIEW", text: "Defenses come labeled as substantive or procedural, claims as primary or alternative. The lawyer ticks what goes into the memo, and nothing is created without their review." },
             ],
           },
         ],
@@ -223,7 +223,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["ذكاء قانوني", "إدارة القضايا"],
         facts: [
           { label: "المجال التقني", value: "ذكاء قانوني وإدارة قضايا" },
-          { label: "التصنيف", value: "منصة تقنية قانونية" },
+          { label: "مسار العمل", value: "5 خطوات من الملف إلى المذكرة" },
           { label: "المنصة", value: "محامي سمارت" },
         ],
         button: { label: "زيارة المنصة", href: "https://mohamy-smart.com/" },
@@ -233,7 +233,7 @@ export const CASE_STUDIES: CaseStudy[] = [
             text: "تابعنا كيف تمشي القضية فعلًا: يوصل الملف، أحد يقرأه، تُستخرج الوقائع، تُتابع المواعيد، وتُكتب المذكرة. وأغلب هذا كان موزعًا بين المجلدات والإيميل والذاكرة.",
             subs: [
               { title: "القضايا والموكلون", chip: "مسار العمل", text: "• كل قضية وموكل وملف في مكان واحد.\n• الجلسات والمواعيد في تقويم واحد.\n• لوحة توضح المفتوح والمغلق والمؤجل." },
-              { title: "المستندات في مكانها", text: "العقود والأحكام والمسودات مرتبطة بقضيتها، فما يحتاج أحد يسأل: وين آخر نسخة؟" },
+              { title: "مكتبة قانونية", text: "التوكيلات، واللوائح الداخلية، وأوراق المحضرين، وحاسبة المواريث الشرعية، كلها بجانب القضايا اللي تخصها." },
             ],
           },
           {
@@ -245,9 +245,9 @@ export const CASE_STUDIES: CaseStudy[] = [
           },
           {
             title: "الحل — من رفع الملف إلى المذكرة",
-            text: "يرفع المحامي المستند، فيستخرج محامي سمارت الأطراف والتواريخ والوقائع، ويحلل الموقف القانوني، ويقترح الطلبات والدفوع، ويجهز مسودة المذكرة بالعربي.",
+            text: "يرفع المحامي PDF أو Word أو حتى صورة، فيقرأه محامي سمارت ويفتح القضية، ويمشي بها خمس خطوات: الوقائع، والتحليل القانوني، والدفوع، والطلبات، ثم المذكرة النهائية بصيغة Word.",
             subs: [
-              { title: "الكلمة الأخيرة للمحامي", chip: "مراجعة بشرية", text: "كل خطوة واضحة وقابلة للتعديل: الوقائع، والتحليل، وكل طلب. المحامي يراجع ويعدل ويعتمد. المنصة تجهّز، والمختص يقرر." },
+              { title: "الكلمة الأخيرة للمحامي", chip: "مراجعة بشرية", text: "الدفوع تطلع مصنّفة موضوعية وشكلية، والطلبات أصلية واحتياطية. المحامي يختار اللي يدخل المذكرة، وما ينشأ شي بدون مراجعته." },
             ],
           },
         ],
@@ -281,8 +281,8 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["HRMS", "PMS"],
         facts: [
           { label: "Services", value: "Custom Business Platforms" },
-          { label: "Category", value: "Enterprise Operations" },
-          { label: "Client", value: "Bin Delamah" },
+          { label: "Scale", value: "2,100+ active employees" },
+          { label: "Client", value: "Bin Delamah Contracting" },
         ],
         button: { label: "Discuss Your Project", href: "/contact" },
         blocks: [
@@ -290,7 +290,7 @@ export const CASE_STUDIES: CaseStudy[] = [
             title: "Analysis — Two Very Different Problems",
             text: "The HR office and the construction sites have different users, data and approval paths. Forcing both into one tool would have served neither, so we built two systems.",
             subs: [
-              { title: "People & Admin", chip: "HRMS", text: "• Employee files and who works on which project.\n• Fleet, finance requests and documents.\n• Access by role, across the group’s companies." },
+              { title: "People & Admin", chip: "HRMS", text: "• Files for nearly 4,000 employees, 2,100+ active.\n• Leave, salary increments, bank loans and fleet.\n• Saudization share and nationality mix, live." },
               { title: "Sites & Materials", text: "On the projects side: tasks, warehouses, material requests and movements, BOQ quantities, gate passes and the reports management asks for every week." },
             ],
           },
@@ -298,14 +298,14 @@ export const CASE_STUDIES: CaseStudy[] = [
             title: "Challenge — “Who approved this?”",
             text: "A material request leaves the site, waits on someone’s desk, gets signed, and the steel arrives late. When requests live on paper and in chats, nobody can say where they are.",
             subs: [
-              { title: "Every Request, Visible", chip: "OPS", text: "The goal: every request, approval and movement recorded with a name and a time, from HR paperwork to a truck leaving the warehouse, so the team can see what’s stuck and why." },
+              { title: "Every Request, Visible", chip: "OPS", text: "With 2,000+ people across sites, leave requests, violations, absence reports and material requests had to be recorded with a name and a time, so the team can see what’s stuck and why." },
             ],
           },
           {
             title: "Solution — One Screen for Each Team",
-            text: "BDCC HRMS runs people and admin. Bin Delamah PMS runs the sites. Each user sees only what their role needs: project managers, store keepers, file closers and admins.",
+            text: "BDCC HRMS runs people and admin. Bin Delamah PMS runs the sites, with seven user roles, from project manager to store keeper, each seeing only what their job needs.",
             subs: [
-              { title: "From Request to Report", chip: "SYSTEMS", text: "A request is raised, approved and tracked in one flow, and every step lands in the audit history. Stock alerts flag low materials early, and reports on projects, materials and tasks are ready to export." },
+              { title: "From Request to Report", chip: "SYSTEMS", text: "Material requests move between eight warehouses and the sites in one tracked flow. Stock alerts flag shortages early, and project, material and task reports export in a click, in Arabic or English." },
             ],
           },
         ],
@@ -325,8 +325,8 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["HRMS", "PMS"],
         facts: [
           { label: "الخدمات", value: "منصات أعمال مخصصة" },
-          { label: "الفئة", value: "إدارة العمليات" },
-          { label: "العميل", value: "بن دلامة" },
+          { label: "الحجم", value: "أكثر من 2,100 موظف نشط" },
+          { label: "العميل", value: "بن دلامة للمقاولات" },
         ],
         button: { label: "ناقش مشروعك", href: "/contact" },
         blocks: [
@@ -334,7 +334,7 @@ export const CASE_STUDIES: CaseStudy[] = [
             title: "التحليل — مشكلتين مختلفتين تمامًا",
             text: "مكتب الموارد البشرية ومواقع المشاريع لكل منهم مستخدمين وبيانات وموافقات مختلفة. لو جمعناهم في أداة وحدة ما بتخدم أحد، فبنينا نظامين.",
             subs: [
-              { title: "الموظفين والإدارة", chip: "HRMS", text: "• ملفات الموظفين ومين يشتغل في أي مشروع.\n• الأسطول والطلبات المالية والمستندات.\n• صلاحيات حسب الدور عبر شركات المجموعة." },
+              { title: "الموظفين والإدارة", chip: "HRMS", text: "• ملفات قرابة 4,000 موظف، منهم أكثر من 2,100 على رأس العمل.\n• الإجازات والعلاوات والسلف البنكية والأسطول.\n• نسبة السعودة وتوزيع الجنسيات بشكل لحظي." },
               { title: "المواقع والمواد", text: "ومن جهة المشاريع: المهام، والمستودعات، وطلبات المواد وحركتها، وجداول الكميات، وتصاريح البوابات، والتقارير اللي تطلبها الإدارة كل أسبوع." },
             ],
           },
@@ -342,14 +342,14 @@ export const CASE_STUDIES: CaseStudy[] = [
             title: "التحدي — «مين وافق على هذا؟»",
             text: "طلب مواد يطلع من الموقع، يجلس على مكتب أحد، يتوقع، والحديد يوصل متأخر. ولما تكون الطلبات بالورق وفي المحادثات، ما أحد يعرف وين وصلت.",
             subs: [
-              { title: "كل طلب واضح", chip: "OPS", text: "الهدف: كل طلب وموافقة وحركة تنسجل باسم صاحبها ووقتها، من أوراق الموارد البشرية لين شاحنة تطلع من المستودع، فيشوف الفريق وش المتعطل وليش." },
+              { title: "كل طلب واضح", chip: "OPS", text: "مع أكثر من 2,000 موظف بين المواقع، كان لازم كل إجازة ومخالفة وبلاغ تغيب وطلب مواد ينسجل باسم صاحبه ووقته، فيشوف الفريق وش المتعطل وليش." },
             ],
           },
           {
             title: "الحل — شاشة واحدة لكل فريق",
-            text: "BDCC HRMS يدير الموظفين والإدارة، وBin Delamah PMS يدير المواقع. وكل مستخدم يشوف اللي يحتاجه دوره بس: مدير المشروع، وأمين المستودع، ومسؤول إغلاق الملفات، والإدارة.",
+            text: "BDCC HRMS يدير الموظفين والإدارة، وBin Delamah PMS يدير المواقع بسبعة أدوار مستخدمين، من مدير المشروع لين أمين المستودع، وكل واحد يشوف اللي يخص شغله بس.",
             subs: [
-              { title: "من الطلب إلى التقرير", chip: "الأنظمة", text: "الطلب يُرفع ويُعتمد ويُتابع في مسار واحد، وكل خطوة تنحفظ في سجل المراجعة. وتنبيهات المخزون تنبه على نقص المواد بدري، وتقارير المشاريع والمواد والمهام جاهزة للتصدير." },
+              { title: "من الطلب إلى التقرير", chip: "الأنظمة", text: "طلبات المواد تتحرك بين ثمانية مستودعات والمواقع في مسار واحد متابَع. تنبيهات المخزون تكشف النقص بدري، وتقارير المشاريع والمواد والمهام تطلع بضغطة." },
             ],
           },
         ],
