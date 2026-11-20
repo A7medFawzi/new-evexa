@@ -3,7 +3,8 @@ import { z } from "zod";
 import fs from "fs";
 import path from "path";
 import { COUNTRIES, INTERESTS } from "@/content/contact";
-import { formatSubmissionEmail, isMailConfigured, sendMail } from "@/lib/mailer";
+import { SITE_URL } from "@/config/site";
+import { formatAutoReply, formatSubmissionEmail, isAutoReplyEnabled, isMailConfigured, sendMail } from "@/lib/mailer";
 
 /**
  * Contact / newsletter endpoint.
@@ -134,6 +135,18 @@ export async function POST(req: NextRequest) {
           { subject, replyTo: record.email }
         )
       );
+
+      // Confirmation to the visitor, from the EVEXA address. A failure here
+      // must not fail the request: the team already has the message.
+      if (!isNewsletter && isAutoReplyEnabled()) {
+        try {
+          await sendMail(
+            formatAutoReply({ lang: record.lang, name: record.fullName, message: record.message, to: record.email, siteUrl: SITE_URL })
+          );
+        } catch (err) {
+          console.error("[contact] auto-reply failed:", err);
+        }
+      }
     } else {
       // development fallback: no email provider configured
       fs.mkdirSync(DATA_DIR, { recursive: true });

@@ -12,10 +12,22 @@ const DEFAULT_TO = "info@evexa.tech";
 const DEFAULT_FROM = "EVEXA Website <website@evexa.tech>";
 
 export interface MailMessage {
+  /** overrides CONTACT_TO_EMAIL (used for the auto-reply to the visitor) */
+  to?: string;
   subject: string;
   text: string;
   html: string;
   replyTo?: string;
+}
+
+/** First team inbox (CONTACT_TO_EMAIL), used as Reply-To on the auto-reply. */
+export function teamInbox(): string {
+  return (process.env.CONTACT_TO_EMAIL || DEFAULT_TO).split(",")[0].trim();
+}
+
+/** Auto-reply to the visitor is on unless CONTACT_AUTO_REPLY=false. */
+export function isAutoReplyEnabled(): boolean {
+  return process.env.CONTACT_AUTO_REPLY !== "false";
 }
 
 export function isMailConfigured(): boolean {
@@ -23,7 +35,7 @@ export function isMailConfigured(): boolean {
 }
 
 export async function sendMail(message: MailMessage): Promise<void> {
-  const to = process.env.CONTACT_TO_EMAIL || DEFAULT_TO;
+  const to = message.to || process.env.CONTACT_TO_EMAIL || DEFAULT_TO;
   const from = process.env.CONTACT_FROM_EMAIL || DEFAULT_FROM;
 
   if (process.env.RESEND_API_KEY) {
@@ -86,4 +98,66 @@ ${rows
   .join("\n")}
 </table></body></html>`;
   return { subject: opts.subject, text, html, replyTo: opts.replyTo };
+}
+
+const AUTO_REPLY = {
+  en: {
+    subject: "We received your message — EVEXA",
+    hello: (name: string) => (name ? `Hello ${name},` : "Hello,"),
+    lines: [
+      "Thank you for contacting EVEXA. We have received your message and a member of our team will get back to you within two business days.",
+      "If you would like to add any details, simply reply to this email.",
+    ],
+    yourMessage: "Your message",
+    sign: ["Best regards,", "The EVEXA team"],
+    footer: "You are receiving this email because you contacted us through evexa.tech.",
+  },
+  ar: {
+    subject: "استلمنا رسالتك — EVEXA",
+    hello: (name: string) => (name ? `مرحبًا ${name}،` : "مرحبًا،"),
+    lines: [
+      "شكرًا لتواصلك مع EVEXA. استلمنا رسالتك، وسيتواصل معك أحد أعضاء فريقنا خلال يومي عمل.",
+      "إذا رغبت في إضافة أي تفاصيل، يمكنك الرد مباشرة على هذه الرسالة.",
+    ],
+    yourMessage: "رسالتك",
+    sign: ["مع خالص التحية،", "فريق EVEXA"],
+    footer: "وصلتك هذه الرسالة لأنك تواصلت معنا عبر موقع evexa.tech.",
+  },
+} as const;
+
+/**
+ * Confirmation email sent to the visitor after a contact-form submission,
+ * in the language of the page they used (Arabic is right-to-left).
+ */
+export function formatAutoReply(opts: { lang?: string; name?: string; message?: string; to: string; siteUrl: string }): MailMessage {
+  const lang = opts.lang === "ar" ? "ar" : "en";
+  const c = AUTO_REPLY[lang];
+  const name = (opts.name || "").trim();
+  const dir = lang === "ar" ? "rtl" : "ltr";
+  const align = lang === "ar" ? "right" : "left";
+  const quote = (opts.message || "").trim();
+  const text = [
+    c.hello(name),
+    "",
+    ...c.lines.flatMap((l) => [l, ""]),
+    ...(quote ? [`${c.yourMessage}:`, quote, ""] : []),
+    ...c.sign,
+  ].join("\n");
+  const html = `<!doctype html><html lang="${lang}" dir="${dir}"><body style="margin:0;padding:24px;background:#f5f6fa;font-family:Arial,Helvetica,sans-serif;color:#111">
+<table role="presentation" cellpadding="0" cellspacing="0" dir="${dir}" style="max-width:600px;width:100%;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e3e6ef;text-align:${align}">
+<tr><td style="padding:22px 28px;background:#000"><img src="${opts.siteUrl}/images/brand/evexa-logo-white.png" alt="EVEXA" width="120" style="display:block;height:auto;border:0"></td></tr>
+<tr><td style="height:4px;background:linear-gradient(90deg,#0031d5,#5972e3);background-color:#0031d5;font-size:0;line-height:0">&nbsp;</td></tr>
+<tr><td style="padding:28px 28px 8px;font-size:16px;line-height:1.7">
+<p style="margin:0 0 14px;font-weight:bold">${escapeHtml(c.hello(name))}</p>
+${c.lines.map((l) => `<p style="margin:0 0 14px">${escapeHtml(l)}</p>`).join("")}
+</td></tr>
+${
+  quote
+    ? `<tr><td style="padding:0 28px 8px"><div style="font-size:12px;color:#667;margin-bottom:6px">${escapeHtml(c.yourMessage)}</div><div dir="auto" style="padding:14px 16px;border-radius:8px;background:#f3f5fc;border-${align}:3px solid #0031d5;font-size:14px;line-height:1.6;color:#333;white-space:pre-wrap">${escapeHtml(quote)}</div></td></tr>`
+    : ""
+}
+<tr><td style="padding:16px 28px 28px;font-size:16px;line-height:1.7">${c.sign.map((l) => escapeHtml(l)).join("<br>")}</td></tr>
+<tr><td style="padding:16px 28px;border-top:1px solid #eef0f5;font-size:12px;color:#889">${escapeHtml(c.footer)}</td></tr>
+</table></body></html>`;
+  return { to: opts.to, subject: c.subject, text, html, replyTo: teamInbox() };
 }
