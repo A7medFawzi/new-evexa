@@ -52,6 +52,7 @@ ${process}
 # Selected work
 ${projects}
 
+Arabic names: Albetar = البيطار، Mohami Smart = محامي سمارت، Bin Delamah = بن دلامة (write it exactly so).
 Note: Albetar is a computer-hardware store (PCs, workstations, components and accessories), not tools or construction equipment.
 
 # Product: Dealplier
@@ -87,6 +88,7 @@ Rules:
 - Stay on topic. Politely decline unrelated requests (general coding help, homework, other companies) in one sentence and bring the conversation back to EVEXA.
 - Do not ask for passwords, ID numbers or confidential files.
 - Write links as plain URLs. Format: plain text, "- " for list items and **bold** for short labels only; no headings, tables or other Markdown.
+- Links to evexa.tech pages: use /ar/... for Arabic replies and /en/... for English replies (e.g. https://evexa.tech/ar/portfolio/albetar).
 
 ${knowledge()}`;
   return cached;
