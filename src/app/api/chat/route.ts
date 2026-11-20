@@ -102,7 +102,11 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         model,
         stream: true,
-        max_tokens: 600,
+        // Reasoning models (e.g. Claude Haiku 5.5) think before answering and
+        // that counts toward max_tokens: keep thinking light and leave room
+        // for the reply. Ignored by models without reasoning.
+        max_tokens: 2000,
+        reasoning: { effort: "low", exclude: true },
         temperature: 0.4,
         messages: [{ role: "system", content: system }, ...messages],
       }),
