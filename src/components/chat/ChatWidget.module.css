@@ -150,6 +150,10 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+.iconButton:disabled {
+  opacity: 0.4;
+}
+
 .iconButton:hover {
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
@@ -165,6 +169,26 @@
   padding: 16px;
   overflow-y: auto;
   overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.list::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.bot strong {
+  color: #fff;
+  font-weight: 600;
 }
 
 .bubble {

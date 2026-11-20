@@ -7,12 +7,13 @@ import styles from "./ChatWidget.module.css";
 type Msg = { role: "user" | "assistant"; content: string };
 
 const COPY: Record<Lang, {
-  open: string; close: string; title: string; subtitle: string; greeting: string;
+  open: string; close: string; reset: string; title: string; subtitle: string; greeting: string;
   chips: string[]; placeholder: string; send: string; error: string; rate: string; note: string;
 }> = {
   en: {
     open: "Chat with EVEXA",
     close: "Close chat",
+    reset: "New conversation",
     title: "EVEXA Assistant",
     subtitle: "Available 24/7",
     greeting: "Hi! I’m EVEXA’s assistant. Ask me about our AI solutions, our projects, or how we could help your business.",
@@ -26,6 +27,7 @@ const COPY: Record<Lang, {
   ar: {
     open: "تحدث مع EVEXA",
     close: "إغلاق المحادثة",
+    reset: "محادثة جديدة",
     title: "مساعد EVEXA",
     subtitle: "متاح على مدار الساعة",
     greeting: "هلا وغلا! معك مساعد EVEXA. اسألني عن حلول الذكاء الاصطناعي اللي نقدمها، أو مشاريعنا، أو كيف نقدر نخدم شركتك.",
@@ -38,9 +40,21 @@ const COPY: Record<Lang, {
   },
 };
 
-const STORE_KEY = "evexa-chat";
+/** One saved conversation per language, kept for the browser tab. */
+const storeKey = (lang: Lang) => `evexa-chat-${lang}`;
 
-/** Plain text with clickable URLs and emails, keeping line breaks. */
+/** Text with **bold** spans (the model's Markdown emphasis), without the asterisks. */
+function withBold(text: string, key: number): ReactNode {
+  const parts = text.split(/\*\*([^*\n]+)\*\*/g);
+  if (parts.length === 1) return <Fragment key={key}>{text.replace(/\*\*/g, "")}</Fragment>;
+  return (
+    <Fragment key={key}>
+      {parts.map((p, i) => (i % 2 ? <strong key={i}>{p}</strong> : p.replace(/\*\*/g, "")))}
+    </Fragment>
+  );
+}
+
+/** Plain text with clickable URLs and emails and **bold**, keeping line breaks. */
 function richText(text: string): ReactNode {
   const parts = text.split(/(https?:\/\/[^\s)]+|[\w.+-]+@[\w-]+\.[\w.]+)/g);
   return parts.map((part, i) => {
@@ -64,7 +78,7 @@ function richText(text: string): ReactNode {
         </Fragment>
       );
     }
-    return <Fragment key={i}>{part}</Fragment>;
+    return withBold(part, i);
   });
 }
 
@@ -88,21 +102,22 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
       .then((d) => setEnabled(Boolean(d?.enabled)))
       .catch(() => {});
     try {
-      const saved = sessionStorage.getItem(STORE_KEY);
+      const saved = sessionStorage.getItem(storeKey(lang));
       if (saved) setMessages(JSON.parse(saved));
     } catch {
       /* storage unavailable */
     }
+    // restore once per language (the layout remounts on a language switch)
   }, []);
 
   useEffect(() => {
     try {
-      sessionStorage.setItem(STORE_KEY, JSON.stringify(messages.slice(-30)));
+      sessionStorage.setItem(storeKey(lang), JSON.stringify(messages.slice(-30)));
     } catch {
       /* storage unavailable */
     }
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight });
-  }, [messages]);
+  }, [messages, lang]);
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
@@ -164,7 +179,22 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
               <strong>{c.title}</strong>
               <span className={styles.status}>{c.subtitle}</span>
             </div>
-            <button type="button" className={styles.iconButton} onClick={() => setOpen(false)} aria-label={c.close}>
+            {messages.length > 0 && (
+              <button
+                type="button"
+                className={styles.iconButton}
+                onClick={() => setMessages([])}
+                disabled={busy}
+                aria-label={c.reset}
+                title={c.reset}
+              >
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 20h9" />
+                  <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                </svg>
+              </button>
+            )}
+            <button type="button" className={styles.iconButton} onClick={() => setOpen(false)} aria-label={c.close} title={c.close}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
                 <path d="M6 6l12 12M18 6 6 18" />
               </svg>
