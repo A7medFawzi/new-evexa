@@ -89,8 +89,17 @@ export async function POST(req: NextRequest) {
   const { messages, lang, debug } = parsed.data;
   if (messages[messages.length - 1].role !== "user") return json({ error: "Invalid request." }, 422);
 
-  const system =
-    chatSystemPrompt() + `\n\nThe visitor is browsing the ${lang === "ar" ? "Arabic" : "English"} version of the site.`;
+  // The long, unchanging prompt is marked for prompt caching (Anthropic models
+  // via OpenRouter read it at ~10% of the price on later requests; other models
+  // ignore the marker). The per-request page language goes after it so the
+  // cached prefix stays identical.
+  const system = {
+    role: "system",
+    content: [
+      { type: "text", text: chatSystemPrompt(), cache_control: { type: "ephemeral" } },
+      { type: "text", text: `The visitor is browsing the ${lang === "ar" ? "Arabic" : "English"} version of the site.` },
+    ],
+  };
 
   const call = (model: string) =>
     fetch(ENDPOINT, {
@@ -110,7 +119,7 @@ export async function POST(req: NextRequest) {
         max_tokens: 2000,
         reasoning: { effort: "low", exclude: true },
         temperature: 0.4,
-        messages: [{ role: "system", content: system }, ...messages],
+        messages: [system, ...messages],
         usage: { include: true },
       }),
     });
