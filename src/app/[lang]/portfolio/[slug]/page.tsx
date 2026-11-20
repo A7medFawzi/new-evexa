@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return pageMetadata({
     lang: lang as Lang,
     route: `/portfolio/${slug}`,
-    title: copy.title.join(" "),
-    description: copy.intro,
+    title: copy.seo.title,
+    description: copy.seo.description,
     image: `/images/og/${slug}.jpg`,
   });
 }

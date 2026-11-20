@@ -269,28 +269,20 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       intro: "A closer look at the Albetar project and the technology behind it.",
       items: [
         {
-          question: "What was built for Albetar?",
-          answer: "An Arabic-first hardware commerce platform with customer shopping flows, a retail operations dashboard, and integrated AI modules for search and insights.",
+          question: "Is BETO just a standalone chatbot?",
+          answer: "No. BETO works inside the shopping experience itself, alongside product information and the configuration flow, so the conversation is part of finding the right machine.",
         },
         {
-          question: "What does the AI search do?",
-          answer: "It interprets product queries in Arabic and English and uses semantic retrieval and hardware-aware ranking to surface relevant items.",
+          question: "Can a customer configure a workstation before buying?",
+          answer: "Yes. The interface shows memory and storage choices, prices, and compatibility indicators and warnings for certain configurations.",
         },
         {
-          question: "Can shoppers configure hardware?",
-          answer: "The platform includes a device customization flow with compatibility checks for supported hardware choices.",
+          question: "Does the platform help the store team?",
+          answer: "Yes. The admin area adds AI summaries, recommendations and revenue forecasting alongside the usual store management tools.",
         },
         {
-          question: "How does AI support the store team?",
-          answer: "AI modules provide review analysis, business data Q&A, KPI summaries, and revenue forecasting to support day-to-day decisions.",
-        },
-        {
-          question: "Does the platform support both Arabic and English?",
-          answer: "Yes. The experience is designed bilingual with full right-to-left layout support for Arabic.",
-        },
-        {
-          question: "Can a similar solution be built for our business?",
-          answer: "We can assess your store's technical requirements, catalog complexity, and operational workflows to scope a tailored platform.",
+          question: "Could a similar approach work for another retailer?",
+          answer: "Yes. We shape the experience around your catalog structure, data quality, inventory processes and the integrations you need.",
         },
       ],
     },
@@ -299,28 +291,20 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       intro: "إجابات مختصرة عن مشروع البيطار والتقنيات المستخدمة فيه.",
       items: [
         {
-          question: "ما الذي تم بناؤه لمشروع البيطار؟",
-          answer: "منصة تجارة أجهزة كمبيوتر باللغة العربية أولًا، تتضمن مسار تسوق متكامل، ولوحة تحكم لإدارة العمليات، ووحدات ذكاء اصطناعي مدمجة للبحث والتحليل.",
+          question: "هل BETO مجرد نافذة محادثة؟",
+          answer: "لا. يعمل BETO ضمن تجربة التسوق نفسها، مرتبطًا بصفحات المنتجات ومسار الاختيار، ليكون الحوار جزءًا من الوصول إلى الجهاز المناسب.",
         },
         {
-          question: "ما وظيفة البحث الذكي في المتجر؟",
-          answer: "يفهم استفسارات المنتجات بالعربية والإنجليزية، ويعتمد على البحث الدلالي وترتيب الأجهزة وفق المواصفات للوصول إلى خيارات دقيقة.",
+          question: "هل يمكن تخصيص مكونات الجهاز قبل الشراء؟",
+          answer: "نعم. تعرض الواجهة خيارات الذاكرة والتخزين والأسعار، مع مؤشرات للتوافق وتنبيهات خاصة ببعض التكوينات.",
         },
         {
-          question: "هل يمكن للمشتري تخصيص مواصفات الجهاز؟",
-          answer: "تتضمن المنصة مسارًا لتخصيص الأجهزة مع التحقق من توافق المكونات المدعومة.",
+          question: "هل توجد أدوات تدعم قرارات إدارة المتجر؟",
+          answer: "نعم. تعرض لوحة الإدارة ملخصات ذكية وتوصيات وتوقعات للإيرادات، إلى جانب أدوات إدارة المتجر المعتادة.",
         },
         {
-          question: "كيف يساعد الذكاء الاصطناعي فريق المتجر؟",
-          answer: "تدعم الوحدات الذكية تحليل التقييمات، والاستفسار عن بيانات الأعمال، وتلخيص المؤشرات، والتنبؤ بالإيرادات للمساعدة في اتخاذ القرارات.",
-        },
-        {
-          question: "هل تدعم المنصة العربية والإنجليزية؟",
-          answer: "نعم، يتضمن المشروع واجهة باللغتين، مع دعم اتجاه العرض من اليمين إلى اليسار في العربية.",
-        },
-        {
-          question: "هل يمكن تطوير حل مشابه لشركتنا؟",
-          answer: "يمكننا دراسة احتياج شركتك وأنظمتها وبياناتها لتحديد المكونات المناسبة لحل مخصص.",
+          question: "هل يمكن تطبيق الفكرة على متجر آخر؟",
+          answer: "نعم، ونصمم التجربة بحسب طبيعة المنتجات، وجودة البيانات، وطريقة إدارة المخزون، والتكاملات المطلوبة.",
         },
       ],
     },
@@ -331,28 +315,20 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       intro: "A closer look at Mohami Smart and AI-assisted legal workflows.",
       items: [
         {
-          question: "What is Mohami Smart?",
-          answer: "An AI-assisted legal platform with tools for managing cases and clients, analyzing documents, and preparing draft legal materials.",
+          question: "Can an AI-generated memo be used without review?",
+          answer: "No. Drafts are supporting material, and the responsible lawyer reviews them before they are used.",
         },
         {
-          question: "Which legal workflows does it support?",
-          answer: "The official platform describes case and client records, document uploads, judgment analysis, drafting support, and a legal AI assistant.",
+          question: "Can lawyers revise suggested facts and arguments?",
+          answer: "Yes. Every route includes review, selection and editing steps before the workflow moves on.",
         },
         {
-          question: "Does AI replace the lawyer’s judgment?",
-          answer: "No. Generated analysis and drafts are assistance tools; the lawyer remains responsible for reviewing the content and deciding how to use it.",
+          question: "Is this only a legal drafting tool?",
+          answer: "No. It also covers case and client management, documents, a hearing and task calendar, and a legal library.",
         },
         {
-          question: "Can it work with uploaded case documents?",
-          answer: "Yes. The documented workflow allows users to add case files and documents, then request AI-assisted analysis and drafting.",
-        },
-        {
-          question: "Is the platform focused on Egyptian law?",
-          answer: "The official documentation describes support for Egyptian legislation. Any wider jurisdictional coverage should be confirmed with the platform operator.",
-        },
-        {
-          question: "Can we discuss a similar AI workflow?",
-          answer: "Yes. Share your use case, documents, and review requirements with EVEXA so we can discuss whether a custom solution would be appropriate.",
+          question: "Does the platform support different legal workflows?",
+          answer: "Yes. It offers several routes, including defense memos and statements of claim, with steps that vary by route.",
         },
       ],
     },
@@ -361,28 +337,20 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       intro: "إجابات مختصرة عن محامي سمارت وتطبيقات الذكاء الاصطناعي في العمل القانوني.",
       items: [
         {
-          question: "ما هي منصة محامي سمارت؟",
-          answer: "منصة قانونية مدعومة بأدوات ذكاء اصطناعي لإدارة القضايا والموكلين، وتحليل المستندات، والمساعدة في إعداد المسودات القانونية.",
+          question: "هل يمكن الاعتماد على المذكرة الناتجة دون مراجعة؟",
+          answer: "لا. المخرجات تساعد في إعداد المسودة، ويراجعها المحامي المختص قبل استخدامها.",
         },
         {
-          question: "ما العمليات القانونية التي تدعمها؟",
-          answer: "يذكر الموقع الرسمي إدارة الملفات والموكلين ورفع المستندات وتحليل الأحكام والمساعدة في الصياغة والمحادثة الذكية.",
+          question: "هل يستطيع المحامي تعديل الوقائع والدفوع المقترحة؟",
+          answer: "نعم. يمر كل مسار بمراحل للمراجعة والاختيار والتحرير قبل استكماله.",
         },
         {
-          question: "هل يحل الذكاء الاصطناعي محل المحامي؟",
-          answer: "لا. تظل المخرجات أدوات مساعدة، ويتحمل المحامي مسؤولية مراجعتها وتقييمها واتخاذ القرار المهني.",
+          question: "هل المشروع مجرد أداة لصياغة المذكرات؟",
+          answer: "لا. يتضمن أيضًا إدارة القضايا والموكلين والمستندات، وأجندة الجلسات والأعمال، ومكتبة قانونية.",
         },
         {
-          question: "هل يمكن تحليل مستندات القضايا المرفوعة؟",
-          answer: "نعم، تتضمن رحلة الاستخدام إضافة المستندات والأحكام إلى ملف القضية، ثم طلب التحليل والصياغة بمساعدة الذكاء الاصطناعي.",
-        },
-        {
-          question: "هل تدعم المنصة التشريعات المصرية؟",
-          answer: "يوضح الموقع الرسمي أن تركيز المنصة الحالي على القوانين المصرية. ويجب التأكد من مشغلها بشأن أي تغطية قانونية لدول أخرى.",
-        },
-        {
-          question: "هل يمكن مناقشة حل مشابه لأعمالنا؟",
-          answer: "نعم. يمكنكم مشاركة طبيعة العمل والمستندات ومتطلبات المراجعة مع EVEXA لمناقشة مدى ملاءمة حل ذكاء اصطناعي مخصص.",
+          question: "هل يشمل أكثر من نوع إجراء قانوني؟",
+          answer: "نعم. تدعم المنصة مسارات متعددة، منها مذكرة الدفاع وصحيفة الدعوى، وتختلف الخطوات بحسب المسار.",
         },
       ],
     },
@@ -390,61 +358,45 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
   "portfolio-business-operations": {
     en: {
       title: ["Frequently", "Asked Questions"],
-      intro: "A closer look at the two operational platforms and what each one covers.",
+      intro: "A closer look at the two platforms and what each one covers.",
       items: [
         {
-          question: "Are the HRMS and PMS one system?",
-          answer: "No. BDCC HRMS and Bin Delamah PMS are two distinct platforms serving separate HR and construction workflows. The published case studies do not document an integration between them.",
+          question: "Are BDCC HRMS and Bin Delamah PMS a single product?",
+          answer: "No. They are two distinct systems serving different functions within the same contracting company: people operations and project execution.",
         },
         {
-          question: "What does the HRMS cover?",
-          answer: "It brings together employee records, project staffing, HR requests, fleet and finance processes, documents, and audit history.",
+          question: "What does the HR system cover?",
+          answer: "Employee records and indicators, leave, notes and administrative follow-ups.",
         },
         {
-          question: "What does the PMS manage?",
-          answer: "The PMS covers materials, warehouses, approvals, gate passes, BOQ tracking, and executive project reporting.",
+          question: "What does the project system cover?",
+          answer: "Projects, tasks, warehouses, materials, requests, movements, clients, users and reporting.",
         },
         {
-          question: "How is access managed?",
-          answer: "Both case studies describe role-based access. The PMS also lists row-level security, while the HRMS supports access across multiple companies.",
-        },
-        {
-          question: "Do these projects include AI features?",
-          answer: "The published case studies describe operational software, not AI functionality. We present them as examples of business-systems engineering.",
-        },
-        {
-          question: "Could we explore similar workflows?",
-          answer: "Yes. Share the operational processes you want to improve, and we can explore a practical scope. Any AI capabilities can be evaluated separately where they make sense.",
+          question: "Does the PMS include reporting?",
+          answer: "Yes. It provides reports for project summaries, material usage and task completion, with parameters set for each report.",
         },
       ],
     },
     ar: {
       title: ["الأسئلة", "الأكثر شيوعًا"],
-      intro: "لديك أسئلة؟ يوفر لك قسم الأسئلة الشائعة إجابات سريعة عن أكثر الاستفسارات شيوعًا.",
+      intro: "إجابات مختصرة عن النظامين وما يغطيه كل منهما.",
       items: [
         {
-          question: "هل HRMS وPMS نظام واحد؟",
-          answer: "لا. هما منصتان مستقلتان؛ الأولى للموارد البشرية والعمليات الإدارية، والثانية للمشاريع الإنشائية. ولا تذكر دراستا الحالة المنشورتان وجود تكامل بينهما.",
+          question: "هل BDCC HRMS وBin Delamah PMS نظام واحد؟",
+          answer: "لا. هما نظامان مستقلان يخدمان مجالين مختلفين داخل الشركة نفسها: شؤون الموظفين وتشغيل المشاريع.",
         },
         {
-          question: "ما الذي يديره نظام HRMS؟",
-          answer: "يدعم ملفات الموظفين وتوزيعهم على المشاريع وإجراءات الموارد البشرية والأسطول والمالية والمستندات وسجلات المراجعة.",
+          question: "ما الذي يغطيه نظام الموارد البشرية؟",
+          answer: "ملفات الموظفين ومؤشراتهم، والإجازات، والملاحظات، والمتابعات الإدارية.",
         },
         {
-          question: "ما الذي يغطيه نظام PMS؟",
-          answer: "يشمل إدارة المواد والمستودعات والموافقات وتصاريح البوابات وتتبع جداول الكميات (BOQ) والتقارير التنفيذية.",
+          question: "ما الذي يغطيه نظام المشاريع؟",
+          answer: "المشاريع والمهام والمستودعات والمواد وطلبات العمل والحركات والعملاء والمستخدمين والتقارير.",
         },
         {
-          question: "كيف تُدار صلاحيات المستخدمين؟",
-          answer: "يدعم النظامان صلاحيات مبنية على الأدوار. ويذكر توثيق PMS كذلك حماية البيانات على مستوى الصفوف، بينما يدعم HRMS العمل عبر شركات متعددة.",
-        },
-        {
-          question: "هل تتضمن المنصتان مزايا ذكاء اصطناعي؟",
-          answer: "لا تتضمن دراستا الحالة المنشورتان وصفًا لمزايا ذكاء اصطناعي. نعرض المشروعين بوصفهما مثالين على تطوير أنظمة الأعمال.",
-        },
-        {
-          question: "هل يمكن مناقشة احتياج مشابه؟",
-          answer: "نعم. شاركنا طبيعة الإجراءات والتحديات التي تواجه فريقك، لنناقش نطاق الحل المناسب. وتُدرس أي إمكانات ذكاء اصطناعي بشكل مستقل عند الحاجة.",
+          question: "هل توجد تقارير جاهزة داخل PMS؟",
+          answer: "نعم. يوفّر تقارير لملخص المشاريع واستخدام المواد وإنجاز المهام، مع معايير يحددها المستخدم لكل تقرير.",
         },
       ],
     },
