@@ -14,7 +14,7 @@ const COPY: Record<Lang, {
     open: "Chat with EVEXA",
     close: "Close chat",
     title: "EVEXA Assistant",
-    subtitle: "AI assistant · replies instantly",
+    subtitle: "Available 24/7",
     greeting: "Hi! I’m EVEXA’s assistant. Ask me about our AI solutions, our projects, or how we could help your business.",
     chips: ["What solutions do you offer?", "Show me your projects", "How do we start a project?"],
     placeholder: "Type your message…",
@@ -27,7 +27,7 @@ const COPY: Record<Lang, {
     open: "تحدث مع EVEXA",
     close: "إغلاق المحادثة",
     title: "مساعد EVEXA",
-    subtitle: "مساعد ذكي · يرد فورًا",
+    subtitle: "متاح على مدار الساعة",
     greeting: "مرحبًا! أنا مساعد EVEXA. اسألني عن حلول الذكاء الاصطناعي التي نقدمها، أو مشاريعنا، أو كيف يمكننا مساعدة شركتك.",
     chips: ["ما الحلول التي تقدمونها؟", "اعرض لي مشاريعكم", "كيف نبدأ مشروعًا؟"],
     placeholder: "اكتب رسالتك…",
@@ -162,7 +162,7 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
             </span>
             <div className={styles.headText}>
               <strong>{c.title}</strong>
-              <span>{c.subtitle}</span>
+              <span className={styles.status}>{c.subtitle}</span>
             </div>
             <button type="button" className={styles.iconButton} onClick={() => setOpen(false)} aria-label={c.close}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">

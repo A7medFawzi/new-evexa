@@ -121,9 +121,22 @@
   font-weight: 600;
 }
 
-.headText span {
-  color: rgba(255, 255, 255, 0.55);
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 12px;
+}
+
+/* green "online" dot */
+.status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2bd27a;
+  box-shadow: 0 0 0 3px rgba(43, 210, 122, 0.18);
 }
 
 .iconButton {
