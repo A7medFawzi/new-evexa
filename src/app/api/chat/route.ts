@@ -29,6 +29,8 @@ const MAX_TURNS = 16;
 
 const ChatSchema = z.object({
   lang: z.enum(["en", "ar"]).optional(),
+  /** diagnostics: answer with JSON (reply, finish reason, token usage) instead of a stream */
+  debug: z.boolean().optional(),
   messages: z
     .array(z.object({ role: z.enum(["user", "assistant"]), content: z.string().trim().min(1).max(1500) }))
     .min(1)
@@ -84,7 +86,7 @@ export async function POST(req: NextRequest) {
   }
   const parsed = ChatSchema.safeParse(body);
   if (!parsed.success) return json({ error: "Invalid request." }, 422);
-  const { messages, lang } = parsed.data;
+  const { messages, lang, debug } = parsed.data;
   if (messages[messages.length - 1].role !== "user") return json({ error: "Invalid request." }, 422);
 
   const system =
@@ -109,6 +111,7 @@ export async function POST(req: NextRequest) {
         reasoning: { effort: "low", exclude: true },
         temperature: 0.4,
         messages: [{ role: "system", content: system }, ...messages],
+        usage: { include: true },
       }),
     });
 
@@ -144,6 +147,9 @@ export async function POST(req: NextRequest) {
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
       let buffer = "";
+      let reply = "";
+      let finish: unknown;
+      let usage: unknown;
       try {
         for (;;) {
           const { done, value } = await reader.read();
@@ -157,8 +163,15 @@ export async function POST(req: NextRequest) {
             const data = line.slice(5).trim();
             if (data === "[DONE]") continue;
             try {
-              const delta = JSON.parse(data)?.choices?.[0]?.delta?.content;
-              if (typeof delta === "string" && delta) controller.enqueue(encoder.encode(delta));
+              const chunk = JSON.parse(data);
+              const choice = chunk?.choices?.[0];
+              if (choice?.finish_reason) finish = choice.finish_reason;
+              if (chunk?.usage) usage = chunk.usage;
+              const delta = choice?.delta?.content;
+              if (typeof delta === "string" && delta) {
+                reply += delta;
+                if (!debug) controller.enqueue(encoder.encode(delta));
+              }
             } catch {
               /* keep-alive comments and partial lines */
             }
@@ -167,6 +180,8 @@ export async function POST(req: NextRequest) {
       } catch (err) {
         console.error("[chat] stream error:", err);
       } finally {
+        if (finish === "length") console.warn("[chat] reply hit max_tokens", usage);
+        if (debug) controller.enqueue(encoder.encode(JSON.stringify({ model: served, finish, usage, reply })));
         controller.close();
       }
     },
@@ -182,6 +197,7 @@ export async function POST(req: NextRequest) {
       "X-Accel-Buffering": "no",
       // which model was asked to answer (the fallback router may pick any free model)
       "X-Chat-Model": served,
+      "X-Chat-Build": (process.env.VERCEL_GIT_COMMIT_SHA || "local").slice(0, 7),
       // why the main model was skipped, when the fallback answered (status + provider code only)
       ...(primaryError ? { "X-Chat-Primary-Error": primaryError } : {}),
     },
