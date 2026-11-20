@@ -4,22 +4,27 @@ import { SITE_URL } from "@/config/site";
 import { chatSystemPrompt } from "@/lib/chatbot";
 
 /**
- * Website chat assistant, via OpenRouter (OpenAI-compatible API).
+ * Website chat assistant, through any OpenAI-compatible chat-completions API
+ * (OpenRouter by default; UnoRouter and similar routers work the same way).
  *
  * Env:
- *   OPENROUTER_API_KEY  required; without it the endpoint answers 503 and the
- *                       widget stays hidden
- *   CHATBOT_API_URL     optional; any OpenAI-compatible chat-completions URL
- *   CHATBOT_MODEL       model id (default: a free Gemma model); if it fails,
- *                       the request is retried once on "openrouter/free"
+ *   CHATBOT_API_KEY         API key (OPENROUTER_API_KEY is read as a fallback).
+ *                           Without one the endpoint answers 503 and the widget
+ *                           stays hidden.
+ *   CHATBOT_API_URL         chat-completions URL (default: OpenRouter)
+ *   CHATBOT_MODEL           model id on that provider
+ *   CHATBOT_FALLBACK_MODEL  model tried once if the main one fails. Defaults to
+ *                           "openrouter/free" on OpenRouter, none elsewhere.
  *
  * Streams plain text back to the browser. Per-IP rate limit and message
  * size limits keep the cost bounded.
  */
 
 const ENDPOINT = process.env.CHATBOT_API_URL || "https://openrouter.ai/api/v1/chat/completions";
+const IS_OPENROUTER = ENDPOINT.includes("openrouter.ai");
 const DEFAULT_MODEL = "google/gemma-4-31b-it:free";
-const FALLBACK_MODEL = "openrouter/free";
+const FALLBACK_MODEL = process.env.CHATBOT_FALLBACK_MODEL ?? (IS_OPENROUTER ? "openrouter/free" : "");
+const apiKey = () => process.env.CHATBOT_API_KEY || process.env.OPENROUTER_API_KEY;
 const MAX_TURNS = 16;
 
 const ChatSchema = z.object({
@@ -50,11 +55,11 @@ const json = (body: object, status = 200) => NextResponse.json(body, { status })
 
 /** GET: lets the widget know whether the assistant is available. */
 export function GET() {
-  return json({ enabled: Boolean(process.env.OPENROUTER_API_KEY) });
+  return json({ enabled: Boolean(apiKey()) });
 }
 
 export async function POST(req: NextRequest) {
-  const key = process.env.OPENROUTER_API_KEY;
+  const key = apiKey();
   if (!key) return json({ error: "Chat is not configured." }, 503);
 
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || req.headers.get("x-real-ip") || "unknown";
@@ -97,7 +102,7 @@ export async function POST(req: NextRequest) {
   let upstream: Response;
   try {
     upstream = await call(primary);
-    if (!upstream.ok || !upstream.body) {
+    if ((!upstream.ok || !upstream.body) && FALLBACK_MODEL) {
       console.error("[chat] primary model failed:", upstream.status, await upstream.text().catch(() => ""));
       served = FALLBACK_MODEL;
       upstream = await call(FALLBACK_MODEL);
@@ -107,7 +112,7 @@ export async function POST(req: NextRequest) {
     return json({ error: "upstream" }, 502);
   }
   if (!upstream.ok || !upstream.body) {
-    console.error("[chat] fallback model failed:", upstream.status, await upstream.text().catch(() => ""));
+    console.error("[chat] model failed:", upstream.status, await upstream.text().catch(() => ""));
     return json({ error: "upstream" }, 502);
   }
 
