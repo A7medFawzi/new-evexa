@@ -78,7 +78,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         facts: [
           { label: "Services", value: "Commerce Platform & AI Modules" },
           { label: "AI Modules", value: "6 built into the store" },
-          { label: "Client", value: "Albetar Store" },
+          { label: "Client", value: "Albetar Trading & Retail" },
         ],
         button: { label: "Visit Live Store", href: "https://albetarstore.com/" },
         blocks: [
@@ -122,7 +122,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         facts: [
           { label: "الخدمات", value: "منصة تجارة ووحدات ذكاء اصطناعي" },
           { label: "وحدات الذكاء", value: "6 وحدات داخل المتجر" },
-          { label: "العميل", value: "متجر البيطار" },
+          { label: "العميل", value: "البيطار للتجارة والتجزئة" },
         ],
         button: { label: "زيارة المتجر", href: "https://albetarstore.com/" },
         blocks: [
@@ -180,7 +180,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         facts: [
           { label: "Focus", value: "Legal AI & Case Workflows" },
           { label: "Workflow", value: "5 steps, upload to memo" },
-          { label: "Platform", value: "Mohami Smart" },
+          { label: "Client", value: "EGY Legal for Smart Technology" },
         ],
         button: { label: "Visit Live Platform", href: "https://mohamy-smart.com/" },
         blocks: [
@@ -224,7 +224,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         facts: [
           { label: "المجال التقني", value: "ذكاء قانوني وإدارة قضايا" },
           { label: "مسار العمل", value: "5 خطوات من الملف إلى المذكرة" },
-          { label: "المنصة", value: "محامي سمارت" },
+          { label: "العميل", value: "إيجي ليجال للتكنولوجيا الذكية" },
         ],
         button: { label: "زيارة المنصة", href: "https://mohamy-smart.com/" },
         blocks: [
@@ -282,7 +282,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         facts: [
           { label: "Services", value: "Custom Business Platforms" },
           { label: "Scale", value: "2,100+ active employees" },
-          { label: "Client", value: "Bin Delamah Contracting" },
+          { label: "Client", value: "Bin Delamah Cont. Co." },
         ],
         button: { label: "Discuss Your Project", href: "/contact" },
         blocks: [
@@ -326,7 +326,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         facts: [
           { label: "الخدمات", value: "منصات أعمال مخصصة" },
           { label: "الحجم", value: "أكثر من 2,100 موظف نشط" },
-          { label: "العميل", value: "بن دلامة للمقاولات" },
+          { label: "العميل", value: "شركة بن دلامة للمقاولات" },
         ],
         button: { label: "ناقش مشروعك", href: "/contact" },
         blocks: [
