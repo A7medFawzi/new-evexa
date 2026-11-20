@@ -124,11 +124,11 @@ export const CIRCLE_IMAGES = Array.from({ length: 12 }, (_, i) => `/images/circl
 const WORK_IMAGES: Project["images"][] = [
   [
     { src: "/images/projects/albetar/brand.webp", alt: "Betar Store logo" },
-    { src: "/images/projects/albetar/platform.webp", alt: "Albetar smart hardware store with the BETO AI assistant and component customization" },
+    { src: "/images/projects/albetar/platform.webp", alt: "Betar Store workstation builder with BETO recommending the right RAM and storage" },
   ],
   [
     { src: "/images/projects/mohami-smart/brand.webp", alt: "Mohami Smart logo, a golden scale of justice" },
-    { src: "/images/projects/mohami-smart/dashboard.webp", alt: "Mohami Smart legal dashboard for cases, documents and AI workflows" },
+    { src: "/images/projects/mohami-smart/dashboard.webp", alt: "Mohami Smart dashboard with the AI legal assistant analyzing a supply contract" },
   ],
   [
     { src: "/images/projects/business-operations/hrms.webp", alt: "BDCC HRMS, the human resources management system for Bin Delamah" },
