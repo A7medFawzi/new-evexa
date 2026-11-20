@@ -9,7 +9,7 @@
 import nodemailer from "nodemailer";
 
 const DEFAULT_TO = "info@evexa.tech";
-const DEFAULT_FROM = "EVEXA <info@evexa.tech>";
+const DEFAULT_FROM = "EVEXA Team <info@evexa.tech>";
 
 export interface MailMessage {
   /** overrides CONTACT_TO_EMAIL (used for the auto-reply to the visitor) */
