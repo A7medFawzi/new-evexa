@@ -112,8 +112,17 @@ export async function POST(req: NextRequest) {
     return json({ error: "upstream" }, 502);
   }
   if (!upstream.ok || !upstream.body) {
-    console.error("[chat] model failed:", upstream.status, await upstream.text().catch(() => ""));
-    return json({ error: "upstream" }, 502);
+    const text = await upstream.text().catch(() => "");
+    console.error("[chat] model failed:", upstream.status, text);
+    // Only the provider's status and error code go back (no message text, no secrets),
+    // so a failing setup can be diagnosed from the browser.
+    let code: unknown;
+    try {
+      code = JSON.parse(text)?.error?.code ?? JSON.parse(text)?.error?.type;
+    } catch {
+      /* not JSON */
+    }
+    return json({ error: "upstream", status: upstream.status, code: typeof code === "string" ? code.slice(0, 60) : undefined, model: served }, 502);
   }
 
   // Turn the OpenAI-style SSE stream into a plain text stream.
