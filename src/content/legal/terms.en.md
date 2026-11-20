@@ -1,6 +1,6 @@
 ---
 title: Terms & Conditions
-effectiveDate: Effective Date: Subject to Final Corporate Approval
+effectiveDate: Effective Date: January 1, 2026
 ---
 
 ## 1. About These Terms and Their Scope
