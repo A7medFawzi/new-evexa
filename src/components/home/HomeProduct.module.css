@@ -193,6 +193,15 @@
   background: rgba(255, 255, 255, 0.18);
 }
 
+/* EVEXA "X" mark in white (the brand icon used as a mask) */
+.mark {
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  -webkit-mask: url("/images/brand/evexa-icon.png") center / contain no-repeat;
+  mask: url("/images/brand/evexa-icon.png") center / contain no-repeat;
+}
+
 @keyframes callout-in {
   from {
     opacity: 0;
