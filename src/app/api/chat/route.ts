@@ -53,6 +53,17 @@ function rateLimited(ip: string): boolean {
 
 const json = (body: object, status = 200) => NextResponse.json(body, { status });
 
+/** The provider's short error code from an error body (never its message text). */
+function errorCode(text: string): string | undefined {
+  try {
+    const e = JSON.parse(text)?.error;
+    const code = e?.code ?? e?.type;
+    return code === undefined ? undefined : String(code).slice(0, 60);
+  } catch {
+    return undefined;
+  }
+}
+
 /** GET: lets the widget know whether the assistant is available. */
 export function GET() {
   return json({ enabled: Boolean(apiKey()) });
@@ -99,11 +110,14 @@ export async function POST(req: NextRequest) {
 
   const primary = process.env.CHATBOT_MODEL || DEFAULT_MODEL;
   let served = primary;
+  let primaryError = "";
   let upstream: Response;
   try {
     upstream = await call(primary);
     if ((!upstream.ok || !upstream.body) && FALLBACK_MODEL) {
-      console.error("[chat] primary model failed:", upstream.status, await upstream.text().catch(() => ""));
+      const text = await upstream.text().catch(() => "");
+      console.error("[chat] primary model failed:", upstream.status, text);
+      primaryError = `${upstream.status} ${errorCode(text) ?? ""}`.trim();
       served = FALLBACK_MODEL;
       upstream = await call(FALLBACK_MODEL);
     }
@@ -116,13 +130,7 @@ export async function POST(req: NextRequest) {
     console.error("[chat] model failed:", upstream.status, text);
     // Only the provider's status and error code go back (no message text, no secrets),
     // so a failing setup can be diagnosed from the browser.
-    let code: unknown;
-    try {
-      code = JSON.parse(text)?.error?.code ?? JSON.parse(text)?.error?.type;
-    } catch {
-      /* not JSON */
-    }
-    return json({ error: "upstream", status: upstream.status, code: typeof code === "string" ? code.slice(0, 60) : undefined, model: served }, 502);
+    return json({ error: "upstream", status: upstream.status, code: errorCode(text), model: served }, 502);
   }
 
   // Turn the OpenAI-style SSE stream into a plain text stream.
@@ -170,6 +178,8 @@ export async function POST(req: NextRequest) {
       "X-Accel-Buffering": "no",
       // which model was asked to answer (the fallback router may pick any free model)
       "X-Chat-Model": served,
+      // why the main model was skipped, when the fallback answered (status + provider code only)
+      ...(primaryError ? { "X-Chat-Primary-Error": primaryError } : {}),
     },
   });
 }
