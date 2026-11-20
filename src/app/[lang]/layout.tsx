@@ -4,6 +4,8 @@ import { Alexandria } from "next/font/google";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import ChatWidget from "@/components/chat/ChatWidget";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { LANGS, SITE_NAME, SITE_URL, dirOf, isLang } from "@/config/site";
 import { SITE_SEO } from "@/content/seo";
 import { getDictionary } from "@/i18n";
@@ -82,6 +84,9 @@ export default async function LangLayout({
         {children}
         <SiteFooter lang={lang} dict={getDictionary(lang)} />
         <ChatWidget lang={lang} />
+        {/* Vercel Web Analytics (cookie-free visit stats) and Speed Insights (real-user performance) */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

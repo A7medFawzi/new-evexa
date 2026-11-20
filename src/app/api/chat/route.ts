@@ -15,6 +15,8 @@ import { chatSystemPrompt } from "@/lib/chatbot";
  *   CHATBOT_MODEL           model id on that provider
  *   CHATBOT_FALLBACK_MODEL  model tried once if the main one fails. Defaults to
  *                           "openrouter/free" on OpenRouter, none elsewhere.
+ *   CHATBOT_DEBUG_KEY       optional secret; a request with "debug": true and the
+ *                           header x-chat-debug: <secret> gets diagnostics JSON
  *
  * Streams plain text back to the browser. Per-IP rate limit and message
  * size limits keep the cost bounded.
@@ -29,7 +31,7 @@ const MAX_TURNS = 16;
 
 const ChatSchema = z.object({
   lang: z.enum(["en", "ar"]).optional(),
-  /** diagnostics: answer with JSON (reply, finish reason, token usage) instead of a stream */
+  /** diagnostics (needs the CHATBOT_DEBUG_KEY secret): JSON with reply, finish reason and usage */
   debug: z.boolean().optional(),
   messages: z
     .array(z.object({ role: z.enum(["user", "assistant"]), content: z.string().trim().min(1).max(1500) }))
@@ -86,7 +88,11 @@ export async function POST(req: NextRequest) {
   }
   const parsed = ChatSchema.safeParse(body);
   if (!parsed.success) return json({ error: "Invalid request." }, 422);
-  const { messages, lang, debug } = parsed.data;
+  const { messages, lang } = parsed.data;
+  // Diagnostics only with the secret from CHATBOT_DEBUG_KEY (header x-chat-debug);
+  // without it a "debug" flag is ignored and the visitor gets the normal stream.
+  const debugKey = process.env.CHATBOT_DEBUG_KEY;
+  const debug = Boolean(parsed.data.debug && debugKey && req.headers.get("x-chat-debug") === debugKey);
   if (messages[messages.length - 1].role !== "user") return json({ error: "Invalid request." }, 422);
 
   // The long, unchanging prompt is marked for prompt caching (Anthropic models
