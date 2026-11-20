@@ -69,9 +69,9 @@ Please review the [Privacy Policy](/privacy-policy) before submitting personal i
 
 These Terms may be revised to reflect changes in the Website, business operations, or applicable legal requirements. The approved version will display its effective or last-updated date. Amendments do not retroactively change separately executed client agreements.
 
-Website-related matters are subject to applicable laws, including any mandatory protections that cannot be waived. Any dispute concerning access to or use of the public Website will be handled by courts or authorities having jurisdiction under the applicable law.
+These Terms and any matter relating to the Website are governed by the laws of the Kingdom of Saudi Arabia, without prejudice to any mandatory consumer or data protection rights that apply in your country and cannot be waived. Any dispute concerning access to or use of the Website falls under the jurisdiction of the competent courts in Riyadh, Kingdom of Saudi Arabia.
 
-The final identification of governing law, jurisdiction, and the effective date is subject to approval by the Operator’s authorized legal representative before publication. Separate project and product agreements may establish different terms for their respective subject matter.
+Separate project and product agreements may establish different terms, governing law, or jurisdiction for their respective subject matter.
 
 ## 10. Contact
 

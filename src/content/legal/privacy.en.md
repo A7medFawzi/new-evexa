@@ -62,7 +62,8 @@ We process collected data exclusively for targeted, legitimate business purposes
 
 EVEXA does **not** sell, rent, lease, trade, or commercially monetize personal data under any circumstances. We share information only under strict operational boundaries:
 
-- **Hosting and Infrastructure Providers:** Technical data and contact submissions are stored on secure servers operated by contracted infrastructure and hosting vendors bound by confidentiality covenants and data protection agreements. *(Note: Formal host provider entity and physical region subject to infrastructure verification).*
+- **Hosting and Infrastructure Providers:** Technical data and contact submissions are stored on secure servers operated by contracted infrastructure and hosting vendors bound by confidentiality covenants and data protection agreements. These providers may operate servers outside your country of residence, including in the United States; where data is transferred internationally, we rely on appropriate contractual and technical safeguards.
+- **AI Chat Assistant Provider:** If you use the chat assistant on the Website, your messages and the conversation are sent to our AI service provider solely to generate the assistant’s replies. Please do not share confidential or sensitive information in the chat.
 - **Legal and Regulatory Requirements:** We may disclose information if required to do so by applicable law, enforceable court summons, subpoena, or lawful request by competent governmental authorities.
 - **Corporate Reorganization:** In the event of a merger, acquisition, corporate restructuring, or transfer of assets, prospective client correspondence may be transferred to the successor entity under equivalent privacy standards.
 
@@ -72,6 +73,7 @@ We adhere to a privacy-first approach regarding browser storage technologies:
 
 - **No Advertising or Marketing Trackers:** This website does **not** use advertising cookies, remarketing pixels, or third-party behavioral profiling trackers. We do not load Google Analytics, Meta Pixel, or commercial ad networks.
 - **Strictly Functional Language Cookie:** The website utilizes a single technical first-party cookie named `NEXT_LOCALE`. Its exclusive role is to remember your language preference (`en` or `ar`) as you browse across pages. This cookie does not track personal browsing habits or link to personal identities.
+- **Chat Session Storage:** If you use the chat assistant, the conversation is kept in your browser’s session storage so it stays visible while you move between pages. It is deleted automatically when you close the browser tab, and you can clear it at any time with the “New conversation” button.
 - **Browser Controls:** You may configure your browser to block or delete cookies at any time. Because our single cookie is purely functional for language selection, disabling it will not impair website access, though you may need to re-select your preferred language upon subsequent visits.
 
 ## 6. Data Retention and Security
@@ -82,7 +84,7 @@ We adhere to a privacy-first approach regarding browser storage technologies:
 - **Schema Validation:** Submissions are validated server-side using strict schema verification (via Zod) to reject malformed data, script injection, and payload overflow.
 - **Restricted Access & Rate Limiting:** Stored contact records are accessible only to designated personnel. Server endpoints are protected by in-memory rate limiting to deter automated abuse.
 
-**Retention Guidelines:** Inquiries are retained for the duration necessary to evaluate and address your commercial request, maintain professional correspondence history, or fulfill statutory accounting and recordkeeping requirements. *(Note: Specific corporate document retention timelines subject to final operational confirmation).*
+**Retention Periods:** Contact-form inquiries and related correspondence are retained for up to twelve (12) months from our last communication with you, so that we can follow up on your request. If a commercial agreement is concluded, related records are retained for the term of that agreement and any period required by applicable accounting or legal obligations. EVEXA does not store chat assistant conversations on its own systems. You may ask us to delete your data earlier at any time (see Section 7).
 
 While we implement rigorous security measures, please note that no electronic transmission or storage system can be guaranteed to be completely impenetrable.
 
