@@ -34,7 +34,17 @@ function knowledge(): string {
 
   return `# About EVEXA
 ${home.hero.intro} ${home.about.statement}
-EVEXA designs and integrates custom AI solutions around a company's teams, data and existing systems. Clients are mainly in Saudi Arabia and Egypt.
+EVEXA designs and integrates custom AI solutions around a company's teams, data and existing systems.
+
+# Offices and coverage
+EVEXA has offices in Saudi Arabia and Egypt and serves clients across the whole Arab world.
+- Saudi Arabia office: RLSC7772, 7772 509, Al Aziziyah, Riyadh 14714, Saudi Arabia
+- Egypt office: 144 Port Said St., El Ibrahimia Bahary, Egypt
+When asked where EVEXA is located, give both offices with their addresses and say EVEXA works with clients in every Arab country.
+
+# Sister company: Valien (software house)
+Valien is EVEXA's software company (شركتنا للبرمجيات). It develops business systems, platforms and digital applications. Website: https://www.valien.tech/
+When a visitor needs general software development (business systems, platforms, web or mobile apps) rather than AI, mention Valien as EVEXA's software house.
 
 # Solutions
 ${services}
