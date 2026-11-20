@@ -1,91 +1,47 @@
-import type { CSSProperties } from "react";
-import { CalendarCheckIcon, InboxIcon, ProductIcon, QuotationIcon } from "@/components/ui/icons";
-import type { Lang } from "@/config/site";
-import { productImages, type HomeProductCopy } from "@/content/home";
+import { ProductIcon } from "@/components/ui/icons";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+import { localizeHref, type Lang } from "@/config/site";
+import { PRODUCT_SCREENS, productScreen, type HomeProductCopy } from "@/content/home";
+import ProductShowcase from "./ProductShowcase";
 import SectionHeading from "./SectionHeading";
 import styles from "./HomeProduct.module.css";
 
 /**
- * Fan layout of the seven screenshots: centre offset (px) per breakpoint
- * [desktop, tablet, phone] and tilt (deg). The centre card sits on top.
+ * Dealplier, EVEXA's own product: heading with two buttons, then a large
+ * product window that steps through the main screens (tabs underneath),
+ * and a row of trust points.
  */
-const FAN: { d: [number, number]; t: [number, number]; p: [number, number]; rotate: number }[] = [
-  { d: [-334, 16], t: [-194, 16], p: [-116, 2], rotate: -7 },
-  { d: [-217, -12], t: [-127, 8], p: [-79, 2], rotate: -8 },
-  { d: [-108, 0], t: [-68, 0], p: [-43, 2], rotate: -5 },
-  { d: [0, 0], t: [0, 0], p: [0, 2], rotate: 0 },
-  { d: [100, 0], t: [70, 0], p: [49, 2], rotate: 6 },
-  { d: [201, 7], t: [131, 7], p: [85, 2], rotate: 7 },
-  { d: [306, 8], t: [197, 18], p: [112, 7], rotate: 14 },
-];
-
-/** Icons of the three feature cards, in card order (RFQ inbox, quotations, my day). */
-const CARD_ICONS = [InboxIcon, QuotationIcon, CalendarCheckIcon];
-
-/** Dealplier, EVEXA's own product: heading, a fan of screenshots and three feature cards. */
 export default function HomeProduct({ copy, lang }: { copy: HomeProductCopy; lang: Lang }) {
+  const screens = PRODUCT_SCREENS.map((name, i) => ({ ...productScreen(name, lang), ...copy.tabs[i] }));
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="product">
       <img className={styles.rays} src="/images/sr8vmLBhND1D86vmn1G0mLCt8.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
       <div className={styles.fade} aria-hidden="true" />
       <div className={styles.content}>
-        <SectionHeading icon={<ProductIcon />} badge={copy.badge} title={copy.title} body={copy.body} button={copy.button} />
-
-        <div className={styles.showcase}>
-          <div className={styles.fan} aria-hidden="true">
-            {productImages(lang).map((src, i) => {
-              const f = FAN[i];
-              const style = {
-                "--dx": `${f.d[0]}px`,
-                "--dy": `${f.d[1]}px`,
-                "--dx-t": `${f.t[0]}px`,
-                "--dy-t": `${f.t[1]}px`,
-                "--dx-p": `${f.p[0]}px`,
-                "--dy-p": `${f.p[1]}px`,
-                "--rotate": `${f.rotate}deg`,
-                zIndex: i,
-              } as CSSProperties;
-              return (
-                <div key={src} className={styles.shot} style={style}>
-                  <span className={styles.shotImage}>
-                    <img src={src} alt="" loading="lazy" decoding="async" />
-                    <span className={styles.shotShine} />
-                  </span>
-                </div>
-              );
-            })}
-            <span className={`${styles.bubble} ${styles.bubbleLeft}`}>
-              {copy.bubbles[0]}
-              <span className={styles.bubbleTip} />
-            </span>
-            <span className={`${styles.bubble} ${styles.bubbleRight}`}>
-              {copy.bubbles[1]}
-              <span className={styles.bubbleTip} />
-            </span>
-          </div>
-
-          <div className={styles.features}>
-            <span className={styles.line} aria-hidden="true" />
-            <div className={styles.cards}>
-              {copy.cards.map((card, i) => {
-                const Icon = CARD_ICONS[i];
-                return (
-                  <article key={card.title} className={styles.card}>
-                    <img className={styles.cardGlow} src="/images/1xOqMa4sAAwBCrdkiSJfIXups.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-                    <span className={styles.cardHighlight} aria-hidden="true" />
-                    <div className={styles.cardHead}>
-                      <span className={styles.cardIcon} aria-hidden="true">
-                        {Icon && <Icon size={18} />}
-                      </span>
-                      <h4>{card.title}</h4>
-                    </div>
-                    <p>{card.text}</p>
-                  </article>
-                );
-              })}
-            </div>
+        <div className={styles.heading}>
+          <SectionHeading icon={<ProductIcon />} badge={copy.badge} title={copy.title} body={copy.body} />
+          <div className={styles.buttons}>
+            <PrimaryButton href={copy.button.href} external>
+              {copy.button.label}
+            </PrimaryButton>
+            <PrimaryButton href={localizeHref(copy.demo.href, lang)} tone="grey">
+              {copy.demo.label}
+            </PrimaryButton>
           </div>
         </div>
+
+        <ProductShowcase screens={screens} lang={lang} />
+
+        <ul className={styles.points}>
+          {copy.points.map((point) => (
+            <li key={point}>
+              <svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" />
+              </svg>
+              {point}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
