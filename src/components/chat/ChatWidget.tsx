@@ -54,9 +54,9 @@ function withBold(text: string, key: number): ReactNode {
   );
 }
 
-/** Plain text with clickable URLs and emails and **bold**, keeping line breaks. */
+/** Plain text with clickable URLs, emails and phone numbers and **bold**, keeping line breaks. */
 function richText(text: string): ReactNode {
-  const parts = text.split(/(https?:\/\/[^\s)]+|[\w.+-]+@[\w-]+\.[\w.]+)/g);
+  const parts = text.split(/(https?:\/\/[^\s)]+|[\w.+-]+@[\w-]+\.[\w.]+|\+?\d[\d\s-]{7,}\d)/g);
   return parts.map((part, i) => {
     if (/^https?:\/\//.test(part)) {
       const clean = part.replace(/[.,،]+$/, "");
@@ -76,6 +76,14 @@ function richText(text: string): ReactNode {
           <a href={`mailto:${clean}`}>{clean}</a>
           {part.slice(clean.length)}
         </Fragment>
+      );
+    }
+    if (/^\+?\d[\d\s-]{7,}\d$/.test(part)) {
+      // phone numbers keep left-to-right order inside Arabic text and open WhatsApp
+      return (
+        <a key={i} href={`https://wa.me/${part.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" dir="ltr" style={{ unicodeBidi: "isolate" }}>
+          {part}
+        </a>
       );
     }
     return withBold(part, i);
