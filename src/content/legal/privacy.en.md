@@ -63,7 +63,7 @@ We process collected data exclusively for targeted, legitimate business purposes
 EVEXA does **not** sell, rent, lease, trade, or commercially monetize personal data under any circumstances. We share information only under strict operational boundaries:
 
 - **Hosting and Infrastructure Providers:** Technical data and contact submissions are stored on secure servers operated by contracted infrastructure and hosting vendors bound by confidentiality covenants and data protection agreements. These providers may operate servers outside your country of residence, including in the United States; where data is transferred internationally, we rely on appropriate contractual and technical safeguards.
-- **AI Chat Assistant Provider:** If you use the chat assistant on the Website, your messages and the conversation are sent to our AI service provider solely to generate the assistant’s replies. Please do not share confidential or sensitive information in the chat.
+- **EVEXA AI Assistant:** The chat assistant on the Website is developed by EVEXA. To generate its replies, your messages are processed through the AI infrastructure that powers the assistant, solely for that purpose. Please do not share confidential or sensitive information in the chat.
 - **Legal and Regulatory Requirements:** We may disclose information if required to do so by applicable law, enforceable court summons, subpoena, or lawful request by competent governmental authorities.
 - **Corporate Reorganization:** In the event of a merger, acquisition, corporate restructuring, or transfer of assets, prospective client correspondence may be transferred to the successor entity under equivalent privacy standards.
 
