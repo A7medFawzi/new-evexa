@@ -73,7 +73,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         name: "Albetar",
         cardTag: "COMMERCE AI",
         title: ["Albetar", "Commerce AI"],
-        intro: "An Arabic-first hardware commerce platform with intelligent search, product recommendations, and connected retail operations.",
+        intro: "A computer store where customers can describe what they need, in Arabic or English, and get the right machine back.",
         tags: ["Commerce AI", "RAG"],
         facts: [
           { label: "Services", value: "Commerce Platform & AI Modules" },
@@ -83,32 +83,32 @@ export const CASE_STUDIES: CaseStudy[] = [
         button: { label: "Visit Live Store", href: "https://albetarstore.com/" },
         blocks: [
           {
-            title: "Analysis — Understanding Hardware Retail",
-            text: "Hardware shopping involves detailed specifications, product compatibility, and frequent catalog updates. We examined how customers discover products and how the store manages everyday operations.",
+            title: "Analysis — How People Actually Buy Hardware",
+            text: "Most customers don’t shop by model number. They come with a budget and a job in mind: editing, gaming, an office of ten. We spent time on how they search, and on how the team runs orders and stock behind the scenes.",
             subs: [
-              { title: "Product Discovery", chip: "COMMERCE", text: "• Organize technical products into clear categories and filters.\n• Support device customization with compatibility checks.\n• Make specifications easier to compare before purchase." },
-              { title: "Retail Operations", text: "The platform also needed practical tools for orders, stock, payments, and shipping—without separating the shopping experience from the operational workflow." },
+              { title: "Finding the Product", chip: "COMMERCE", text: "• Clear categories and filters for thousands of specs.\n• Build-your-own PC with automatic compatibility checks.\n• Side-by-side specs before anyone pays." },
+              { title: "Running the Store", text: "Orders, stock, payments and shipping live in the same platform, so what the customer sees and what the warehouse has never drift apart." },
             ],
           },
           {
-            title: "Challenge — Finding the Right Product",
-            text: "Customers may describe a device by purpose rather than an exact model or specification. Traditional keyword matching alone can miss relevant products, especially across Arabic and English queries.",
+            title: "Challenge — “I need a laptop for design”",
+            text: "Type that into a normal store search and you get nothing, or the wrong thing. Customers write the way they talk, often mixing Arabic and English, and keyword search can’t follow.",
             subs: [
-              { title: "Beyond Keyword Search", chip: "AI SEARCH", text: "The challenge was to interpret user intent, rank hardware by relevant specifications, and connect discovery to reliable product data while keeping the shopping journey straightforward." },
+              { title: "Search That Understands Intent", chip: "AI SEARCH", text: "The store had to understand what the customer is trying to do, match it to real specifications, and only show products that are actually in the catalog, without making the journey longer." },
             ],
           },
           {
-            title: "Solution — Intelligence Built Into Commerce",
-            text: "The solution combines a bilingual shopping platform with AI modules for product discovery, recommendations, and business insights—connected to the store’s operational data.",
+            title: "Solution — Meet BETO",
+            text: "We built a bilingual store with an assistant, BETO, at its center. Customers ask in their own words; BETO asks a follow-up if needed and suggests machines that fit, from live store data.",
             subs: [
-              { title: "Search, Recommendations & Insights", chip: "RAG", text: "Hybrid intent understanding and semantic retrieval help match product queries. Hardware-aware ranking considers technical requirements, while AI-assisted reviews, KPI summaries, and revenue forecasting support store decisions." },
+              { title: "Smarter Search, Smarter Decisions", chip: "RAG", text: "Semantic search ranks products by the specs that matter for the task. On the management side, the team gets review sentiment, KPI summaries and revenue forecasts, so restocking and promotions are based on data, not guesswork." },
             ],
           },
         ],
         cta: {
           badge: "LET’S TALK",
-          title: ["A Similar Challenge?", "Let’s Explore Your Use Case."],
-          text: "Tell us what you need to improve. We can start with the problem and discuss a practical next step.",
+          title: ["Customers Can’t Find", "What They’re Looking For?"],
+          text: "Tell us about your store. We’ll show you what an assistant like BETO could do with your catalog.",
           button: "Discuss Your Project",
           href: "/contact",
         },
@@ -117,7 +117,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         name: "البيطار",
         cardTag: "تجارة ذكية",
         title: ["البيطار", "تجارة ذكية"],
-        intro: "منصة لتجارة أجهزة الكمبيوتر تجمع بين البحث الذكي، وتوصيات المنتجات، وإدارة عمليات البيع والمخزون.",
+        intro: "متجر أجهزة كمبيوتر يكتب فيه العميل احتياجه بكلامه، بالعربي أو بالإنجليزي، ويوصله الجهاز المناسب.",
         tags: ["تجارة ذكية", "RAG"],
         facts: [
           { label: "الخدمات", value: "منصة تجارة ووحدات ذكاء اصطناعي" },
@@ -127,32 +127,32 @@ export const CASE_STUDIES: CaseStudy[] = [
         button: { label: "زيارة المتجر", href: "https://albetarstore.com/" },
         blocks: [
           {
-            title: "التحليل — فهم تجارة الأجهزة",
-            text: "يتطلب شراء أجهزة الكمبيوتر معرفة المواصفات وتوافق المكونات وتحديث المنتجات باستمرار. درسنا رحلة البحث والشراء، إلى جانب احتياجات إدارة المتجر اليومية.",
+            title: "التحليل — كيف يشتري الناس الأجهزة فعلًا",
+            text: "أغلب العملاء ما يعرفون اسم الموديل. يجون بميزانية وشغل محدد: مونتاج، ألعاب، أو مكتب لعشرة موظفين. درسنا طريقة بحثهم، وكيف يدير الفريق الطلبات والمخزون من الخلف.",
             subs: [
-              { title: "استكشاف المنتجات", chip: "التجارة", text: "• تنظيم الأجهزة والمكونات في فئات ومرشحات واضحة.\n• دعم تخصيص الأجهزة مع التحقق من توافق المكونات.\n• تسهيل مراجعة المواصفات والمقارنة قبل الشراء." },
-              { title: "إدارة العمليات", text: "احتاجت المنصة أيضًا إلى أدوات لإدارة الطلبات والمخزون والمدفوعات والشحن، مع ربط تجربة العميل بسير العمل التشغيلي." },
+              { title: "الوصول للمنتج", chip: "التجارة", text: "• فئات وفلاتر واضحة لآلاف المواصفات.\n• تجميع جهاز مخصص مع فحص تلقائي لتوافق القطع.\n• مقارنة المواصفات جنبًا إلى جنب قبل الدفع." },
+              { title: "إدارة المتجر", text: "الطلبات والمخزون والدفع والشحن في نفس المنصة، فاللي يشوفه العميل دايمًا مطابق للموجود فعلًا في المستودع." },
             ],
           },
           {
-            title: "التحدي — العثور على المنتج المناسب",
-            text: "قد يصف العميل احتياجه دون معرفة اسم الجهاز أو مواصفاته الدقيقة. ولا يكفي البحث بالكلمات المفتاحية دائمًا لإظهار الخيارات الملائمة، خصوصًا بالعربية والإنجليزية.",
+            title: "التحدي — «أبغى لابتوب للتصميم»",
+            text: "لو كتبتها في بحث متجر عادي، يا ما يطلع شي، يا يطلع شي غلط. العميل يكتب مثل ما يتكلم، وأحيانًا يخلط عربي وإنجليزي، والبحث بالكلمات ما يلحقه.",
             subs: [
-              { title: "ما بعد البحث بالكلمات المفتاحية", chip: "بحث ذكي", text: "كان التحدي هو فهم نية البحث وترتيب الأجهزة وفق متطلباتها الفنية، وربط النتائج ببيانات المنتجات مع الحفاظ على تجربة شراء واضحة." },
+              { title: "بحث يفهم المقصود", chip: "بحث ذكي", text: "كان لازم المتجر يفهم وش يبي العميل يسوي، ويربطه بمواصفات حقيقية، ويعرض بس المنتجات الموجودة فعلًا، بدون ما تطول رحلة الشراء." },
             ],
           },
           {
-            title: "الحل — ذكاء متكامل مع التجارة",
-            text: "يجمع المشروع بين منصة تجارة إلكترونية ثنائية اللغة ووحدات ذكاء اصطناعي للبحث والتوصية وتحليل الأعمال، بالاعتماد على بيانات المتجر.",
+            title: "الحل — تعرّف على BETO",
+            text: "بنينا متجرًا بلغتين، وفي قلبه مساعد اسمه BETO. يسأله العميل بكلامه، فيسأل سؤال توضيحي لو احتاج، ويقترح الأجهزة المناسبة من بيانات المتجر الحية.",
             subs: [
-              { title: "البحث والتوصية وتحليل البيانات", chip: "RAG", text: "يساعد فهم الاستفسارات والبحث الدلالي في الوصول إلى المنتجات الملائمة، مع ترتيب يراعي المواصفات الفنية. وتدعم تحليلات التقييمات ومؤشرات الأداء والتنبؤ بالإيرادات قرارات الإدارة." },
+              { title: "بحث أذكى وقرارات أوضح", chip: "RAG", text: "البحث الدلالي يرتب المنتجات حسب المواصفات اللي تهم الاستخدام. ومن جهة الإدارة، يشوف الفريق تحليل آراء العملاء وملخص المؤشرات وتوقعات الإيرادات، فتكون قرارات المخزون والعروض مبنية على بيانات." },
             ],
           },
         ],
         cta: {
           badge: "لنتحدث",
-          title: ["لديك تحدٍ مشابه؟", "لنناقش احتياجك."],
-          text: "أخبرنا بما ترغب في تطويره، ولنبدأ بفهم المشكلة ومناقشة الخطوة العملية المناسبة.",
+          title: ["عملاؤك ما يلاقون", "اللي يدورون عليه؟"],
+          text: "كلمنا عن متجرك، ونوريك وش ممكن يسوي مساعد مثل BETO مع منتجاتك.",
           button: "ناقش مشروعك",
           href: "/contact",
         },
@@ -175,7 +175,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         name: "Mohami Smart",
         cardTag: "LEGALTECH",
         title: ["Mohami", "Smart"],
-        intro: "An AI-assisted legal platform bringing case management, document analysis, and legal drafting into one workflow.",
+        intro: "A legal workspace where a lawyer uploads a case file and starts from a first draft, not a blank page.",
         tags: ["LegalTech", "AI Workflows"],
         facts: [
           { label: "Focus", value: "Legal AI & Case Workflows" },
@@ -185,32 +185,32 @@ export const CASE_STUDIES: CaseStudy[] = [
         button: { label: "Visit Live Platform", href: "https://mohamy-smart.com/" },
         blocks: [
           {
-            title: "Analysis — Mapping Legal Work",
-            text: "Legal work moves between case files, client records, documents, and deadlines. The platform brings these materials into a more organized daily workflow.",
+            title: "Analysis — A Lawyer’s Day, Up Close",
+            text: "We followed how a case actually moves: the file arrives, someone reads it, facts get pulled out, deadlines get tracked, a memo gets written. Most of it happened across folders, email and memory.",
             subs: [
-              { title: "Cases & Clients", chip: "WORKFLOW", text: "• Organize case information in one place.\n• Keep client records and related files accessible.\n• Support follow-up across daily legal tasks." },
-              { title: "Document Handling", text: "Documents, judgments, and drafts need a clear review process. The platform connects document work with the relevant legal case." },
+              { title: "Cases & Clients", chip: "WORKFLOW", text: "• Every case, client and file in one place.\n• Hearings and deadlines on one calendar.\n• A dashboard of what’s open, closed or on hold." },
+              { title: "Documents in Context", text: "Contracts, rulings and drafts stay attached to their case, so nobody has to ask which version is the latest." },
             ],
           },
           {
-            title: "Challenge — Working Through Legal Documents",
-            text: "Lawyers often review lengthy files, identify relevant facts, and prepare written materials. Repeating these steps across disconnected tools makes the work harder to track.",
+            title: "Challenge — Reading the Same File Three Times",
+            text: "Before writing a single line, a lawyer reads the contract to understand it, again to pull the facts, and again to build the argument. That’s where the hours go.",
             subs: [
-              { title: "From Files to Useful Context", chip: "LEGAL AI", text: "The challenge is to help professionals extract important points from uploaded documents while preserving the context needed for legal review and drafting." },
+              { title: "Let the Lawyer Do the Law", chip: "LEGAL AI", text: "The goal was to take the reading and sorting off their plate, while keeping every fact traceable to the original document, so the lawyer can check it in seconds." },
             ],
           },
           {
-            title: "Solution — AI Assistance in Context",
-            text: "Mohami Smart combines case and client management with AI-assisted legal document analysis and drafting tools, keeping professional review central to the process.",
+            title: "Solution — From Upload to Memo",
+            text: "Upload the document and Mohami Smart pulls out the parties, dates and facts, analyzes the legal position, suggests claims and defenses, and prepares a draft memo, in Arabic.",
             subs: [
-              { title: "Analyze, Draft & Review", chip: "HUMAN REVIEW", text: "Users can upload case materials, request analysis of documents or judgments, and prepare draft legal texts. A qualified professional reviews the output before formal use." },
+              { title: "The Lawyer Has the Final Word", chip: "HUMAN REVIEW", text: "Every step is shown and editable: the extracted facts, the analysis, each claim. The lawyer reviews, adjusts and approves. The platform prepares; the professional decides." },
             ],
           },
         ],
         cta: {
           badge: "LET’S TALK",
-          title: ["A Process to Improve?", "Let’s Explore It Together."],
-          text: "Tell us where work becomes difficult. We can review the problem and discuss a practical next step.",
+          title: ["Your Team Spends Hours", "Reading Documents?"],
+          text: "Tell us what kind of files you work with. We’ll show you how much of that reading AI can take on.",
           button: "Discuss Your Project",
           href: "/contact",
         },
@@ -219,7 +219,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         name: "محامي سمارت",
         cardTag: "تقنية قانونية",
         title: ["محامي سمارت"],
-        intro: "منصة قانونية مدعومة بالذكاء الاصطناعي تجمع بين إدارة القضايا وتحليل المستندات والصياغة القانونية في مسار عمل واحد.",
+        intro: "منصة قانونية يرفع فيها المحامي ملف القضية، ويبدأ من مسودة جاهزة بدل صفحة فاضية.",
         tags: ["ذكاء قانوني", "إدارة القضايا"],
         facts: [
           { label: "المجال التقني", value: "ذكاء قانوني وإدارة قضايا" },
@@ -229,32 +229,32 @@ export const CASE_STUDIES: CaseStudy[] = [
         button: { label: "زيارة المنصة", href: "https://mohamy-smart.com/" },
         blocks: [
           {
-            title: "التحليل — فهم دورة العمل القانوني",
-            text: "يتنقل العمل القانوني يوميًا بين ملفات القضايا وسجلات الموكلين والمستندات والمواعيد. وتعمل المنصة على جمع هذه العناصر في مسار عمل يومي أكثر وضوحًا وتنظيمًا.",
+            title: "التحليل — يوم المحامي من قريب",
+            text: "تابعنا كيف تمشي القضية فعلًا: يوصل الملف، أحد يقرأه، تُستخرج الوقائع، تُتابع المواعيد، وتُكتب المذكرة. وأغلب هذا كان موزعًا بين المجلدات والإيميل والذاكرة.",
             subs: [
-              { title: "القضايا والموكلون", chip: "مسار العمل", text: "• تنظيم بيانات القضايا في مكان واحد.\n• إتاحة سجلات الموكلين والمستندات المرتبطة بها.\n• متابعة المهام القانونية اليومية والمواعيد." },
-              { title: "إدارة المستندات", text: "تحتاج المستندات والأحكام والمسودات إلى مراجعة منظمة. وتربط المنصة التعامل مع الوثائق بملف القضية المعني." },
+              { title: "القضايا والموكلون", chip: "مسار العمل", text: "• كل قضية وموكل وملف في مكان واحد.\n• الجلسات والمواعيد في تقويم واحد.\n• لوحة توضح المفتوح والمغلق والمؤجل." },
+              { title: "المستندات في مكانها", text: "العقود والأحكام والمسودات مرتبطة بقضيتها، فما يحتاج أحد يسأل: وين آخر نسخة؟" },
             ],
           },
           {
-            title: "التحدي — التعامل مع الملفات القانونية",
-            text: "تتطلب الملفات القانونية قراءة متأنية واستخلاص الوقائع وإعداد المستندات. ويصبح تتبّع هذه الخطوات أصعب عند توزيعها بين أدوات وملفات منفصلة.",
+            title: "التحدي — قراءة نفس الملف ثلاث مرات",
+            text: "قبل ما يكتب سطر واحد، يقرأ المحامي العقد مرة ليفهمه، ومرة ليستخرج الوقائع، ومرة ليبني الدفوع. وهنا تروح الساعات.",
             subs: [
-              { title: "من الوثائق إلى معلومات واضحة", chip: "ذكاء قانوني", text: "يتمثل التحدي في مساعدة المختص على استخلاص النقاط المهمة من المستندات، مع الحفاظ على السياق اللازم للمراجعة والصياغة القانونية." },
+              { title: "خلّ المحامي يركّز على القانون", chip: "ذكاء قانوني", text: "الهدف كان نشيل عنه القراءة والفرز، مع إن كل معلومة تبقى مربوطة بمكانها في المستند الأصلي، يتأكد منها بثواني." },
             ],
           },
           {
-            title: "الحل — مساعدة ذكية في العمل القانوني",
-            text: "يجمع محامي سمارت بين إدارة القضايا والموكلين وأدوات مساعدة بالذكاء الاصطناعي لتحليل المستندات وإعداد المسودات، مع بقاء المراجعة المهنية أساسية.",
+            title: "الحل — من رفع الملف إلى المذكرة",
+            text: "يرفع المحامي المستند، فيستخرج محامي سمارت الأطراف والتواريخ والوقائع، ويحلل الموقف القانوني، ويقترح الطلبات والدفوع، ويجهز مسودة المذكرة بالعربي.",
             subs: [
-              { title: "تحليل وصياغة ومراجعة", chip: "مراجعة بشرية", text: "يستطيع المستخدم رفع ملفات القضية وطلب تحليل المستندات أو الأحكام وإعداد مسودات قانونية. ويراجع المختص المخرجات قبل استخدامها رسميًا." },
+              { title: "الكلمة الأخيرة للمحامي", chip: "مراجعة بشرية", text: "كل خطوة واضحة وقابلة للتعديل: الوقائع، والتحليل، وكل طلب. المحامي يراجع ويعدل ويعتمد. المنصة تجهّز، والمختص يقرر." },
             ],
           },
         ],
         cta: {
           badge: "لنتحدث",
-          title: ["لديك إجراء يحتاج تطويرًا؟", "لنناقش الحل المناسب."],
-          text: "شاركنا التحدي الذي تواجهه، ولنبدأ بفهمه ومناقشة خطوة عملية تناسب احتياجك.",
+          title: ["فريقك يقضي ساعات", "في قراءة المستندات؟"],
+          text: "قل لنا وش نوع الملفات اللي تشتغلون عليها، ونوريك كم من هالقراءة يقدر الذكاء الاصطناعي يشيلها عنكم.",
           button: "ناقش مشروعك",
           href: "/contact",
         },
@@ -277,7 +277,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         name: "Business Operations",
         cardTag: "OPERATIONS",
         title: ["Business Operations", "Platforms"],
-        intro: "Two distinct platforms for Bin Delamah: one for HR operations, the other for construction projects.",
+        intro: "Two systems for a contracting company: one for its people, one for its sites. Paper and spreadsheets out, one source of truth in.",
         tags: ["HRMS", "PMS"],
         facts: [
           { label: "Services", value: "Custom Business Platforms" },
@@ -287,32 +287,32 @@ export const CASE_STUDIES: CaseStudy[] = [
         button: { label: "Discuss Your Project", href: "/contact" },
         blocks: [
           {
-            title: "Analysis — Two Operational Needs",
-            text: "HR administration and construction delivery involve different teams, data, and approval paths. The published projects address these needs through two separate systems.",
+            title: "Analysis — Two Very Different Problems",
+            text: "The HR office and the construction sites have different users, data and approval paths. Forcing both into one tool would have served neither, so we built two systems.",
             subs: [
-              { title: "HR & Administration", chip: "HRMS", text: "• Employee and project-staffing records.\n• Fleet, finance, documents and audit workflows.\n• Role-based access across multiple companies." },
-              { title: "Construction Operations", text: "The PMS focuses on project activity, warehouse and material flows, BOQ tracking, gate passes, approvals, and management reporting." },
+              { title: "People & Admin", chip: "HRMS", text: "• Employee files and who works on which project.\n• Fleet, finance requests and documents.\n• Access by role, across the group’s companies." },
+              { title: "Sites & Materials", text: "On the projects side: tasks, warehouses, material requests and movements, BOQ quantities, gate passes and the reports management asks for every week." },
             ],
           },
           {
-            title: "Challenge — Keeping Work Traceable",
-            text: "Operational teams need clear ownership and reliable records as requests, documents, and materials move between people and departments.",
+            title: "Challenge — “Who approved this?”",
+            text: "A material request leaves the site, waits on someone’s desk, gets signed, and the steel arrives late. When requests live on paper and in chats, nobody can say where they are.",
             subs: [
-              { title: "Visibility Across Workflows", chip: "OPS", text: "The HRMS addresses scattered administrative processes and manual approvals. The PMS addresses construction tracking, materials, and approval flows. Each solves a different operational problem." },
+              { title: "Every Request, Visible", chip: "OPS", text: "The goal: every request, approval and movement recorded with a name and a time, from HR paperwork to a truck leaving the warehouse, so the team can see what’s stuck and why." },
             ],
           },
           {
-            title: "Solution — Platforms Built for the Work",
-            text: "The HRMS brings people and administrative processes into one environment. The PMS organizes construction operations, with controls suited to project teams.",
+            title: "Solution — One Screen for Each Team",
+            text: "BDCC HRMS runs people and admin. Bin Delamah PMS runs the sites. Each user sees only what their role needs: project managers, store keepers, file closers and admins.",
             subs: [
-              { title: "Structured, Role-Based Operations", chip: "SYSTEMS", text: "BDCC HRMS centralizes staffing, records, approvals, documents, and audit history. Bin Delamah PMS connects material and warehouse activities with BOQ tracking, gate passes, and reports within its own platform." },
+              { title: "From Request to Report", chip: "SYSTEMS", text: "A request is raised, approved and tracked in one flow, and every step lands in the audit history. Stock alerts flag low materials early, and reports on projects, materials and tasks are ready to export." },
             ],
           },
         ],
         cta: {
           badge: "LET’S TALK",
-          title: ["Complex Workflows?", "Let’s Make Them Clearer."],
-          text: "Tell us where your team loses time. We can discuss a practical approach around your operations.",
+          title: ["Still Chasing Approvals", "on WhatsApp?"],
+          text: "Tell us how requests move in your company today. We’ll show you what it looks like on one screen.",
           button: "Discuss Your Project",
           href: "/contact",
         },
@@ -321,7 +321,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         name: "أنظمة إدارة الأعمال",
         cardTag: "إدارة العمليات",
         title: ["منصات إدارة", "العمليات"],
-        intro: "منصتان مستقلتان لبن دلامة: إحداهما لإدارة الموارد البشرية والعمليات، والأخرى لإدارة المشاريع الإنشائية.",
+        intro: "نظامان لشركة مقاولات: واحد لموظفيها وواحد لمواقعها. بدل الورق والإكسل، مرجع واحد للكل.",
         tags: ["HRMS", "PMS"],
         facts: [
           { label: "الخدمات", value: "منصات أعمال مخصصة" },
@@ -331,32 +331,32 @@ export const CASE_STUDIES: CaseStudy[] = [
         button: { label: "ناقش مشروعك", href: "/contact" },
         blocks: [
           {
-            title: "التحليل — احتياجان تشغيليان",
-            text: "تختلف إجراءات الموارد البشرية عن متطلبات إدارة المشاريع الإنشائية، من حيث المستخدمين والبيانات والموافقات. لذلك يلبّي كل نظام احتياجًا مستقلًا.",
+            title: "التحليل — مشكلتين مختلفتين تمامًا",
+            text: "مكتب الموارد البشرية ومواقع المشاريع لكل منهم مستخدمين وبيانات وموافقات مختلفة. لو جمعناهم في أداة وحدة ما بتخدم أحد، فبنينا نظامين.",
             subs: [
-              { title: "الموارد البشرية والإدارة", chip: "HRMS", text: "• ملفات الموظفين وتوزيعهم على المشاريع.\n• الأسطول والمالية والمستندات وسجلات المراجعة.\n• صلاحيات حسب الأدوار عبر شركات متعددة." },
-              { title: "عمليات المشاريع الإنشائية", text: "يركّز نظام PMS على المشاريع والمستودعات والمواد وجداول الكميات (BOQ) وتصاريح البوابات والموافقات والتقارير الإدارية." },
+              { title: "الموظفين والإدارة", chip: "HRMS", text: "• ملفات الموظفين ومين يشتغل في أي مشروع.\n• الأسطول والطلبات المالية والمستندات.\n• صلاحيات حسب الدور عبر شركات المجموعة." },
+              { title: "المواقع والمواد", text: "ومن جهة المشاريع: المهام، والمستودعات، وطلبات المواد وحركتها، وجداول الكميات، وتصاريح البوابات، والتقارير اللي تطلبها الإدارة كل أسبوع." },
             ],
           },
           {
-            title: "التحدي — وضوح الإجراءات وتتبعها",
-            text: "تحتاج الفرق إلى مسؤوليات واضحة وسجلات يمكن الرجوع إليها مع انتقال الطلبات والمستندات والمواد بين الإدارات.",
+            title: "التحدي — «مين وافق على هذا؟»",
+            text: "طلب مواد يطلع من الموقع، يجلس على مكتب أحد، يتوقع، والحديد يوصل متأخر. ولما تكون الطلبات بالورق وفي المحادثات، ما أحد يعرف وين وصلت.",
             subs: [
-              { title: "متابعة كل عملية", chip: "OPS", text: "يعالج نظام الموارد البشرية تشتت الإجراءات الإدارية والموافقات اليدوية، بينما يركّز نظام المشاريع على متابعة المواد والموافقات وسير العمل الإنشائي. ولكل منهما نطاق مستقل." },
+              { title: "كل طلب واضح", chip: "OPS", text: "الهدف: كل طلب وموافقة وحركة تنسجل باسم صاحبها ووقتها، من أوراق الموارد البشرية لين شاحنة تطلع من المستودع، فيشوف الفريق وش المتعطل وليش." },
             ],
           },
           {
-            title: "الحل — نظام لكل بيئة عمل",
-            text: "ينظّم نظام HRMS شؤون الموظفين والإجراءات الإدارية، بينما يدعم PMS عمليات المشاريع الإنشائية وفق صلاحيات ومسارات عمل محددة.",
+            title: "الحل — شاشة واحدة لكل فريق",
+            text: "BDCC HRMS يدير الموظفين والإدارة، وBin Delamah PMS يدير المواقع. وكل مستخدم يشوف اللي يحتاجه دوره بس: مدير المشروع، وأمين المستودع، ومسؤول إغلاق الملفات، والإدارة.",
             subs: [
-              { title: "إدارة منظّمة وصلاحيات واضحة", chip: "الأنظمة", text: "يجمع BDCC HRMS بيانات الموظفين والموافقات والمستندات وسجلات المراجعة. ويتيح Bin Delamah PMS متابعة المواد والمستودعات والكميات وتصاريح البوابات والتقارير ضمن نظام مستقل." },
+              { title: "من الطلب إلى التقرير", chip: "الأنظمة", text: "الطلب يُرفع ويُعتمد ويُتابع في مسار واحد، وكل خطوة تنحفظ في سجل المراجعة. وتنبيهات المخزون تنبه على نقص المواد بدري، وتقارير المشاريع والمواد والمهام جاهزة للتصدير." },
             ],
           },
         ],
         cta: {
           badge: "لنتحدث",
-          title: ["إجراءات عمل معقدة؟", "لنناقش تبسيطها."],
-          text: "أخبرنا عن التحديات التشغيلية التي تواجه فريقك، ولنبحث معًا عن خطوة عملية مناسبة.",
+          title: ["لسه تلاحقون الموافقات", "على الواتساب؟"],
+          text: "قل لنا كيف تمشي الطلبات عندكم اليوم، ونوريك كيف تصير في شاشة وحدة.",
           button: "ناقش مشروعك",
           href: "/contact",
         },
