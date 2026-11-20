@@ -11,7 +11,7 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding-bottom: 101px;
+  padding-bottom: 110px;
   overflow: hidden;
   background-color: #000;
 }
@@ -38,235 +38,311 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 100px;
+  gap: 64px;
   width: 100%;
   padding: 100px 80px 0;
 }
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 680px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* ---------------- showcase ---------------- */
 
 .showcase {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 28px;
+  width: 100%;
+  max-width: 1120px;
+}
+
+.stage {
+  position: relative;
   width: 100%;
 }
 
-/* ---------------- screenshot fan ---------------- */
+/* blue light behind the window */
+.glow {
+  position: absolute;
+  inset: 8% 6% -6%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 72, 255, 0.55), rgba(0, 49, 213, 0.18) 60%, rgba(0, 49, 213, 0));
+  filter: blur(40px);
+  pointer-events: none;
+}
 
-.fan {
-  --shot: 184px;
+.window {
   position: relative;
-  z-index: 1;
-  width: 184px;
-  height: 184px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0b0c12;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 40px 100px -30px rgba(0, 0, 0, 0.9),
+    0 0 60px -10px rgba(0, 49, 213, 0.45);
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 38px;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #111219;
   direction: ltr;
 }
 
-.shot {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.dots {
   display: flex;
-  width: var(--shot);
-  height: var(--shot);
-  padding: 5px;
-  overflow: hidden;
-  border-radius: 26px;
-  background-color: #080808;
-  transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rotate));
+  gap: 7px;
 }
 
-.shot::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: inherit;
-  pointer-events: none;
+.dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
 }
 
-.shotImage {
-  position: relative;
-  flex: 1;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.shotImage img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.shotShine {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: 23px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
-}
-
-.shotShine::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: inherit;
-}
-
-.bubble {
-  --bubble: rgb(0, 49, 213);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  padding: 6px 10px;
-  border-radius: 15px;
-  background-color: var(--bubble);
-  color: #fff;
-  font-family: "DM Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 26px;
-  letter-spacing: -0.5px;
-  white-space: pre;
-}
-
-.bubbleLeft {
-  --bubble: rgb(0, 128, 255);
-  transform: translate(calc(-50% - 262px), calc(-50% - 143px)) rotate(-8deg);
-}
-
-.bubbleRight {
-  transform: translate(calc(-50% + 335px), calc(-50% - 127px)) rotate(14deg);
-}
-
-.bubbleTip {
-  position: absolute;
-  top: 33px;
-  left: 23px;
-  width: 10px;
-  height: 10px;
-  background-color: var(--bubble);
-  transform: rotate(-45deg);
-}
-
-/* ---------------- feature cards ---------------- */
-
-.features {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  width: 100%;
-  max-width: 800px;
-  overflow: hidden;
-}
-
-.line {
-  display: block;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%);
-}
-
-.cards {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  width: 100%;
-}
-
-.card {
-  position: relative;
-  display: flex;
-  flex: 1 0 0px;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 0;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: #080808;
-}
-
-.card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.cardGlow {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  object-fit: cover;
-}
-
-.cardHighlight {
-  position: absolute;
-  top: 0;
-  left: calc(50% - 85px);
-  z-index: 1;
-  width: 170px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(0, 49, 213, 0) 0%, rgb(0, 49, 213) 50%, rgba(0, 49, 213, 0) 100%);
-}
-
-.cardHead {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.cardIcon {
-  position: relative;
-  flex: none;
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border-radius: 30px;
-  color: #fff;
-  background: linear-gradient(180deg, rgb(0, 49, 213) 0%, rgb(89, 114, 227) 100%);
-}
-
-.cardIcon::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  border-radius: inherit;
-}
-
-.cardHead h4 {
-  margin: 0;
-  color: #fff;
-  font-family: "DM Sans", sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 26px;
-  letter-spacing: -0.5px;
-}
-
-.card p {
-  position: relative;
-  margin: 0;
+.address {
+  flex: 0 1 280px;
+  margin: 0 auto;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.5);
   font-family: "DM Sans", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 26px;
-  letter-spacing: -0.5px;
+  font-size: 12px;
+  text-align: center;
+  transform: translateX(-30px);
+}
+
+.screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #f4f3ef;
+}
+
+.screen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0;
+  transform: scale(1.015);
+  transition:
+    opacity 0.6s ease,
+    transform 0.8s ease;
+}
+
+.screen img.shown {
+  opacity: 1;
+  transform: none;
+}
+
+/* AI note floating over the window's lower corner */
+.callout {
+  position: absolute;
+  bottom: 9%;
+  inset-inline-end: -28px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 10px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgb(0, 49, 213) 0%, rgb(58, 86, 230) 100%);
+  box-shadow: 0 18px 40px -12px rgba(0, 49, 213, 0.9);
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  animation: callout-in 0.5s 0.15s ease-out both;
+}
+
+:global(html[lang="ar"]) .callout {
+  padding: 10px 10px 10px 16px;
+  font-family: var(--font-alexandria), "DM Sans", sans-serif;
+}
+
+.calloutIcon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+@keyframes callout-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* ---------------- tabs ---------------- */
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 18px 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  background: #080808;
+  color: rgba(255, 255, 255, 0.55);
+  font: inherit;
+  text-align: start;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.tab:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tab:focus-visible {
+  outline: 2px solid rgb(120, 140, 240);
+  outline-offset: 3px;
+}
+
+.tabOn {
+  border-color: rgba(89, 114, 227, 0.55);
+  background: linear-gradient(180deg, rgba(0, 49, 213, 0.22) 0%, #080808 100%);
+  color: #fff;
+}
+
+.tabHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+}
+
+.tabIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.7);
+  transition: background 0.25s ease;
+}
+
+.tabOn .tabIcon {
+  background: linear-gradient(180deg, rgb(0, 49, 213) 0%, rgb(89, 114, 227) 100%);
+  color: #fff;
+}
+
+.tabText {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+:global(html[lang="ar"]) .tabHead,
+:global(html[lang="ar"]) .tabText,
+:global(html[lang="ar"]) .tabTextPhone,
+:global(html[lang="ar"]) .points {
+  font-family: var(--font-alexandria), "DM Sans", sans-serif;
+  letter-spacing: 0;
+}
+
+.progress {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.bar {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(0, 128, 255), rgb(89, 114, 227));
+  transform-origin: left;
+  animation: progress var(--step) linear both;
+}
+
+:global([dir="rtl"]) .bar {
+  transform-origin: right;
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.tabTextPhone {
+  display: none;
+}
+
+/* ---------------- trust points ---------------- */
+
+.points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 28px;
+  margin: -16px 0 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+}
+
+.points li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.points svg {
+  color: rgb(89, 114, 227);
 }
 
 /* ================= tablet ================= */
@@ -276,33 +352,13 @@
     padding: 100px 50px 0;
   }
 
-  .showcase {
-    gap: 50px;
+  .callout {
+    inset-inline-end: 16px;
+    bottom: 16px;
   }
 
-  .fan {
-    --shot: 104px;
-  }
-
-  .shot {
-    transform: translate(calc(-50% + var(--dx-t)), calc(-50% + var(--dy-t))) rotate(var(--rotate));
-  }
-
-  .bubbleLeft {
-    transform: translate(calc(-50% - 112px), calc(-50% - 83px)) rotate(-8deg);
-  }
-
-  .bubbleRight {
-    transform: translate(calc(-50% + 176px), calc(-50% - 77px)) rotate(14deg);
-  }
-
-  .cards {
-    flex-direction: column;
-  }
-
-  .card {
-    flex: none;
-    width: 100%;
+  .tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -310,20 +366,90 @@
 
 @media (max-width: 809px) {
   .content {
-    gap: 50px;
-    padding: 80px 30px 0;
+    gap: 44px;
+    padding: 80px 16px 0;
   }
 
-  .fan {
-    --shot: 80px;
-    height: 100px;
+  .window {
+    border-radius: 12px;
   }
 
-  .shot {
-    transform: translate(calc(-50% + var(--dx-p)), calc(-50% + var(--dy-p))) rotate(var(--rotate));
+  .chrome {
+    height: 28px;
   }
 
-  .bubble {
+  .dots i {
+    width: 8px;
+    height: 8px;
+  }
+
+  .address {
+    font-size: 10px;
+    padding: 2px 10px;
+  }
+
+  .callout {
+    position: relative;
+    inset: auto;
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
+    margin: -18px auto 0;
+    font-size: 13px;
+    white-space: normal;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar {
     display: none;
+  }
+
+  .tab {
+    flex: none;
+    padding: 10px 14px 12px;
+    border-radius: 999px;
+  }
+
+  .tabHead {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .tabIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tabText {
+    display: none;
+  }
+
+  .tabTextPhone {
+    display: block;
+    margin: -12px 0 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    line-height: 23px;
+    text-align: center;
+  }
+
+  .points {
+    margin-top: -8px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen img,
+  .callout {
+    transition: none;
+    animation: none;
   }
 }

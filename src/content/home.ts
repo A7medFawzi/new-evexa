@@ -70,9 +70,12 @@ export interface HomeProductCopy {
   body: string;
   /** external product site (opens in a new tab) */
   button: { label: string; href: string };
-  /** speech bubbles over the image fan (left, right) */
-  bubbles: [string, string];
-  cards: { title: string; text: string }[];
+  /** second button (site page, localized) */
+  demo: { label: string; href: string };
+  /** one tab per product screen, in PRODUCT_SCREENS order */
+  tabs: { title: string; text: string; callout: string }[];
+  /** short trust points under the showcase */
+  points: string[];
 }
 
 export interface HomeProcessCopy {
@@ -142,10 +145,15 @@ const WORK_IMAGES: Project["images"][] = [
  * organized", the opportunities pipeline and team dashboard in the middle,
  * My Day under "Follow-up, clear". Each has an English and an Arabic copy.
  */
-const PRODUCT_SHOTS = ["1-rfq", "2-rfq", "3-pipeline", "4-dashboard", "5-pipeline", "6-my-day", "7-my-day"];
+/** Dealplier screens shown in the product showcase, one per tab. */
+export const PRODUCT_SCREENS = ["rfq", "my-day", "pipeline", "dashboard"] as const;
 
-export function productImages(lang: Lang): string[] {
-  return PRODUCT_SHOTS.map((name) => `/images/dealplier/dealplier-${name}.${lang}.webp`);
+/** Full-size and phone-size screenshot of one screen, in the page language. */
+export function productScreen(name: (typeof PRODUCT_SCREENS)[number], lang: Lang) {
+  return {
+    src: `/images/dealplier/screens/${name}.${lang}.webp`,
+    small: `/images/dealplier/screens/${name}-900.${lang}.webp`,
+  };
 }
 
 const WHY_IMAGE = { src: "/images/hZgGlHpPFf0bbzHL7dI9MolatA.webp", alt: "Man using a laptop" };
@@ -266,16 +274,18 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
       ],
     },
     product: {
-      badge: "Our Product · Built by EVEXA",
-      title: ["From RFQ to follow-up.", "All in one place."],
-      body: "Dealplier brings RFQs, quotations, and daily follow-ups together for B2B sales teams.",
+      badge: "Our Product · AI Sales Assistant",
+      title: ["Every RFQ followed up.", "Every quotation closed."],
+      body: "Dealplier is the AI sales assistant we built for B2B suppliers. It reads RFQ emails and quotation PDFs, pulls out the details, and gives every salesperson one daily follow-up list, in Arabic and English.",
       button: { label: "Explore Dealplier", href: "https://www.dealplier.com/" },
-      bubbles: ["RFQs, organized", "Follow-up, clear"],
-      cards: [
-        { title: "RFQ Inbox", text: "Review requests and attachments with AI assistance." },
-        { title: "Quotations", text: "Track revisions, dates, and approvals." },
-        { title: "My Day", text: "See the next task and follow-up for each deal." },
+      demo: { label: "Book a Demo", href: "/contact" },
+      tabs: [
+        { title: "RFQ Inbox", text: "AI reads RFQ emails and attachments and pulls out the company, project, reference and deadline, each with its source.", callout: "Detected from the email · please confirm" },
+        { title: "My Day", text: "Each morning, every salesperson sees what is overdue, what is due today, and a suggested next step for each deal.", callout: "Suggested next step · accept or dismiss" },
+        { title: "Opportunities", text: "Every open RFQ and quotation in one list, ranked by what needs attention, with the next action and its owner.", callout: "Deal at risk · follow-up 4 days overdue" },
+        { title: "Team Dashboard", text: "Managers see the pipeline, the workload, and why deals were won or lost, calculated from current records.", callout: "Overdue follow-ups escalate on their own" },
       ],
+      points: ["Arabic & English", "Every value shows its source", "Nothing saved until a person confirms", "Each company's data isolated"],
     },
     why: {
       badge: "Why EVEXA",
@@ -389,16 +399,18 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
       ],
     },
     product: {
-      badge: "منتج من تطوير EVEXA",
-      title: ["من طلب التسعير", "إلى متابعة الصفقة."],
-      body: "يجمع Dealplier طلبات التسعير وعروض الأسعار والمتابعات اليومية لفرق مبيعات التوريد.",
+      badge: "منتجنا · مساعد مبيعات بالذكاء الاصطناعي",
+      title: ["ولا طلب تسعير يضيع،", "ولا عرض سعر يُنسى."],
+      body: "Dealplier مساعد مبيعات بالذكاء الاصطناعي بنيناه لشركات التوريد. يقرأ إيميلات طلبات التسعير وملفات عروض الأسعار، ويستخرج تفاصيلها، ويعطي كل مندوب قائمة متابعة يومية، بالعربي والإنجليزي.",
       button: { label: "اكتشف Dealplier", href: "https://www.dealplier.com/" },
-      bubbles: ["طلبات منظمة", "متابعة واضحة"],
-      cards: [
-        { title: "طلبات التسعير", text: "راجع الطلبات والمرفقات بمساعدة الذكاء الاصطناعي." },
-        { title: "عروض الأسعار", text: "تابع نسخ العروض والمواعيد والموافقات." },
-        { title: "أولويات اليوم", text: "تعرّف على أولويات المتابعة لكل صفقة." },
+      demo: { label: "اطلب عرضًا تجريبيًا", href: "/contact" },
+      tabs: [
+        { title: "صندوق طلبات التسعير", text: "يقرأ الذكاء الاصطناعي إيميلات الطلبات ومرفقاتها، ويستخرج الشركة والمشروع والمرجع والموعد النهائي، مع مصدر كل قيمة.", callout: "تم الاستخراج من الإيميل · بانتظار تأكيدك" },
+        { title: "يومي", text: "كل صباح يشوف المندوب المتأخر والمستحق اليوم، مع خطوة مقترحة لكل صفقة.", callout: "خطوة مقترحة · اقبلها أو تجاهلها" },
+        { title: "الفرص", text: "كل الطلبات والعروض المفتوحة في قائمة وحدة، مرتبة حسب الأولوية، مع الإجراء التالي والمسؤول عنه.", callout: "صفقة في خطر · متابعة متأخرة 4 أيام" },
+        { title: "لوحة الفريق", text: "يتابع المدير خط المبيعات وتوزيع الشغل وأسباب الفوز والخسارة، محسوبة من البيانات الحالية.", callout: "المتابعات المتأخرة تتصعّد تلقائيًا" },
       ],
+      points: ["عربي وإنجليزي", "كل قيمة تظهر مع مصدرها", "ما ينحفظ شي قبل تأكيد الموظف", "بيانات كل شركة معزولة"],
     },
     why: {
       badge: "لماذا EVEXA",
