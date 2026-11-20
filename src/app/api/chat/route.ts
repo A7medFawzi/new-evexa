@@ -5,7 +5,7 @@ import { chatSystemPrompt } from "@/lib/chatbot";
 
 /**
  * Website chat assistant, through any OpenAI-compatible chat-completions API
- * (OpenRouter by default; UnoRouter and similar routers work the same way).
+ * (OpenRouter by default).
  *
  * Env:
  *   CHATBOT_API_KEY         API key (OPENROUTER_API_KEY is read as a fallback).
