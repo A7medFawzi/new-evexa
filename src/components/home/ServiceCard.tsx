@@ -44,7 +44,7 @@ export default function ServiceCard({
           <span className={styles.cardRule} aria-hidden="true" />
           <span className={styles.cardText}>{text}</span>
           <span className={styles.cardImage}>
-            <img src={image} alt="" loading="lazy" decoding="async" />
+            <img src={image} alt={`${title}: ${subtitle}`} loading="lazy" decoding="async" />
             <span className={styles.cardImageOverlay} />
           </span>
         </span>

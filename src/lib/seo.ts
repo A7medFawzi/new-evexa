@@ -30,15 +30,19 @@ export function pageMetadata({
   title,
   description,
   absoluteTitle = false,
+  image,
 }: {
   lang: Lang;
   route: string;
   title: string;
   description: string;
   absoluteTitle?: boolean;
+  /** 1200x630 share image for this page (defaults to the site image) */
+  image?: string;
 }): Metadata {
   const url = localizeHref(route, lang);
   const fullTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
+  const shareImage = image ? { ...OG_IMAGE, url: image, alt: title } : OG_IMAGE;
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
@@ -51,13 +55,13 @@ export function pageMetadata({
       description,
       locale: OG_LOCALE[lang],
       alternateLocale: LANGS.filter((l) => l !== lang).map((l) => OG_LOCALE[l]),
-      images: [OG_IMAGE],
+      images: [shareImage],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [OG_IMAGE.url],
+      images: [shareImage.url],
     },
   };
 }

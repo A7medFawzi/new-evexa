@@ -17,7 +17,7 @@ import styles from "./page.module.css";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const lang = (await params).lang as Lang;
-  return pageMetadata({ lang, route: "/about", ...PAGE_SEO.about[lang] });
+  return pageMetadata({ lang, route: "/about", ...PAGE_SEO.about[lang], image: "/images/og/about.jpg" });
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {

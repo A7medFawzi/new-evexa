@@ -1,0 +1,72 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 220px 24px 160px;
+  text-align: center;
+}
+
+.code {
+  margin: 0 0 6px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 160px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -8px;
+  background: linear-gradient(180deg, #fff 0%, rgba(89, 114, 227, 0.55) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.title {
+  margin: 0;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+@media (max-width: 809px) {
+  .content {
+    padding: 160px 20px 120px;
+  }
+
+  .code {
+    font-size: 110px;
+    letter-spacing: -5px;
+  }
+
+  .title {
+    font-size: 30px;
+    letter-spacing: -1px;
+  }
+}

@@ -34,13 +34,14 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     route: `/portfolio/${slug}`,
     title: copy.title.join(" "),
     description: copy.intro,
+    image: `/images/og/${slug}.jpg`,
   });
 }
 
-function Photo({ src, className, glow = false }: { src: string; className?: string; glow?: boolean }) {
+function Photo({ src, alt, className, glow = false }: { src: string; alt: string; className?: string; glow?: boolean }) {
   return (
     <GlowCard media plain={!glow} className={className}>
-      <img className={styles.image} src={src} alt="" loading={glow ? "eager" : "lazy"} decoding="async" />
+      <img className={styles.image} src={src} alt={alt} loading={glow ? "eager" : "lazy"} decoding="async" />
     </GlowCard>
   );
 }
@@ -71,15 +72,15 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
           <div className={styles.story}>
             <CaseHero copy={copy} lang={lang} badge={{ chip: ui.badgeChip, label: ui.badge }} />
             <Appear delay={1.0} style={{ width: "100%" }}>
-              <Photo src={study.images.cover} className={`${styles.cover} ${tall}`} glow />
+              <Photo src={study.images.cover} alt={copy.name} className={`${styles.cover} ${tall}`} glow />
             </Appear>
             <CaseText block={analysis} />
             <div className={styles.pair}>
-              <Photo src={study.images.pair[0]} />
-              <Photo src={study.images.pair[1]} />
+              <Photo src={study.images.pair[0]} alt={`${copy.name}: ${analysis.title}`} />
+              <Photo src={study.images.pair[1]} alt={`${copy.name}: ${analysis.title}`} />
             </div>
             <CaseText block={challenge} />
-            <Photo src={study.images.wide} className={`${styles.wide} ${tall}`} />
+            <Photo src={study.images.wide} alt={`${copy.name}: ${challenge.title}`} className={`${styles.wide} ${tall}`} />
             <CaseText block={solution} />
           </div>
           <span className={styles.separator} aria-hidden="true" />
