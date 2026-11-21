@@ -106,6 +106,10 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
           question: "Do you offer products as well as custom AI solutions?",
           answer: "Yes. Custom AI solutions are our core focus. We also develop specialized products such as Dealplier for B2B sales teams.",
         },
+        {
+          question: "Do you also build software and business systems?",
+          answer: "Yes, through our software house, Valien, which builds business systems, platforms and digital applications.",
+        },
       ],
     },
     ar: {
@@ -135,6 +139,10 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
         {
           question: "هل تقدم EVEXA منتجات إلى جانب الحلول المخصصة؟",
           answer: "نعم. نركز على حلول الذكاء الاصطناعي المخصصة، ونطوّر كذلك منتجات متخصصة مثل Dealplier لدعم فرق مبيعات الشركات.",
+        },
+        {
+          question: "هل تطورون برمجيات وأنظمة أعمال أيضًا؟",
+          answer: "نعم، عبر شركتنا للبرمجيات Valien، المتخصصة في تطوير أنظمة الأعمال والمنصات والتطبيقات الرقمية.",
         },
       ],
     },
