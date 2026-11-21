@@ -268,9 +268,9 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
       body: "AI solutions and business platforms built for real operational needs.",
       button: { label: "Explore Our Work", href: "/portfolio" },
       projects: [
-        { href: "/portfolio/albetar", label: "AI", title: "Albetar AI Modules", points: ["Bilingual Product Search", "Semantic Retrieval", "AI Recommendations", "Revenue Forecasting"], tags: ["Commerce AI", "RAG"], images: WORK_IMAGES[0] },
+        { href: "/portfolio/albetar", label: "AI", title: "Albetar", points: ["Bilingual Product Search", "Semantic Retrieval", "AI Recommendations", "Revenue Forecasting"], tags: ["Commerce AI", "RAG"], images: WORK_IMAGES[0] },
         { href: "/portfolio/mohami-smart", label: "LEGAL", title: "Mohami Smart", points: ["AI Legal Assistant", "Document Analysis", "Legal Drafting", "Case Management"], tags: ["LegalTech", "AI Workflows"], images: WORK_IMAGES[1] },
-        { href: "/portfolio/business-operations", label: "OPS", title: "Business Operations Platforms", points: ["HR Workflows", "Project Operations", "Approvals & Tracking", "Role-Based Access"], tags: ["HRMS", "PMS"], images: WORK_IMAGES[2] },
+        { href: "/portfolio/business-operations", label: "OPS", title: "Bin Delamah", points: ["HR Workflows", "Project Operations", "Smart Reports & Alerts", "Role-Based Access"], tags: ["HRMS", "PMS"], images: WORK_IMAGES[2] },
       ],
     },
     product: {
@@ -393,9 +393,9 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
       body: "حلول ذكاء اصطناعي ومنصات أعمال طُورت لاحتياجات تشغيلية فعلية.",
       button: { label: "استكشف أعمالنا", href: "/portfolio" },
       projects: [
-        { href: "/portfolio/albetar", label: "AI", title: "Albetar AI Modules", points: ["بحث منتجات بلغتين", "استرجاع دلالي", "توصيات ذكية", "توقعات الإيرادات"], tags: ["ذكاء التجارة", "RAG"], images: WORK_IMAGES[0] },
+        { href: "/portfolio/albetar", label: "AI", title: "Albetar", points: ["بحث منتجات بلغتين", "استرجاع دلالي", "توصيات ذكية", "توقعات الإيرادات"], tags: ["ذكاء التجارة", "RAG"], images: WORK_IMAGES[0] },
         { href: "/portfolio/mohami-smart", label: "قانوني", title: "Mohami Smart", points: ["مساعد قانوني ذكي", "تحليل المستندات", "إعداد صيغ قانونية", "إدارة القضايا"], tags: ["تقنية قانونية", "إجراءات ذكية"], images: WORK_IMAGES[1] },
-        { href: "/portfolio/business-operations", label: "تشغيل", title: "Business Operations Platforms", points: ["إجراءات الموارد البشرية", "العمليات والمشاريع", "الموافقات والمتابعة", "صلاحيات حسب الدور"], tags: ["HRMS", "PMS"], images: WORK_IMAGES[2] },
+        { href: "/portfolio/business-operations", label: "تشغيل", title: "Bin Delamah", points: ["إجراءات الموارد البشرية", "العمليات والمشاريع", "تقارير وتنبيهات ذكية", "صلاحيات حسب الدور"], tags: ["HRMS", "PMS"], images: WORK_IMAGES[2] },
       ],
     },
     product: {

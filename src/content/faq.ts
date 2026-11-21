@@ -150,7 +150,7 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
         },
         {
           question: "Is every featured project AI-powered?",
-          answer: "No. We distinguish AI capabilities from business platforms that focus on structured workflows.",
+          answer: "Yes, and each uses it differently: a shopping assistant and smart search, legal analysis and drafting, or smart reports and alerts.",
         },
         {
           question: "Can a solution connect to existing systems?",
@@ -180,7 +180,7 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
         },
         {
           question: "هل تعتمد جميع المشاريع على الذكاء الاصطناعي؟",
-          answer: "لا. نوضح الفرق بين المزايا الذكية والأنظمة المخصصة لتنظيم إجراءات العمل.",
+          answer: "نعم، ويختلف دوره من مشروع لآخر: مساعد تسوق وبحث ذكي، أو تحليل وصياغة قانونية، أو تقارير وتنبيهات ذكية.",
         },
         {
           question: "هل يمكن ربط الحل بأنظمتنا الحالية؟",

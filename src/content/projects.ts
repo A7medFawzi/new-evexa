@@ -280,7 +280,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
     copy: {
       en: {
-        name: "Business Operations",
+        name: "Bin Delamah",
         cardTag: "OPERATIONS",
         title: ["One System for People.", "Another for Projects."],
         intro: "Two custom platforms for a contracting business: BDCC HRMS for employee and administrative work, and Bin Delamah PMS for projects, tasks, materials, warehouses and reporting.",
@@ -325,7 +325,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         },
       },
       ar: {
-        name: "أنظمة إدارة الأعمال",
+        name: "بن دلامة",
         cardTag: "إدارة العمليات",
         title: ["نظام للموظفين،", "وآخر لتشغيل", "المشاريع."],
         intro: "حلّان مخصصان لشركة مقاولات: BDCC HRMS لإدارة شؤون الموظفين والمتابعات الإدارية، ونظام Bin Delamah PMS لمتابعة المشاريع والمهام والمواد والمستودعات والتقارير.",
