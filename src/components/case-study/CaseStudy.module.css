@@ -75,15 +75,15 @@
 }
 
 .title {
-  --title-line: 90px;
+  --title-line: 70px;
   display: flex;
   flex-direction: column;
   margin: 0;
   font-family: "DM Sans", sans-serif;
-  font-size: 86px;
+  font-size: 64px;
   font-weight: 400;
   line-height: var(--title-line);
-  letter-spacing: -3.8px;
+  letter-spacing: -2.6px;
   text-align: start;
 }
 
@@ -527,9 +527,9 @@
   }
 
   .title {
-    --title-line: 70px;
-    font-size: 66px;
-    letter-spacing: -3px;
+    --title-line: 64px;
+    font-size: 58px;
+    letter-spacing: -2.4px;
   }
 
   .pair {
@@ -562,9 +562,9 @@
   }
 
   .title {
-    --title-line: 55px;
-    font-size: 56px;
-    letter-spacing: -3.4px;
+    --title-line: 48px;
+    font-size: 42px;
+    letter-spacing: -1.6px;
   }
 
   .moreTop {
@@ -588,4 +588,20 @@
 /* Arabic: the fact values follow the heading rhythm (h4: 1.3 line-height) */
 :global(html[lang="ar"]) .fact dd {
   line-height: 1.3;
+}
+
+/* Arabic headlines are sentences now: on smaller screens they need less
+   than the global Arabic h1 size (ar-typography.css) to keep each line whole. */
+@media (max-width: 1199px) and (min-width: 810px) {
+  :global(html[lang="ar"]) .title,
+  :global(html[lang="ar"]) .title span {
+    font-size: 50px !important;
+  }
+}
+
+@media (max-width: 809px) {
+  :global(html[lang="ar"]) .title,
+  :global(html[lang="ar"]) .title span {
+    font-size: 36px !important;
+  }
 }

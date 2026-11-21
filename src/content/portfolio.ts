@@ -40,9 +40,9 @@ export const PORTFOLIO_COPY: Record<Lang, PortfolioCopy> = {
       button: { label: "Discuss Your Project", href: "/contact" },
     },
     projects: [
-    { href: "/portfolio/albetar", label: "AI", title: "Albetar AI Modules", points: ["Arabic & English search", "Semantic product matching", "Review sentiment analysis", "Revenue forecasting"], tags: ["Commerce AI", "RAG & Search"], images: images(0) },
+    { href: "/portfolio/albetar", label: "AI", title: "Albetar", points: ["Arabic & English search", "Semantic product matching", "Review sentiment analysis", "Revenue forecasting"], tags: ["Commerce AI", "RAG & Search"], images: images(0) },
     { href: "/portfolio/mohami-smart", label: "LEGAL", title: "Mohami Smart", points: ["Case & client management", "AI legal assistance", "Document analysis", "Legal drafting support"], tags: ["LegalTech", "AI Workflows"], images: images(1) },
-    { href: "/portfolio/business-operations", label: "OPS", title: "Business Operations Platforms", points: ["HR & employee records", "Approvals & documents", "Construction workflows", "Materials & BOQ tracking"], tags: ["HRMS", "Construction PMS"], images: images(2) },
+    { href: "/portfolio/business-operations", label: "OPS", title: "Bin Delamah", points: ["HR & employee records", "Smart reports & alerts", "Construction workflows", "Materials & BOQ tracking"], tags: ["HRMS", "Construction PMS"], images: images(2) },
     ],
     faqBadge: "FAQ",
     cta: {
@@ -62,9 +62,9 @@ export const PORTFOLIO_COPY: Record<Lang, PortfolioCopy> = {
       button: { label: "ناقش مشروعك", href: "/contact" },
     },
     projects: [
-    { href: "/portfolio/albetar", label: "AI", title: "Albetar AI Modules", points: ["بحث بالعربية والإنجليزية", "مطابقة دلالية للمنتجات", "تحليل آراء العملاء", "التنبؤ بالإيرادات"], tags: ["ذكاء التجارة", "البحث الدلالي"], images: images(0) },
+    { href: "/portfolio/albetar", label: "AI", title: "Albetar", points: ["بحث بالعربية والإنجليزية", "مطابقة دلالية للمنتجات", "تحليل آراء العملاء", "التنبؤ بالإيرادات"], tags: ["ذكاء التجارة", "البحث الدلالي"], images: images(0) },
     { href: "/portfolio/mohami-smart", label: "قانوني", title: "Mohami Smart", points: ["إدارة القضايا والموكلين", "مساعد قانوني ذكي", "تحليل المستندات", "دعم الصياغة القانونية"], tags: ["تقنية قانونية", "إجراءات ذكية"], images: images(1) },
-    { href: "/portfolio/business-operations", label: "تشغيل", title: "أنظمة إدارة الأعمال", points: ["إدارة الموارد البشرية", "الموافقات والمستندات", "عمليات المشاريع الإنشائية", "المواد وجداول الكميات"], tags: ["نظام الموارد البشرية", "إدارة المشاريع"], images: images(2) },
+    { href: "/portfolio/business-operations", label: "تشغيل", title: "Bin Delamah", points: ["إدارة الموارد البشرية", "تقارير وتنبيهات ذكية", "عمليات المشاريع الإنشائية", "المواد وجداول الكميات"], tags: ["نظام الموارد البشرية", "إدارة المشاريع"], images: images(2) },
     ],
     faqBadge: "الأسئلة الشائعة",
     cta: {
