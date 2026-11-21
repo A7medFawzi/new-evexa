@@ -26,7 +26,7 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
         "Your AI Partner,",
         "From Idea to Everyday Use."
       ],
-      intro: "EVEXA builds custom AI solutions for businesses. We work from offices in Riyadh and Alexandria, serve clients across the Arab world, and our software house, Valien, builds business systems and platforms.",
+      intro: "We design, build and integrate AI solutions into business systems, from defining the need to everyday operation. We work from our offices in Riyadh and Alexandria with clients across the Arab world.",
       button: {
         label: "Discuss Your Project",
         href: "/contact"
@@ -81,21 +81,25 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
       ],
       points: [
         {
-          title: "AI Assistants That Speak Arabic",
-          text: "Assistants that talk with your customers or team and answer from your company’s data, like BETO in the Albetar store."
+          title: "AI Assistants in Arabic & English",
+          text: "Assistants that talk with your customers or team and answer accurately from your company’s data and documents."
         },
         {
           title: "Document & Workflow Automation",
-          text: "Reading documents, extracting their data and turning it into workflow steps, like the memo workflow in Mohami Smart, with human review where it matters."
+          text: "Reading documents, extracting their data and turning it into workflow steps, with human review where it matters."
         },
         {
-          title: "Smart Business Platforms",
-          text: "Business systems with smart reports, automatic alerts and fast search, like the HR and project platforms for Bin Delamah."
+          title: "Smart Analytics & Reports",
+          text: "Dashboards and reports that summarize performance, with alerts that flag what needs follow-up before it slips."
+        },
+        {
+          title: "Integration With Your Systems",
+          text: "Connecting AI to the tools you already use, such as Outlook, SAP, Salesforce and your databases."
         }
       ],
       button: {
-        label: "Explore Our Work",
-        href: "/portfolio"
+        label: "Explore AI Solutions",
+        href: "/#services"
       },
       image: {
         src: "/images/sUZnn6TGtwsYPeNR8KknQbD5bI.webp",
@@ -122,7 +126,7 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
         "شريكك في الذكاء الاصطناعي،",
         "من الفكرة إلى التشغيل."
       ],
-      intro: "EVEXA شركة متخصصة في بناء حلول الذكاء الاصطناعي المخصصة للشركات. نعمل من مكتبين في الرياض والإسكندرية، ونخدم عملاء في أنحاء الوطن العربي، ومعنا شركتنا للبرمجيات Valien لتطوير الأنظمة والمنصات.",
+      intro: "نصمم حلول الذكاء الاصطناعي ونطوّرها وندمجها في أنظمة الشركات، من تحديد الاحتياج حتى التشغيل اليومي. نعمل من مكتبينا في الرياض والإسكندرية مع عملاء في أنحاء الوطن العربي.",
       button: {
         label: "ناقش مشروعك",
         href: "/contact"
@@ -177,21 +181,25 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
       ],
       points: [
         {
-          title: "مساعدات ذكية تفهم العربية",
-          text: "مساعدات تتحدث مع عملائك أو فريقك وتجيب من بيانات شركتك، مثل مساعد BETO في متجر البيطار."
+          title: "مساعدات ذكية بالعربية والإنجليزية",
+          text: "مساعدات تتحدث مع عملائك أو فريقك، وتجيب بدقة من بيانات شركتك ومستنداتها."
         },
         {
           title: "أتمتة المستندات والإجراءات",
-          text: "قراءة المستندات واستخراج بياناتها وتحويلها إلى خطوات عمل، مثل مسار المذكرات في محامي سمارت، مع مراجعة بشرية حيث يلزم."
+          text: "قراءة المستندات واستخراج بياناتها وتحويلها إلى خطوات عمل، مع مراجعة بشرية حيث يلزم."
         },
         {
-          title: "منصات أعمال ذكية",
-          text: "أنظمة أعمال بتقارير ذكية وتنبيهات تلقائية وبحث سريع، مثل منصتي الموارد البشرية والمشاريع لشركة بن دلامة."
+          title: "تحليلات وتقارير ذكية",
+          text: "لوحات وتقارير تلخّص أداء العمل، وتنبيهات تكشف ما يحتاج إلى متابعة قبل أن يتأخر."
+        },
+        {
+          title: "الربط مع أنظمتك",
+          text: "ربط الذكاء الاصطناعي بالأنظمة التي تستخدمها، مثل Outlook أو SAP أو Salesforce أو قواعد البيانات."
         }
       ],
       button: {
-        label: "استكشف أعمالنا",
-        href: "/portfolio"
+        label: "استكشف حلولنا",
+        href: "/#services"
       },
       image: {
         src: "/images/sUZnn6TGtwsYPeNR8KknQbD5bI.webp",
