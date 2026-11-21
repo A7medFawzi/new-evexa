@@ -269,20 +269,28 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       intro: "A closer look at the Albetar project and the technology behind it.",
       items: [
         {
-          question: "Is BETO just a standalone chatbot?",
-          answer: "No. BETO works inside the shopping experience itself, alongside product information and the configuration flow, so the conversation is part of finding the right machine.",
+          question: "Is BETO a standalone chatbot?",
+          answer: "No. It works inside the store itself, alongside product pages and configuration, guiding customers while they choose.",
         },
         {
-          question: "Can a customer configure a workstation before buying?",
-          answer: "Yes. The interface shows memory and storage choices, prices, and compatibility indicators and warnings for certain configurations.",
+          question: "Can shoppers choose RAM and storage?",
+          answer: "Yes. The configurator shows the alternatives, their prices and the selected state of each choice.",
         },
         {
-          question: "Does the platform help the store team?",
-          answer: "Yes. The admin area adds AI summaries, recommendations and revenue forecasting alongside the usual store management tools.",
+          question: "How do customers know components are compatible?",
+          answer: "Configuration options show compatibility indicators and notices about any additional requirements.",
         },
         {
-          question: "Could a similar approach work for another retailer?",
-          answer: "Yes. We shape the experience around your catalog structure, data quality, inventory processes and the integrations you need.",
+          question: "Does the platform include store administration?",
+          answer: "Yes. There are dedicated areas for products, orders, reviews, promotions and subscribers.",
+        },
+        {
+          question: "Does it include analytics and forecasts?",
+          answer: "Yes. The admin dashboard shows AI summaries and recommendations, revenue forecasting and unusual-activity indicators.",
+        },
+        {
+          question: "Could this work for another retailer?",
+          answer: "Yes. We shape it around your product data, catalog structure and the integrations available.",
         },
       ],
     },
@@ -292,19 +300,27 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       items: [
         {
           question: "هل BETO مجرد نافذة محادثة؟",
-          answer: "لا. يعمل BETO ضمن تجربة التسوق نفسها، مرتبطًا بصفحات المنتجات ومسار الاختيار، ليكون الحوار جزءًا من الوصول إلى الجهاز المناسب.",
+          answer: "لا. يعمل ضمن تجربة المتجر نفسها، إلى جانب صفحات المنتجات والتخصيص، ليرشد العميل أثناء الاختيار.",
         },
         {
-          question: "هل يمكن تخصيص مكونات الجهاز قبل الشراء؟",
-          answer: "نعم. تعرض الواجهة خيارات الذاكرة والتخزين والأسعار، مع مؤشرات للتوافق وتنبيهات خاصة ببعض التكوينات.",
+          question: "هل يمكن اختيار RAM ووحدة التخزين؟",
+          answer: "نعم. تعرض واجهة التخصيص البدائل وأسعارها وحالة كل اختيار بوضوح.",
         },
         {
-          question: "هل توجد أدوات تدعم قرارات إدارة المتجر؟",
-          answer: "نعم. تعرض لوحة الإدارة ملخصات ذكية وتوصيات وتوقعات للإيرادات، إلى جانب أدوات إدارة المتجر المعتادة.",
+          question: "كيف يعرف العميل مدى توافق المكونات؟",
+          answer: "تظهر على البدائل مؤشرات توافق وتنبيهات مرتبطة بالتكوين.",
         },
         {
-          question: "هل يمكن تطبيق الفكرة على متجر آخر؟",
-          answer: "نعم، ونصمم التجربة بحسب طبيعة المنتجات، وجودة البيانات، وطريقة إدارة المخزون، والتكاملات المطلوبة.",
+          question: "هل توجد لوحة لإدارة المتجر؟",
+          answer: "نعم، لإدارة المنتجات والطلبات والتقييمات والعروض والمشتركين.",
+        },
+        {
+          question: "هل تتضمن المنصة تحليلات وتوقعات؟",
+          answer: "نعم. تعرض لوحة الإدارة ملخصات وتوصيات ذكية، ومخططات لتوقع الإيرادات ورصد التغيرات غير المعتادة.",
+        },
+        {
+          question: "هل يمكن تنفيذ فكرة مشابهة لمتجر آخر؟",
+          answer: "نعم، ونصممها بحسب نوع المنتجات وجودة البيانات والتكاملات المتاحة.",
         },
       ],
     },
@@ -316,19 +332,27 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       items: [
         {
           question: "Can an AI-generated memo be used without review?",
-          answer: "No. Drafts are supporting material, and the responsible lawyer reviews them before they are used.",
+          answer: "No. The draft is a working tool; the responsible lawyer checks the facts, sources and legal reasoning before using it.",
         },
         {
-          question: "Can lawyers revise suggested facts and arguments?",
-          answer: "Yes. Every route includes review, selection and editing steps before the workflow moves on.",
+          question: "Can users review case facts before analysis?",
+          answer: "Yes. There is a dedicated fact-review stage before the workflow moves on.",
         },
         {
-          question: "Is this only a legal drafting tool?",
-          answer: "No. It also covers case and client management, documents, a hearing and task calendar, and a legal library.",
+          question: "Can suggested arguments be selected or edited?",
+          answer: "Yes. Suggested arguments come with review, selection and editing controls.",
         },
         {
-          question: "Does the platform support different legal workflows?",
-          answer: "Yes. It offers several routes, including defense memos and statements of claim, with steps that vary by route.",
+          question: "Does the platform only create legal drafts?",
+          answer: "No. It also covers case and client management, documents, a calendar and other practice tools.",
+        },
+        {
+          question: "Are different legal routes supported?",
+          answer: "Yes, including defense memos and statements of claim, each with its own steps.",
+        },
+        {
+          question: "Are documents and hearings managed in the platform?",
+          answer: "Yes. It includes document areas, a hearing calendar and a legal library.",
         },
       ],
     },
@@ -337,20 +361,28 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       intro: "إجابات مختصرة عن محامي سمارت وتطبيقات الذكاء الاصطناعي في العمل القانوني.",
       items: [
         {
-          question: "هل يمكن الاعتماد على المذكرة الناتجة دون مراجعة؟",
-          answer: "لا. المخرجات تساعد في إعداد المسودة، ويراجعها المحامي المختص قبل استخدامها.",
+          question: "هل تُغني المسودة عن مراجعة المحامي؟",
+          answer: "لا. المسودة أداة مساعدة، ويتحقق المحامي المختص من الوقائع والمراجع والاستدلال قبل استخدامها.",
         },
         {
-          question: "هل يستطيع المحامي تعديل الوقائع والدفوع المقترحة؟",
-          answer: "نعم. يمر كل مسار بمراحل للمراجعة والاختيار والتحرير قبل استكماله.",
+          question: "هل يمكن مراجعة الوقائع قبل التحليل؟",
+          answer: "نعم. توجد مرحلة مستقلة لمراجعة الوقائع قبل استكمال المراحل التالية.",
         },
         {
-          question: "هل المشروع مجرد أداة لصياغة المذكرات؟",
-          answer: "لا. يتضمن أيضًا إدارة القضايا والموكلين والمستندات، وأجندة الجلسات والأعمال، ومكتبة قانونية.",
+          question: "هل يستطيع المستخدم اختيار الدفوع المقترحة؟",
+          answer: "نعم. تُعرض الدفوع المقترحة مع أدوات للمراجعة والاختيار والتحرير.",
         },
         {
-          question: "هل يشمل أكثر من نوع إجراء قانوني؟",
-          answer: "نعم. تدعم المنصة مسارات متعددة، منها مذكرة الدفاع وصحيفة الدعوى، وتختلف الخطوات بحسب المسار.",
+          question: "هل يقتصر النظام على كتابة المذكرات؟",
+          answer: "لا. يتضمن أيضًا إدارة الموكلين والقضايا والمستندات والتقويم وأدوات قانونية أخرى.",
+        },
+        {
+          question: "هل توجد مسارات قانونية مختلفة؟",
+          answer: "نعم، منها مذكرة الدفاع وصحيفة الدعوى، ولكل مسار خطواته.",
+        },
+        {
+          question: "هل تتوفر أدوات للمستندات والمواعيد؟",
+          answer: "نعم. تضم المنصة صفحات للمستندات، وتقويمًا للجلسات، ومكتبة قانونية.",
         },
       ],
     },
@@ -361,20 +393,28 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       intro: "A closer look at the two platforms and what each one covers.",
       items: [
         {
-          question: "Are BDCC HRMS and Bin Delamah PMS a single product?",
-          answer: "No. They are two distinct systems serving different functions within the same contracting company: people operations and project execution.",
+          question: "Are HRMS and PMS one system?",
+          answer: "No. They are distinct platforms, each with its own functions and users.",
         },
         {
-          question: "What does the HR system cover?",
+          question: "What does the HRMS cover?",
           answer: "Employee records and indicators, leave, notes and administrative follow-ups.",
         },
         {
-          question: "What does the project system cover?",
-          answer: "Projects, tasks, warehouses, materials, requests, movements, clients, users and reporting.",
+          question: "What does the PMS cover?",
+          answer: "Projects, tasks, requests, materials, warehouses, clients, users and reports.",
         },
         {
-          question: "Does the PMS include reporting?",
-          answer: "Yes. It provides reports for project summaries, material usage and task completion, with parameters set for each report.",
+          question: "Can managers generate project reports?",
+          answer: "Yes. Reports cover project summaries, material usage and task completion.",
+        },
+        {
+          question: "Is user administration included?",
+          answer: "Yes. PMS manages users, their roles and their permissions.",
+        },
+        {
+          question: "Could we build something similar?",
+          answer: "Yes. We start by understanding your team’s procedures and users, then design the system around them.",
         },
       ],
     },
@@ -383,20 +423,28 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
       intro: "إجابات مختصرة عن النظامين وما يغطيه كل منهما.",
       items: [
         {
-          question: "هل BDCC HRMS وBin Delamah PMS نظام واحد؟",
-          answer: "لا. هما نظامان مستقلان يخدمان مجالين مختلفين داخل الشركة نفسها: شؤون الموظفين وتشغيل المشاريع.",
+          question: "هل HRMS وPMS نظام واحد؟",
+          answer: "لا، هما منصتان مختلفتان، لكل منهما وظائفها ومستخدموها.",
         },
         {
-          question: "ما الذي يغطيه نظام الموارد البشرية؟",
+          question: "ماذا يغطي HRMS؟",
           answer: "ملفات الموظفين ومؤشراتهم، والإجازات، والملاحظات، والمتابعات الإدارية.",
         },
         {
-          question: "ما الذي يغطيه نظام المشاريع؟",
-          answer: "المشاريع والمهام والمستودعات والمواد وطلبات العمل والحركات والعملاء والمستخدمين والتقارير.",
+          question: "ماذا يغطي PMS؟",
+          answer: "المشاريع والمهام والطلبات والمواد والمستودعات والمستخدمين والعملاء والتقارير.",
         },
         {
-          question: "هل توجد تقارير جاهزة داخل PMS؟",
-          answer: "نعم. يوفّر تقارير لملخص المشاريع واستخدام المواد وإنجاز المهام، مع معايير يحددها المستخدم لكل تقرير.",
+          question: "هل توجد تقارير للمشاريع؟",
+          answer: "نعم، تقارير لملخص المشاريع واستخدام المواد وإنجاز المهام.",
+        },
+        {
+          question: "هل تتضمن الأنظمة إدارة للمستخدمين؟",
+          answer: "نعم. يدير PMS المستخدمين وأدوارهم وصلاحياتهم.",
+        },
+        {
+          question: "هل يمكن بناء نظام مشابه لشركتنا؟",
+          answer: "نعم. نبدأ بفهم إجراءات فريقك ومستخدميه، ثم نصمم النظام حولها.",
         },
       ],
     },
