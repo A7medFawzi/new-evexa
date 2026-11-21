@@ -21,12 +21,12 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
   en: {
     hero: {
       badgeChip: "EVEXA",
-      badge: "OUR APPROACH",
+      badge: "ABOUT US",
       title: [
-        "AI Built for Your Business.",
-        "Not the Other Way Around."
+        "An AI Company",
+        "From Riyadh and Alexandria."
       ],
-      intro: "EVEXA designs and integrates custom AI solutions around your teams, business data, and existing systems.",
+      intro: "EVEXA builds custom AI solutions for businesses. We work from offices in Riyadh and Alexandria, serve clients across the Arab world, and our software house, Valien, builds business systems and platforms.",
       button: {
         label: "Discuss Your Project",
         href: "/contact"
@@ -67,7 +67,7 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
           title: "Ready for Everyday Work",
           text: "We develop and test with practical scenarios, then prepare the solution for integration and handover.",
           button: {
-            label: "Discuss Your Project",
+            label: "Book a Discovery Call",
             href: "/contact"
           }
         }
@@ -76,17 +76,17 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
     capabilities: {
       badge: "WHAT WE BUILD",
       title: [
-        "Making Information Useful.",
-        "Making Work Simpler."
+        "What We Build",
+        "for Our Clients."
       ],
       points: [
         {
-          title: "Knowledge & Document Intelligence",
-          text: "Search approved company information, extract key details, and organize documents for easier access and review."
+          title: "AI Assistants That Speak Arabic",
+          text: "Assistants that talk with your customers or team and answer from your company’s data, like BETO in the Albetar store."
         },
         {
-          title: "AI Assistants & Workflow Automation",
-          text: "Support everyday tasks with context-aware assistants and automation, while keeping people involved where review matters."
+          title: "Document & Workflow Automation",
+          text: "Reading documents, extracting their data and turning it into workflow steps, like the memo workflow in Mohami Smart, with human review where it matters."
         }
       ],
       button: {
@@ -102,23 +102,23 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
     cta: {
       badge: "LET'S TALK",
       title: [
-        "A Challenge Worth Solving?",
-        "Let's Explore It Together."
+        "Let’s Understand Your Work",
+        "Before We Suggest Anything."
       ],
-      text: "Tell us what you'd like to improve. We can start with the problem and explore a practical way forward.",
-      button: "Discuss Your Project",
+      text: "Book a free discovery session. We’ll understand your needs and suggest a practical first step.",
+      button: "Book a Free Discovery Call",
       href: "/contact"
     }
   },
   ar: {
     hero: {
       badgeChip: "EVEXA",
-      badge: "نهجنا",
+      badge: "من نحن",
       title: [
-        "نصمم الذكاء الاصطناعي",
-        "ليناسب طريقة عملك."
+        "شركة ذكاء اصطناعي",
+        "من الرياض والإسكندرية."
       ],
-      intro: "في EVEXA نصمم حلول ذكاء اصطناعي مخصصة ونربطها ببيانات شركتك وأنظمتها، بما يخدم إجراءات العمل الفعلية.",
+      intro: "EVEXA شركة متخصصة في بناء حلول الذكاء الاصطناعي المخصصة للشركات. نعمل من مكتبين في الرياض والإسكندرية، ونخدم عملاء في أنحاء الوطن العربي، ومعنا شركتنا للبرمجيات Valien لتطوير الأنظمة والمنصات.",
       button: {
         label: "ناقش مشروعك",
         href: "/contact"
@@ -159,7 +159,7 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
           title: "جاهزة للاستخدام اليومي",
           text: "نطوّر الحل ونختبره على سيناريوهات عملية، ثم نجهّزه للتكامل والتسليم.",
           button: {
-            label: "ناقش مشروعك",
+            label: "احجز جلسة استكشافية",
             href: "/contact"
           }
         }
@@ -168,17 +168,17 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
     capabilities: {
       badge: "ما الذي نقدمه",
       title: [
-        "معلومات أكثر فائدة.",
-        "وعمل أكثر سلاسة."
+        "ما الذي نبنيه",
+        "لعملائنا."
       ],
       points: [
         {
-          title: "البحث المعرفي وفهم المستندات",
-          text: "نطوّر حلولًا للبحث في معلومات الشركة المعتمدة واستخراج البيانات من المستندات وتنظيمها."
+          title: "مساعدات ذكية تفهم العربية",
+          text: "مساعدات تتحدث مع عملائك أو فريقك وتجيب من بيانات شركتك، مثل مساعد BETO في متجر البيطار."
         },
         {
-          title: "المساعدات الذكية وأتمتة العمل",
-          text: "نصمم مساعدين ذكيين وأتمتة تدعم المهام اليومية، مع إبقاء المراجعة البشرية حيث تكون ضرورية."
+          title: "أتمتة المستندات والإجراءات",
+          text: "قراءة المستندات واستخراج بياناتها وتحويلها إلى خطوات عمل، مثل مسار المذكرات في محامي سمارت، مع مراجعة بشرية حيث يلزم."
         }
       ],
       button: {
@@ -194,11 +194,11 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
     cta: {
       badge: "لنتحدث",
       title: [
-        "لديك تحدٍّ في أعمالك؟",
-        "لنبحث الحل المناسب."
+        "لنتعرّف على عملك",
+        "قبل أن نقترح أي شيء."
       ],
-      text: "حدثنا عما ترغب في تطويره، ولنبدأ بفهم التحدي واستكشاف خطوة عملية تناسب احتياجاتك.",
-      button: "ناقش مشروعك",
+      text: "احجز جلسة استكشافية مجانية، نفهم فيها احتياجك ونقترح خطوة أولى عملية.",
+      button: "احجز جلسة مجانية",
       href: "/contact"
     }
   },
