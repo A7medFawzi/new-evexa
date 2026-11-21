@@ -7,6 +7,24 @@ const WORD_SPRING = { type: "spring", stiffness: 300, damping: 50, mass: 1 } as 
 const STAGGER = 0.05;
 
 /**
+ * In Arabic text, runs of Latin words ("BDCC HRMS") stay in one span:
+ * separate inline-block spans would each be placed right-to-left and
+ * reverse the run's word order.
+ */
+function groupLatin(words: string[], arabic: boolean): string[] {
+  if (!arabic) return words;
+  const out: string[] = [];
+  let latinRun = false;
+  for (const word of words) {
+    const latin = /[A-Za-z0-9]/.test(word) && !/[\u0600-\u06FF]/.test(word);
+    if (latin && latinRun) out[out.length - 1] += ` ${word}`;
+    else out.push(word);
+    latinRun = latin;
+  }
+  return out;
+}
+
+/**
  * Text that reveals word by word (blur 10px + 10px rise + fade) once half
  * of it is in view. Each word is an inline-block span, like the original.
  */
@@ -24,7 +42,7 @@ export default function WordReveal({
 }) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
-  const words = text.split(" ");
+  const words = groupLatin(text.split(" "), /[\u0600-\u06FF]/.test(text));
 
   return (
     <Tag ref={ref} className={className}>
