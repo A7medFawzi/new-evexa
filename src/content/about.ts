@@ -23,8 +23,8 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
       badgeChip: "EVEXA",
       badge: "ABOUT US",
       title: [
-        "An AI Company",
-        "From Riyadh and Alexandria."
+        "Your AI Partner,",
+        "From Idea to Everyday Use."
       ],
       intro: "EVEXA builds custom AI solutions for businesses. We work from offices in Riyadh and Alexandria, serve clients across the Arab world, and our software house, Valien, builds business systems and platforms.",
       button: {
@@ -87,11 +87,15 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
         {
           title: "Document & Workflow Automation",
           text: "Reading documents, extracting their data and turning it into workflow steps, like the memo workflow in Mohami Smart, with human review where it matters."
+        },
+        {
+          title: "Smart Business Platforms",
+          text: "Business systems with smart reports, automatic alerts and fast search, like the HR and project platforms for Bin Delamah."
         }
       ],
       button: {
-        label: "Explore AI Solutions",
-        href: "/#services"
+        label: "Explore Our Work",
+        href: "/portfolio"
       },
       image: {
         src: "/images/sUZnn6TGtwsYPeNR8KknQbD5bI.webp",
@@ -115,8 +119,8 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
       badgeChip: "EVEXA",
       badge: "من نحن",
       title: [
-        "شركة ذكاء اصطناعي",
-        "من الرياض والإسكندرية."
+        "شريكك في الذكاء الاصطناعي،",
+        "من الفكرة إلى التشغيل."
       ],
       intro: "EVEXA شركة متخصصة في بناء حلول الذكاء الاصطناعي المخصصة للشركات. نعمل من مكتبين في الرياض والإسكندرية، ونخدم عملاء في أنحاء الوطن العربي، ومعنا شركتنا للبرمجيات Valien لتطوير الأنظمة والمنصات.",
       button: {
@@ -179,11 +183,15 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
         {
           title: "أتمتة المستندات والإجراءات",
           text: "قراءة المستندات واستخراج بياناتها وتحويلها إلى خطوات عمل، مثل مسار المذكرات في محامي سمارت، مع مراجعة بشرية حيث يلزم."
+        },
+        {
+          title: "منصات أعمال ذكية",
+          text: "أنظمة أعمال بتقارير ذكية وتنبيهات تلقائية وبحث سريع، مثل منصتي الموارد البشرية والمشاريع لشركة بن دلامة."
         }
       ],
       button: {
-        label: "استكشف حلولنا",
-        href: "/#services"
+        label: "استكشف أعمالنا",
+        href: "/portfolio"
       },
       image: {
         src: "/images/sUZnn6TGtwsYPeNR8KknQbD5bI.webp",
