@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PAGE_SEO } from "@/content/seo";
 import { pageMetadata } from "@/lib/seo";
 import ContactForm from "@/components/contact/ContactForm";
+import OfficesSection from "@/components/contact/OfficesSection";
 import BottomBlur from "@/components/layout/BottomBlur";
 import CustomCursor from "@/components/motion/CustomCursor";
 import CtaSection from "@/components/sections/CtaSection";
@@ -38,6 +39,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
           <ContactForm lang={lang} copy={copy} />
         </GlowCard>
       </PageHero>
+      <OfficesSection lang={lang} />
       <FaqSection content={FAQS.contact[lang]} badgeLabel={copy.faqBadge} />
       <CtaSection content={{ ...copy.cta, href: FORM_ANCHOR }} />
       <BottomBlur />

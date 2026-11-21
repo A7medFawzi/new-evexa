@@ -20,6 +20,7 @@ import CtaSection from "@/components/sections/CtaSection";
 import FaqSection from "@/components/sections/FaqSection";
 import { localizeHref, type Lang } from "@/config/site";
 import { FAQS } from "@/content/faq";
+import { OFFICES } from "@/content/offices";
 import { HOME_COPY } from "@/content/home";
 import { SITE_NAME, SITE_URL } from "@/config/site";
 import { SOCIAL_LINKS } from "@/config/social";
@@ -42,6 +43,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     url: SITE_URL,
     logo: `${SITE_URL}/images/brand/favicon-512.png`,
     description: SITE_SEO[lang].description,
+    address: OFFICES.map((o) => ({ "@type": "PostalAddress", ...o.postal })),
     sameAs: SOCIAL_LINKS.filter((s) => !s.href.startsWith("https://wa.me")).map((s) => s.href),
   };
 

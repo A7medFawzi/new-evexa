@@ -15,7 +15,7 @@ const en = {
   },
   footer: {
     tagline: "Custom AI solutions for real business needs.",
-    location: "Saudi Arabia · Egypt",
+    location: "Offices: Riyadh · Alexandria",
     exploreTitle: "Explore",
     explore: {
       home: "Home",
