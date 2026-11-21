@@ -413,8 +413,8 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
           answer: "Yes. PMS manages users, their roles and their permissions.",
         },
         {
-          question: "Could we build something similar?",
-          answer: "Yes. We start by understanding your team’s procedures and users, then design the system around them.",
+          question: "Where does AI come in?",
+          answer: "Smart reports summarize project and material status, automatic alerts flag low stock and overdue follow-ups, and smart search finds employee and project records quickly.",
         },
       ],
     },
@@ -443,8 +443,8 @@ export const FAQS: Record<string, Record<Lang, FaqContent>> = {
           answer: "نعم. يدير PMS المستخدمين وأدوارهم وصلاحياتهم.",
         },
         {
-          question: "هل يمكن بناء نظام مشابه لشركتنا؟",
-          answer: "نعم. نبدأ بفهم إجراءات فريقك ومستخدميه، ثم نصمم النظام حولها.",
+          question: "أين يظهر الذكاء الاصطناعي في النظامين؟",
+          answer: "في تقارير ذكية تلخّص حالة المشاريع والمواد، وتنبيهات تلقائية لنقص المخزون والمتابعات المتأخرة، وبحث ذكي يصل إلى سجلات الموظفين والمشاريع بسرعة.",
         },
       ],
     },

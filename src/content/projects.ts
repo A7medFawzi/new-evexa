@@ -80,7 +80,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["BETO", "Hardware Configuration", "Store Analytics"],
         facts: [
           { label: "Services", value: "AI & Platform Development" },
-          { label: "Category", value: "Intelligent Commerce" },
+          { label: "AI Features", value: "6 for shoppers and the store team" },
           { label: "Client", value: "Albetar Trading & Retail" },
         ],
         button: { label: "Visit Live Store", href: "https://albetarstore.com/" },
@@ -125,7 +125,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["BETO", "تخصيص الأجهزة", "تحليل المتجر"],
         facts: [
           { label: "الخدمات", value: "تطوير منصات وتطبيقات الذكاء الاصطناعي" },
-          { label: "المجال", value: "التجارة الإلكترونية الذكية" },
+          { label: "الذكاء الاصطناعي", value: "6 مزايا للعميل والإدارة" },
           { label: "العميل", value: "البيطار للتجارة والتجزئة" },
         ],
         button: { label: "زيارة المتجر", href: "https://albetarstore.com/" },
@@ -184,7 +184,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["Case Management", "Document Review", "Draft Preparation"],
         facts: [
           { label: "Services", value: "Legal Platform & AI Assistance" },
-          { label: "Category", value: "LegalTech" },
+          { label: "Workflow", value: "5 steps, upload to memo" },
           { label: "Client", value: "EGY Legal for Smart Technology" },
         ],
         button: { label: "Visit Live Platform", href: "https://mohamy-smart.com/" },
@@ -229,7 +229,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["إدارة القضايا", "تحليل المستندات", "صياغة مسودات"],
         facts: [
           { label: "الخدمات", value: "منصة قانونية ومساعد ذكي" },
-          { label: "المجال", value: "تقنية قانونية" },
+          { label: "مسار العمل", value: "5 خطوات من الملف إلى المذكرة" },
           { label: "العميل", value: "إيجي ليجال للتكنولوجيا الذكية" },
         ],
         button: { label: "زيارة المنصة", href: "https://mohamy-smart.com/" },
@@ -285,10 +285,10 @@ export const CASE_STUDIES: CaseStudy[] = [
         title: ["One System for People.", "Another for Projects."],
         intro: "Two custom platforms for a contracting business: BDCC HRMS for employee and administrative work, and Bin Delamah PMS for projects, tasks, materials, warehouses and reporting.",
         seo: { title: "Bin Delamah | HR & Project Operations Platforms", description: "Discover BDCC HRMS for employee administration and Bin Delamah PMS for project tracking, materials, warehouses and reporting." },
-        tags: ["HRMS", "PMS", "Operational Reporting"],
+        tags: ["HRMS", "PMS", "Smart Reports"],
         facts: [
           { label: "Services", value: "Custom Business Platforms" },
-          { label: "Category", value: "HR & Project Operations" },
+          { label: "Scale", value: "2,100+ active employees" },
           { label: "Client", value: "Bin Delamah Cont. Co." },
         ],
         button: { label: "Discuss Your Project", href: "/contact" },
@@ -312,7 +312,7 @@ export const CASE_STUDIES: CaseStudy[] = [
             title: "Two platforms built for contracting workflows",
             text: "BDCC HRMS covers employee and administrative views. Separately, Bin Delamah PMS organizes project summaries, tasks, requests, warehouses, users and reporting in a dedicated operational interface.",
             subs: [
-              { title: "Focused screens for daily work", chip: "THE BUILD", text: "HRMS covers leave, notes and employee indicators. PMS offers project and request views, stock alerts, users, clients and report selectors." },
+              { title: "Focused screens for daily work", chip: "THE BUILD", text: "HRMS covers leave, notes and employee indicators. PMS offers project and request views, users and clients, with smart reports that summarize projects and materials, automatic alerts for low stock and overdue follow-ups, and smart search across records." },
             ],
           },
         ],
@@ -330,10 +330,10 @@ export const CASE_STUDIES: CaseStudy[] = [
         title: ["نظام للموظفين،", "وآخر لتشغيل", "المشاريع."],
         intro: "حلّان مخصصان لشركة مقاولات: BDCC HRMS لإدارة شؤون الموظفين والمتابعات الإدارية، ونظام Bin Delamah PMS لمتابعة المشاريع والمهام والمواد والمستودعات والتقارير.",
         seo: { title: "بن دلامة | نظام الموارد البشرية وإدارة المشاريع", description: "نظامان لبيئة المقاولات: BDCC HRMS لشؤون الموظفين وBin Delamah PMS للمشاريع والمهام والمواد والتقارير." },
-        tags: ["HRMS", "PMS", "تقارير تشغيلية"],
+        tags: ["HRMS", "PMS", "تقارير ذكية"],
         facts: [
           { label: "الخدمات", value: "تطوير أنظمة أعمال مخصصة" },
-          { label: "المجال", value: "موارد بشرية وإدارة مشاريع" },
+          { label: "الحجم", value: "أكثر من 2,100 موظف نشط" },
           { label: "العميل", value: "شركة بن دلامة للمقاولات" },
         ],
         button: { label: "ناقش مشروعك", href: "/contact" },
@@ -357,7 +357,7 @@ export const CASE_STUDIES: CaseStudy[] = [
             title: "منصتان متخصصتان لبيئة المقاولات",
             text: "يخصص BDCC HRMS واجهاته للموظفين وإجراءات الإدارة، بينما يجمع Bin Delamah PMS متابعة المشاريع والمهام والطلبات والمستودعات والمستخدمين في بيئة تشغيلية منفصلة.",
             subs: [
-              { title: "كل فريق يرى ما يحتاجه", chip: "ما تم بناؤه", text: "تشمل واجهات HRMS الإجازات والملاحظات ومؤشرات الموظفين، ويعرض PMS حالات المشاريع والطلبات وتنبيهات المخزون وصفحات العملاء والمستخدمين وخيارات التقارير." },
+              { title: "كل فريق يرى ما يحتاجه", chip: "ما تم بناؤه", text: "تشمل واجهات HRMS الإجازات والملاحظات ومؤشرات الموظفين، ويعرض PMS حالات المشاريع والطلبات وصفحات العملاء والمستخدمين، مع تقارير ذكية تلخّص حالة المشاريع والمواد، وتنبيهات تلقائية لنقص المخزون والمتابعات المتأخرة، وبحث ذكي في السجلات." },
             ],
           },
         ],
