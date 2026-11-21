@@ -208,16 +208,16 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     hero: {
       badgeChip: "EVEXA",
       badge: "Custom AI Solutions",
-      title: ["Put AI to work", "in your business."],
-      intro: "Search company knowledge, process documents, and reduce manual work.",
-      introPhone: "Built around your workflows, data, and existing tools.",
-      primary: { label: "Discuss Your Project", href: "/contact" },
+      title: ["AI built around", "how you work."],
+      intro: "We build AI assistants and business systems that work on your documents, data and existing tools, in Arabic and English.",
+      introPhone: "AI assistants and business systems that work on your data and tools.",
+      primary: { label: "Book a Discovery Call", href: "/contact" },
       secondary: { label: "See Our Work", href: "#work" },
     },
     about: {
       badge: "About EVEXA",
       statement:
-        "We study how your team works before deciding what to automate, connect, or build. AI should fit your people, data, and systems—not the other way around.",
+        "Before we suggest any technology, we learn how your team works and where its time goes. Then we build the solution that fixes exactly that.",
       button: { label: "About EVEXA", href: "/about" },
     },
     circle: {
@@ -264,8 +264,8 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     },
     work: {
       badge: "Selected Work",
-      title: ["What we’ve built,", "and why it matters."],
-      body: "AI solutions and business platforms built for real operational needs.",
+      title: ["From retail to legal", "and construction."],
+      body: "A selection of our projects: an AI shopping assistant, a legal platform, and operations systems for a contracting company.",
       button: { label: "Explore Our Work", href: "/portfolio" },
       projects: [
         { href: "/portfolio/albetar", label: "AI", title: "Albetar", points: ["Bilingual Product Search", "Semantic Retrieval", "AI Recommendations", "Revenue Forecasting"], tags: ["Commerce AI", "RAG"], images: WORK_IMAGES[0] },
@@ -301,7 +301,7 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     integrations: {
       badge: "Integrations",
       title: ["Connect AI to the tools", "you already use."],
-      body: "We assess connections with CRMs, databases, documents, and internal tools.",
+      body: "We connect AI to the systems you already use, such as Outlook, SAP, Salesforce and your databases, without changing how your team works.",
       button: { label: "Talk About Integration", href: "/contact" },
     },
     process: {
@@ -323,9 +323,9 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     faqBadge: "FAQ",
     cta: {
       badge: "Let’s Talk",
-      title: ["Have a workflow", "worth improving?"],
-      text: "Share your challenge. We’ll explore a practical starting point.",
-      button: "Discuss Your Project",
+      title: ["Got work that takes", "longer than it should?"],
+      text: "Tell us what it is. We’ll get back to you within two working days with a clear view of what we can build.",
+      button: "Start the Conversation",
       href: "/contact",
     },
   },
@@ -333,16 +333,16 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     hero: {
       badgeChip: "EVEXA",
       badge: "حلول ذكاء اصطناعي",
-      title: ["اجعل الذكاء الاصطناعي", "جزءًا من عملك."],
-      intro: "ابحث في معلومات شركتك، وتعامل مع المستندات، وقلّل المهام اليدوية.",
-      introPhone: "حلول مخصصة تتكامل مع بياناتك وإجراءاتك وأنظمتك الحالية.",
-      primary: { label: "ناقش مشروعك", href: "/contact" },
+      title: ["حلول ذكاء اصطناعي", "مبنية على طريقة عملك."],
+      intro: "نبني مساعدات ذكية وأنظمة أعمال تعمل على مستنداتك وبياناتك وأنظمتك الحالية، بالعربية والإنجليزية.",
+      introPhone: "مساعدات ذكية وأنظمة أعمال تعمل على بياناتك وأنظمتك الحالية.",
+      primary: { label: "احجز جلسة استكشافية", href: "/contact" },
       secondary: { label: "استكشف أعمالنا", href: "#work" },
     },
     about: {
       badge: "عن EVEXA",
       statement:
-        "نفهم طريقة عمل فريقك قبل تحديد ما يحتاج إلى أتمتة أو تكامل أو تطوير. نصمم حلول الذكاء الاصطناعي لتناسب الأشخاص والبيانات والأنظمة التي تعتمد عليها شركتك.",
+        "قبل أن نقترح أي تقنية، نفهم كيف يعمل فريقك وأين يضيع وقته، ثم نبني الحل الذي يعالج ذلك تحديدًا.",
       button: { label: "عن EVEXA", href: "/about" },
     },
     circle: {
@@ -389,8 +389,8 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     },
     work: {
       badge: "من أعمالنا",
-      title: ["ما أنجزناه،", "وما يميّزه."],
-      body: "حلول ذكاء اصطناعي ومنصات أعمال طُورت لاحتياجات تشغيلية فعلية.",
+      title: ["من التجارة إلى القانون", "والمقاولات."],
+      body: "نماذج مختارة من مشاريعنا: مساعد تسوق ذكي، ومنصة قانونية، وأنظمة تشغيل لشركة مقاولات.",
       button: { label: "استكشف أعمالنا", href: "/portfolio" },
       projects: [
         { href: "/portfolio/albetar", label: "AI", title: "Albetar", points: ["بحث منتجات بلغتين", "استرجاع دلالي", "توصيات ذكية", "توقعات الإيرادات"], tags: ["ذكاء التجارة", "RAG"], images: WORK_IMAGES[0] },
@@ -426,7 +426,7 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     integrations: {
       badge: "التكاملات",
       title: ["اربط الذكاء الاصطناعي", "بأنظمتك الحالية."],
-      body: "ندرس الربط مع أنظمة العملاء وقواعد البيانات والمستندات والأدوات الداخلية.",
+      body: "نربط الذكاء الاصطناعي بأنظمتك الحالية، مثل Outlook أو SAP أو Salesforce أو قواعد البيانات، دون أن تغيّر طريقة عمل فريقك.",
       button: { label: "ناقش متطلبات التكامل", href: "/contact" },
     },
     process: {
@@ -448,9 +448,9 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     faqBadge: "الأسئلة الشائعة",
     cta: {
       badge: "لنتحدث",
-      title: ["هل لديك إجراء", "ترغب في تطويره؟"],
-      text: "شاركنا التحدي، وسنساعدك على تحديد نقطة بداية عملية.",
-      button: "ناقش مشروعك",
+      title: ["هل لديك عمل يستغرق", "وقتًا أطول مما يجب؟"],
+      text: "أخبرنا ما هو، ونعود إليك خلال يومي عمل بتصوّر واضح لما يمكن تنفيذه.",
+      button: "ابدأ المحادثة",
       href: "/contact",
     },
   },
