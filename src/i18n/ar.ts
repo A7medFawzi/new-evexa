@@ -17,7 +17,7 @@ const ar: Dictionary = {
   },
   footer: {
     tagline: "حلول ذكاء اصطناعي مخصصة لاحتياجات الأعمال.",
-    location: "المملكة العربية السعودية · مصر",
+    location: "مكاتبنا: الرياض · الإسكندرية",
     exploreTitle: "استكشف",
     explore: {
       home: "الرئيسية",

@@ -94,6 +94,18 @@
   text-align: start;
 }
 
+.location {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.2);
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.location:hover {
+  color: #fff;
+}
+
 .brandText p + p {
   margin-top: 16px;
 }

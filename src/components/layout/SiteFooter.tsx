@@ -52,7 +52,11 @@ export default function SiteFooter({ lang, dict }: { lang: Lang; dict: Dictionar
           <div className={styles.brandDivider} />
           <div className={styles.brandText}>
             <p>{t.tagline}</p>
-            <p>{t.location}</p>
+            <p>
+              <Link href={to("/contact#offices")} className={styles.location}>
+                {t.location}
+              </Link>
+            </p>
           </div>
         </div>
 
