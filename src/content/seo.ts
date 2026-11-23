@@ -15,64 +15,64 @@ export interface PageSeo {
 
 export const SITE_SEO: Record<Lang, PageSeo> = {
   en: {
-    title: "EVEXA - Practical AI Solutions for Business",
+    title: "EVEXA - Custom AI Solutions for Business",
     description:
-      "EVEXA designs and integrates custom AI solutions around your teams, data and existing systems: knowledge search, document intelligence and workflow automation.",
+      "EVEXA builds custom AI for businesses: Arabic and English assistants, document automation, smart reports and integrations. Offices in Riyadh and Alexandria.",
   },
   ar: {
-    title: "EVEXA - حلول ذكاء اصطناعي عملية للأعمال",
+    title: "EVEXA - حلول ذكاء اصطناعي مخصصة للشركات",
     description:
-      "تصمم EVEXA حلول ذكاء اصطناعي مخصصة وتربطها ببيانات شركتك وأنظمتها: البحث المعرفي، وفهم المستندات، وأتمتة سير العمل.",
+      "تبني EVEXA حلول ذكاء اصطناعي مخصصة للشركات: مساعدات ذكية بالعربية والإنجليزية، وأتمتة المستندات، وتقارير ذكية، وربط مع أنظمتك. مكاتبنا في الرياض والإسكندرية.",
   },
 };
 
 export const PAGE_SEO: Record<SeoPageKey, Record<Lang, PageSeo>> = {
   home: {
     en: {
-      title: "EVEXA - Practical AI Solutions for Business",
+      title: "EVEXA - Custom AI Solutions for Business",
       description:
-        "Put AI to work in your business. EVEXA builds AI assistants, knowledge search and document processing around your workflows, data and existing tools.",
+        "EVEXA builds custom AI for businesses: Arabic and English assistants, document automation, smart reports and integrations. Offices in Riyadh and Alexandria.",
     },
     ar: {
-      title: "EVEXA - حلول ذكاء اصطناعي عملية للأعمال",
+      title: "EVEXA - حلول ذكاء اصطناعي مخصصة للشركات",
       description:
-        "سخّر الذكاء الاصطناعي لخدمة أعمالك. تبني EVEXA مساعدات ذكية وبحثًا معرفيًا ومعالجة للمستندات حول سير عملك وبياناتك وأنظمتك الحالية.",
+        "تبني EVEXA حلول ذكاء اصطناعي مخصصة للشركات: مساعدات ذكية بالعربية والإنجليزية، وأتمتة المستندات، وتقارير ذكية، وربط مع أنظمتك. مكاتبنا في الرياض والإسكندرية.",
     },
   },
   about: {
     en: {
       title: "About Us",
       description:
-        "EVEXA designs and integrates custom AI solutions around your teams, business data and existing systems, starting from the business need, not the technology.",
+        "Your AI partner from idea to everyday use. EVEXA designs, builds and integrates AI into business systems, from offices in Riyadh and Alexandria.",
     },
     ar: {
       title: "من نحن",
       description:
-        "في EVEXA نصمم حلول ذكاء اصطناعي مخصصة ونربطها ببيانات شركتك وأنظمتها، ونبدأ دائمًا من احتياج العمل قبل التقنية.",
+        "شريكك في الذكاء الاصطناعي من الفكرة إلى التشغيل. تصمم EVEXA حلول الذكاء الاصطناعي وتطوّرها وتدمجها في أنظمة الشركات، من الرياض والإسكندرية.",
     },
   },
   portfolio: {
     en: {
       title: "Our Work",
       description:
-        "Selected AI solutions and business platforms by EVEXA: Albetar AI modules, Mohami Smart legal platform, and HR and construction operations systems.",
+        "Selected EVEXA projects: Albetar’s AI shopping assistant, the Mohami Smart legal platform, and Bin Delamah’s HR and project platforms.",
     },
     ar: {
       title: "أعمالنا",
       description:
-        "نماذج من حلول الذكاء الاصطناعي وأنظمة الأعمال من EVEXA: وحدات البيطار الذكية، ومنصة محامي سمارت، وأنظمة الموارد البشرية وإدارة المشاريع الإنشائية.",
+        "مشاريع مختارة من EVEXA: مساعد التسوق الذكي في البيطار، ومنصة محامي سمارت القانونية، ومنصتا الموارد البشرية والمشاريع لشركة بن دلامة.",
     },
   },
   contact: {
     en: {
       title: "Contact Us",
       description:
-        "Have a project in mind? Tell EVEXA what you want to improve. We’ll review your needs and discuss a practical next step.",
+        "Tell EVEXA what you want to improve and book a free discovery session. We reply within two working days. Offices in Riyadh and Alexandria.",
     },
     ar: {
       title: "تواصل معنا",
       description:
-        "لديك مشروع أو تحدٍّ؟ أخبر EVEXA بما ترغب في تطويره، ولنبدأ بفهم احتياجك ومناقشة الخطوة العملية المناسبة.",
+        "أخبر EVEXA بما ترغب في تطويره واحجز جلسة استكشافية مجانية، ونعود إليك خلال يومي عمل. مكاتبنا في الرياض والإسكندرية.",
     },
   },
   privacy: {

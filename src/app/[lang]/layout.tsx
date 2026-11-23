@@ -30,6 +30,9 @@ const alexandria = Alexandria({
   display: "swap",
 });
 
+/** Only /en and /ar exist; any other first segment is a 404 (global-not-found.tsx). */
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return LANGS.map((lang) => ({ lang }));
 }

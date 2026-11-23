@@ -14,6 +14,7 @@ import TopGlow from "@/components/ui/TopGlow";
 import { LANGS, localizeHref, type Lang } from "@/config/site";
 import { FAQS } from "@/content/faq";
 import { CASE_STUDIES, CASE_STUDY_UI, getCaseStudy } from "@/content/projects";
+import { breadcrumbJsonLd, jsonLdHtml } from "@/lib/structured-data";
 import { pageMetadata } from "@/lib/seo";
 
 type Params = Promise<{ lang: string; slug: string }>;
@@ -65,6 +66,16 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
 
   return (
     <main style={{ position: "relative", backgroundColor: "#000" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdHtml(
+          breadcrumbJsonLd(lang, [
+            [lang === "ar" ? "الرئيسية" : "Home", "/"],
+            [lang === "ar" ? "أعمالنا" : "Our Work", "/portfolio"],
+            [copy.name, `/portfolio/${slug}`],
+          ]),
+        )}
+      />
       <TopGlow />
       <section className={styles.main}>
         <div className={styles.spacer} />

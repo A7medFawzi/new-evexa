@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   // TypeScript is checked during `next build` (tsc --noEmit passes cleanly).
   reactStrictMode: false,
   devIndicators: false,
+  // 404 page for URLs outside the language layout (src/app/global-not-found.tsx)
+  experimental: { globalNotFound: true },
   // case studies moved from the template slugs to the project names
   // (unprefixed URLs get their language from src/proxy.ts first)
   async redirects() {

@@ -6,6 +6,7 @@ import WordReveal from "@/components/motion/WordReveal";
 import Badge from "@/components/ui/Badge";
 import { FaqIcon } from "@/components/ui/icons";
 import type { FaqContent } from "@/content/faq";
+import { faqJsonLd, jsonLdHtml } from "@/lib/jsonld";
 import styles from "./FaqSection.module.css";
 
 const SPRING = { type: "spring", stiffness: 500, damping: 60, mass: 1 } as const;
@@ -27,6 +28,7 @@ export default function FaqSection({
 }) {
   return (
     <section id="faq" className={[styles.section, tight && styles.tight, roomy && styles.roomy].filter(Boolean).join(" ")}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(faqJsonLd(content))} />
       <img className={styles.rays} src="/images/HQiQT243MN1itZOX771FxR6euwI.webp" width={2398} height={1558} alt="" aria-hidden="true" decoding="async" loading="lazy" />
       <div className={styles.container}>
         <div className={styles.intro}>
