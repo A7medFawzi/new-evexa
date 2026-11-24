@@ -56,6 +56,13 @@ export interface HomeServicesCopy {
   tags: string[];
 }
 
+export interface HomeTrustCopy {
+  badge: string;
+  title: [string, string];
+  body: string;
+  stats: { value: number; suffix: string; label: string }[];
+}
+
 export interface HomeWorkCopy {
   badge: string;
   title: [string, string];
@@ -105,6 +112,8 @@ export interface HomeCopy {
   features: HomeFeaturesCopy;
   services: HomeServicesCopy;
   work: HomeWorkCopy;
+  /** "Trusted by" card: headline figures and the client & partner logo wall */
+  trust: HomeTrustCopy;
   product: HomeProductCopy;
   /** "Why EVEXA" — same layout as the about page's approach section */
   why: AboutCopy["approach"];
@@ -185,6 +194,37 @@ export const INTEGRATION_LOGOS: ReadonlyArray<{ src: string; name: string }> = [
 export const CONNECTED_TOOLS = ["openai", "claude-ai", "google-gemini", "microsoft-azure", "aws", "google-cloud"].map(
   (name) => `/images/tools/mono/${name}.webp`,
 );
+
+/**
+ * Logo wall under the "Trusted by" card: companies we built for (rows 1-2)
+ * and the institutions and development partners we worked with (row 3).
+ */
+export const TRUST_LOGOS: ReadonlyArray<ReadonlyArray<{ src: string; alt: string; width: number; height: number }>> = [
+  [
+    { src: "/images/clients/al-owaydan.webp", alt: "Abdulilah Essa Al-Owaydan Co.", width: 259, height: 96 },
+    { src: "/images/clients/eslah-services.webp", alt: "Eslah Maintenance Services", width: 342, height: 96 },
+    { src: "/images/clients/enfty.webp", alt: "Enfty", width: 176, height: 96 },
+    { src: "/images/clients/eiffel-tower.webp", alt: "Eiffel Tower Electronics", width: 360, height: 96 },
+    { src: "/images/clients/brainbots.webp", alt: "Brain Bots", width: 247, height: 96 },
+    { src: "/images/clients/samaa-al-riyadh.webp", alt: "Samaa Al Riyadh", width: 340, height: 96 },
+  ],
+  [
+    { src: "/images/clients/bin-dalama.webp", alt: "Bin Delamah Contracting Co.", width: 203, height: 96 },
+    { src: "/images/clients/albetar-store.webp", alt: "Albetar Store", width: 225, height: 96 },
+    { src: "/images/clients/zirkona-lab.webp", alt: "Zirkona Lab", width: 274, height: 96 },
+    { src: "/images/clients/multi-forms.webp", alt: "Multiforms Advanced", width: 410, height: 96 },
+    { src: "/images/clients/welo.webp", alt: "Welo", width: 336, height: 96 },
+  ],
+  [
+    { src: "/images/clients/bibliotheca-alexandrina.webp", alt: "Bibliotheca Alexandrina", width: 228, height: 96 },
+    { src: "/images/clients/united-nations.webp", alt: "United Nations", width: 314, height: 96 },
+    { src: "/images/clients/ai-industry-alliance.webp", alt: "AI Industry Alliance", width: 213, height: 96 },
+    { src: "/images/clients/uk-international-development.webp", alt: "UK International Development", width: 358, height: 96 },
+    { src: "/images/clients/alexandria-university.webp", alt: "Alexandria University", width: 215, height: 96 },
+    { src: "/images/clients/kafrelsheikh-university.webp", alt: "Kafrelsheikh University", width: 110, height: 96 },
+    { src: "/images/clients/ministry-youth-sports.webp", alt: "Ministry of Youth and Sports", width: 328, height: 96 },
+  ],
+];
 
 /**
  * Selected client and partner logos in the strip under the hero (from
@@ -271,6 +311,17 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
         { href: "/portfolio/albetar", label: "AI", title: "Albetar", points: ["Bilingual Product Search", "Semantic Retrieval", "AI Recommendations", "Revenue Forecasting"], tags: ["Commerce AI", "RAG"], images: WORK_IMAGES[0] },
         { href: "/portfolio/mohami-smart", label: "LEGAL", title: "Mohami Smart", points: ["AI Legal Assistant", "Document Analysis", "Legal Drafting", "Case Management"], tags: ["LegalTech", "AI Workflows"], images: WORK_IMAGES[1] },
         { href: "/portfolio/business-operations", label: "OPS", title: "Bin Delamah", points: ["HR Workflows", "Project Operations", "Smart Reports & Alerts", "Role-Based Access"], tags: ["HRMS", "PMS"], images: WORK_IMAGES[2] },
+      ],
+    },
+    trust: {
+      badge: "Clients & Partners",
+      title: ["Trusted by clients", "across the region."],
+      body: "We work with companies, institutions and development partners across Saudi Arabia, Egypt and the Arab world.",
+      stats: [
+        { value: 15, suffix: "+", label: "AI solutions built" },
+        { value: 50, suffix: "+", label: "Projects delivered" },
+        { value: 6, suffix: "+", label: "Industries served" },
+        { value: 100, suffix: "%", label: "Custom-built solutions" },
       ],
     },
     product: {
@@ -396,6 +447,17 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
         { href: "/portfolio/albetar", label: "AI", title: "Albetar", points: ["بحث منتجات بلغتين", "استرجاع دلالي", "توصيات ذكية", "توقعات الإيرادات"], tags: ["ذكاء التجارة", "RAG"], images: WORK_IMAGES[0] },
         { href: "/portfolio/mohami-smart", label: "قانوني", title: "Mohami Smart", points: ["مساعد قانوني ذكي", "تحليل المستندات", "إعداد صيغ قانونية", "إدارة القضايا"], tags: ["تقنية قانونية", "إجراءات ذكية"], images: WORK_IMAGES[1] },
         { href: "/portfolio/business-operations", label: "تشغيل", title: "Bin Delamah", points: ["إجراءات الموارد البشرية", "العمليات والمشاريع", "تقارير وتنبيهات ذكية", "صلاحيات حسب الدور"], tags: ["HRMS", "PMS"], images: WORK_IMAGES[2] },
+      ],
+    },
+    trust: {
+      badge: "عملاؤنا وشركاؤنا",
+      title: ["يثق بنا عملاء وشركاء", "في أنحاء المنطقة."],
+      body: "نعمل مع شركات ومؤسسات وجهات تنموية في السعودية ومصر والوطن العربي.",
+      stats: [
+        { value: 15, suffix: "+", label: "حل ذكاء اصطناعي" },
+        { value: 50, suffix: "+", label: "مشروع منجز" },
+        { value: 6, suffix: "+", label: "قطاعات نخدمها" },
+        { value: 100, suffix: "%", label: "حلول مخصصة" },
       ],
     },
     product: {

@@ -13,6 +13,7 @@ import HomeIntegrations from "@/components/home/HomeIntegrations";
 import HomeProcess from "@/components/home/HomeProcess";
 import HomeProduct from "@/components/home/HomeProduct";
 import HomeServices from "@/components/home/HomeServices";
+import HomeTrust from "@/components/home/HomeTrust";
 import HomeWork from "@/components/home/HomeWork";
 import BottomBlur from "@/components/layout/BottomBlur";
 import CustomCursor from "@/components/motion/CustomCursor";
@@ -43,6 +44,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       <HomeFeatures copy={copy.features} />
       <HomeServices copy={copy.services} lang={lang} />
       <HomeWork copy={copy.work} lang={lang} />
+      <HomeTrust copy={copy.trust} />
       <HomeProduct copy={copy.product} lang={lang} />
       <ApproachSection lang={lang} content={copy.why} id="why" variant="home" badgeIcon={<WhyIcon />} />
       <HomeIntegrations copy={copy.integrations} lang={lang} />
