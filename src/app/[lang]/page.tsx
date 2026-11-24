@@ -13,6 +13,7 @@ import HomeIntegrations from "@/components/home/HomeIntegrations";
 import HomeProcess from "@/components/home/HomeProcess";
 import HomeProduct from "@/components/home/HomeProduct";
 import HomeServices from "@/components/home/HomeServices";
+import HomeStats from "@/components/home/HomeStats";
 import HomeTrust from "@/components/home/HomeTrust";
 import HomeWork from "@/components/home/HomeWork";
 import BottomBlur from "@/components/layout/BottomBlur";
@@ -39,6 +40,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     <main style={{ position: "relative", backgroundColor: "#000" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml([organizationJsonLd(lang), websiteJsonLd(lang)])} />
       <HomeHero copy={copy.hero} lang={lang} />
+      <HomeStats stats={copy.trust.stats} />
       <HomeAbout copy={copy.about} lang={lang} />
       <HomeCircle copy={copy.circle} />
       <HomeFeatures copy={copy.features} />
