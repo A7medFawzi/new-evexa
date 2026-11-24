@@ -16,22 +16,39 @@
   width: 100%;
   max-width: 1100px;
   margin: 0;
-  padding: 30px 12px;
-  border-radius: 22px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.015) 100%), #06070c;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 30px 80px -40px rgba(0, 49, 213, 0.6);
+  padding: 34px 0;
 }
 
-/* blue line on the top edge, like the site's cards */
+/* hairlines above and below that fade out at the ends */
+.strip::before,
+.strip::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+.strip::before {
+  top: 0;
+}
+
+.strip::after {
+  bottom: 0;
+}
+
+/* soft blue light behind the figures */
 .highlight {
   position: absolute;
-  top: 0;
-  left: calc(50% - 160px);
-  width: 320px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(0, 49, 213, 0) 0%, rgb(89, 114, 227) 50%, rgba(0, 49, 213, 0) 100%);
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 72, 255, 0.16), rgba(0, 72, 255, 0));
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .stat {
@@ -44,20 +61,21 @@
 }
 
 .stat + .stat {
-  border-inline-start: 1px solid rgba(255, 255, 255, 0.08);
+  border-inline-start: 1px solid;
+  border-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.14) 50%, rgba(255, 255, 255, 0) 100%) 1;
 }
 
 .stat dd {
   margin: 0;
-  background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.62) 100%);
+  background: linear-gradient(180deg, #fff 20%, rgb(150, 168, 255) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   font-family: "DM Sans", sans-serif;
-  font-size: 46px;
-  font-weight: 500;
-  line-height: 54px;
-  letter-spacing: -1.6px;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 60px;
+  letter-spacing: -2px;
   font-variant-numeric: tabular-nums;
 }
 
@@ -90,8 +108,8 @@
 
   .strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 26px;
-    padding: 26px 8px;
+    row-gap: 28px;
+    padding: 28px 0;
   }
 
   .stat:nth-child(odd of .stat) {
