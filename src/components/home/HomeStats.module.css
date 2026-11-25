@@ -1,3 +1,8 @@
+/*
+ * Headline figures under the hero: two orbit rings that echo the hero arc.
+ * Desktop ≥1200 · tablet 810–1199 · phone ≤809.
+ */
+
 .section {
   position: relative;
   z-index: 2;
@@ -6,122 +11,146 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 80px;
+  padding: 24px 80px 8px;
 }
 
-.strip {
+.stats {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  width: 100%;
-  max-width: 1100px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 110px;
   margin: 0;
-  padding: 34px 0;
 }
 
-/* hairlines above and below that fade out at the ends */
-.strip::before,
-.strip::after {
+/* fading hairline between the two rings */
+.stats::before {
   content: "";
   position: absolute;
-  right: 0;
-  left: 0;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0) 100%);
-}
-
-.strip::before {
-  top: 0;
-}
-
-.strip::after {
-  bottom: 0;
-}
-
-/* soft blue light behind the figures */
-.highlight {
-  position: absolute;
-  top: 50%;
+  top: 20px;
   left: 50%;
-  width: 70%;
-  height: 120%;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(0, 72, 255, 0.16), rgba(0, 72, 255, 0));
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+  width: 1px;
+  height: 160px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0) 100%);
 }
 
 .stat {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 0 12px;
-  text-align: center;
+  gap: 14px;
 }
 
-.stat + .stat {
-  border-inline-start: 1px solid;
-  border-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.14) 50%, rgba(255, 255, 255, 0) 100%) 1;
+.orbit {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 200px;
+  height: 200px;
 }
 
-.stat dd {
+/* soft blue light inside each ring */
+.orbit::before {
+  content: "";
+  position: absolute;
+  inset: 22%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 72, 255, 0.28), rgba(0, 72, 255, 0));
+}
+
+.orbit svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.07);
+  stroke-width: 1.5;
+}
+
+.arc {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.dot {
+  fill: #fff;
+  filter: drop-shadow(0 0 6px rgb(0, 128, 255)) drop-shadow(0 0 14px rgba(0, 128, 255, 0.8));
+}
+
+.value {
+  position: relative;
   margin: 0;
-  background: linear-gradient(180deg, #fff 20%, rgb(150, 168, 255) 100%);
+  background: linear-gradient(180deg, #fff 25%, rgb(150, 168, 255) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   font-family: "DM Sans", sans-serif;
-  font-size: 52px;
+  font-size: 60px;
   font-weight: 400;
-  line-height: 60px;
-  letter-spacing: -2px;
+  line-height: 1;
+  letter-spacing: -2.4px;
   font-variant-numeric: tabular-nums;
 }
 
-.stat dt {
-  color: rgba(255, 255, 255, 0.55);
-  font-family: "DM Sans", sans-serif;
-  font-size: 15px;
-  line-height: 22px;
+.value span {
+  margin-inline-start: 2px;
+  font-size: 0.6em;
+  vertical-align: 0.55em;
 }
 
-:global(html[lang="ar"]) .stat dt {
+.label {
+  color: rgba(255, 255, 255, 0.65);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+}
+
+:global(html[lang="ar"]) .label {
   font-family: var(--font-alexandria), "DM Sans", sans-serif;
 }
 
 @media (max-width: 1199px) {
   .section {
-    padding: 0 50px;
+    padding: 20px 50px 8px;
   }
 
-  .stat dd {
-    font-size: 38px;
-    line-height: 46px;
+  .stats {
+    gap: 80px;
   }
 }
 
 @media (max-width: 809px) {
   .section {
-    padding: 0 16px;
+    padding: 16px 16px 0;
   }
 
-  .strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 28px;
-    padding: 28px 0;
+  .stats {
+    gap: 28px;
   }
 
-  .stat:nth-child(odd of .stat) {
-    border-inline-start: 0;
+  .stats::before {
+    top: 14px;
+    height: 120px;
   }
 
-  .stat dd {
-    font-size: 36px;
-    line-height: 44px;
+  .orbit {
+    width: 148px;
+    height: 148px;
   }
 
-  .stat dt {
+  .value {
+    font-size: 44px;
+    letter-spacing: -1.6px;
+  }
+
+  .label {
     font-size: 14px;
   }
 }

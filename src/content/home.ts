@@ -318,10 +318,8 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
       title: ["Trusted by clients", "across the region."],
       body: "We work with companies, institutions and development partners across Saudi Arabia, Egypt and the Arab world.",
       stats: [
-        { value: 15, suffix: "+", label: "AI solutions built" },
         { value: 50, suffix: "+", label: "Projects delivered" },
-        { value: 6, suffix: "+", label: "Industries served" },
-        { value: 100, suffix: "%", label: "Custom-built solutions" },
+        { value: 15, suffix: "+", label: "AI solutions built" },
       ],
     },
     product: {
@@ -454,10 +452,8 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
       title: ["يثق بنا عملاء وشركاء", "في أنحاء المنطقة."],
       body: "نعمل مع شركات ومؤسسات وجهات تنموية في السعودية ومصر والوطن العربي.",
       stats: [
-        { value: 15, suffix: "+", label: "حل ذكاء اصطناعي" },
         { value: 50, suffix: "+", label: "مشروع منجز" },
-        { value: 6, suffix: "+", label: "قطاعات نخدمها" },
-        { value: 100, suffix: "%", label: "حلول مخصصة" },
+        { value: 15, suffix: "+", label: "حل ذكاء اصطناعي" },
       ],
     },
     product: {
