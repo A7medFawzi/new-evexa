@@ -60,7 +60,6 @@ export interface HomeTrustCopy {
   badge: string;
   title: [string, string];
   body: string;
-  stats: { value: number; suffix: string; label: string }[];
 }
 
 export interface HomeWorkCopy {
@@ -112,7 +111,7 @@ export interface HomeCopy {
   features: HomeFeaturesCopy;
   services: HomeServicesCopy;
   work: HomeWorkCopy;
-  /** "Trusted by" card: headline figures and the client & partner logo wall */
+  /** "Trusted by" section: headline and the client & partner logo wall */
   trust: HomeTrustCopy;
   product: HomeProductCopy;
   /** "Why EVEXA" — same layout as the about page's approach section */
@@ -315,12 +314,8 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     },
     trust: {
       badge: "Clients & Partners",
-      title: ["Trusted by clients", "across the region."],
-      body: "We work with companies, institutions and development partners across Saudi Arabia, Egypt and the Arab world.",
-      stats: [
-        { value: 50, suffix: "+", label: "Projects delivered" },
-        { value: 15, suffix: "+", label: "AI solutions built" },
-      ],
+      title: ["50+ projects for clients", "across the region."],
+      body: "Including 15+ AI solutions, built with companies, institutions and development partners across Saudi Arabia, Egypt and the Arab world.",
     },
     product: {
       badge: "Our Product · AI Sales Assistant",
@@ -449,12 +444,8 @@ export const HOME_COPY: Record<Lang, HomeCopy> = {
     },
     trust: {
       badge: "عملاؤنا وشركاؤنا",
-      title: ["يثق بنا عملاء وشركاء", "في أنحاء المنطقة."],
-      body: "نعمل مع شركات ومؤسسات وجهات تنموية في السعودية ومصر والوطن العربي.",
-      stats: [
-        { value: 50, suffix: "+", label: "مشروع منجز" },
-        { value: 15, suffix: "+", label: "حل ذكاء اصطناعي" },
-      ],
+      title: ["أكثر من 50 مشروعًا", "لعملاء في المنطقة."],
+      body: "منها أكثر من 15 حل ذكاء اصطناعي، نفّذناها مع شركات ومؤسسات وجهات تنموية في السعودية ومصر والوطن العربي.",
     },
     product: {
       badge: "منتجنا · مساعد مبيعات بالذكاء الاصطناعي",
